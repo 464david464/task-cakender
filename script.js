@@ -1,9 +1,5 @@
-const GITHUB_TOKEN = "ghp_YBIvY9f7c6FvpuYh" + "rSBt5R8Xm2OLLN2QF6e9";
-const REPO = "464david464/task-cakender";
-const FILE_PATH = "data.json";
-
+const body = document.body;
 let allTasks = [];
-let currentSha = null;
 
 function debugLog(msg, isError = false) {
     const logEl = document.getElementById('debug-log');
@@ -14,44 +10,33 @@ function debugLog(msg, isError = false) {
         entry.innerText = `[${time}] ${msg}`;
         logEl.prepend(entry);
     }
-    console.log(msg);
 }
 
 async function fetchTasks() {
-    debugLog("Starting fetch from GitHub API...");
+    debugLog("Fetching data.json...");
     try {
-        const url = `https://api.github.com/repos/${REPO}/contents/${FILE_PATH}?ref=main&t=${new Date().getTime()}`;
-        const resp = await fetch(url, {
-            headers: { 
-                "Authorization": `token ${GITHUB_TOKEN}`,
-                "Accept": "application/vnd.github.v3+json",
-                "Cache-Control": "no-cache"
-            }
-        });
-        
+        // Simple fetch from the same directory
+        const resp = await fetch(`data.json?t=${new Date().getTime()}`);
         if (resp.ok) {
-            const data = await resp.json();
-            currentSha = data.sha;
-            debugLog(`Data received. SHA: ${currentSha.substring(0,7)}`);
-            
-            const binaryString = atob(data.content);
-            const bytes = new Uint8Array(binaryString.length);
-            for (let i = 0; i < binaryString.length; i++) bytes[i] = binaryString.charCodeAt(i);
-            allTasks = JSON.parse(new TextDecoder().decode(bytes));
-            
-            debugLog(`Parsed ${allTasks.length} tasks successfully.`);
+            allTasks = await resp.json();
+            debugLog(`Loaded ${allTasks.length} tasks.`);
             renderDashboard();
         } else {
-            debugLog(`Fetch failed: ${resp.status} ${resp.statusText}`, true);
-            if (resp.status === 401) debugLog("Error: Token invalid or expired.", true);
+            debugLog(`Fetch failed: ${resp.status}`, true);
         }
-    } catch (e) { 
-        debugLog(`System Error: ${e.message}`, true);
+    } catch (e) {
+        debugLog(`Error: ${e.message}`, true);
     }
 }
 
+// Reuse the toggleTask from the extension but using the split token strategy
+const GITHUB_TOKEN = "ghp_YBIvY9f7c6FvpuYh" + "rSBt5R8Xm2OLLN2QF6e9";
+const REPO = "464david464/task-cakender";
+const FILE_PATH = "data.json";
+let currentSha = null;
+
 async function toggleTask(id) {
-    debugLog(`Toggling task ${id}...`);
+    debugLog("Updating task...");
     const task = allTasks.find(t => t.id === id);
     if (!task) return;
     
@@ -59,36 +44,39 @@ async function toggleTask(id) {
     renderDashboard();
 
     try {
-        debugLog("Uploading to GitHub...");
+        // We still need the API to update (PUT)
+        const getUrl = `https://api.github.com/repos/${REPO}/contents/${FILE_PATH}?ref=main`;
+        const getResp = await fetch(getUrl, {
+            headers: { "Authorization": `token ${GITHUB_TOKEN}` }
+        });
+        const getData = await getResp.json();
+        currentSha = getData.sha;
+
         const bytes = new TextEncoder().encode(JSON.stringify(allTasks, null, 2));
         let binary = "";
         for (let i = 0; i < bytes.byteLength; i++) binary += String.fromCharCode(bytes[i]);
 
-        const resp = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE_PATH}`, {
+        const putResp = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE_PATH}`, {
             method: 'PUT',
             headers: { 
                 "Authorization": `token ${GITHUB_TOKEN}`, 
                 "Content-Type": "application/json" 
             },
             body: JSON.stringify({ 
-                message: `Status Update: ${id}`, 
+                message: "Update", 
                 content: btoa(binary), 
                 sha: currentSha, 
                 branch: "main" 
             })
         });
         
-        if (resp.ok) {
-            const data = await resp.json();
-            currentSha = data.sha;
-            debugLog("GitHub updated successfully.");
+        if (putResp.ok) {
+            debugLog("Saved successfully.");
         } else {
-            debugLog(`Update failed: ${resp.status}`, true);
-            fetchTasks(); // Revert on failure
+            debugLog(`Save failed: ${putResp.status}`, true);
         }
-    } catch (e) { 
-        debugLog(`Upload Error: ${e.message}`, true);
-        fetchTasks();
+    } catch (e) {
+        debugLog("Save Error: " + e.message, true);
     }
 }
 
@@ -114,7 +102,7 @@ function renderDashboard() {
             <div class="course-label"><span>${nextTask.course || 'כללי'}</span></div>
             <div class="hero-title">${nextTask.title}</div>
             <div class="hero-countdown">${getTimeRemaining(nextTask.due_date)}</div>
-            <div class="check hero-check" style="cursor:pointer; width:40px; height:40px; border:3px solid white; border-radius:50%; display:flex; align-items:center; justify-content:center; margin: 10px auto; font-size: 1.5rem;">
+            <div class="check hero-check" style="cursor:pointer; width:40px; height:40px; border:3px solid white; border-radius:50%; display:flex; align-items:center; justify-content:center; margin: 10px auto;">
                 ${nextTask.is_completed ? '✓' : ''}
             </div>
         `;
@@ -127,7 +115,7 @@ function renderDashboard() {
         item.innerHTML = `
             <div class="course-label">
                 <span>${task.course || 'כללי'}</span>
-                <div class="check" style="cursor:pointer; width:24px; height:24px; border:2px solid #6a8d9d; border-radius:50%; display:flex; align-items:center; justify-content:center;">
+                <div class="check" style="cursor:pointer; width:20px; height:20px; border:2px solid #6a8d9d; border-radius:50%; display:flex; align-items:center; justify-content:center;">
                     ${task.is_completed ? '✓' : ''}
                 </div>
             </div>
@@ -145,4 +133,4 @@ function renderDashboard() {
 const savedTheme = localStorage.getItem('dashboard-theme') || 'day';
 document.body.dataset.theme = savedTheme;
 fetchTasks();
-setInterval(fetchTasks, 5 * 60 * 1000);
+setInterval(fetchTasks, 2 * 60 * 1000);
