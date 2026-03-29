@@ -6,14 +6,8 @@ const FILE_PATH = "data.json";
 let currentSha = null;
 
 function debugLog(msg, isError = false) {
-    const logEl = document.getElementById('debug-log');
-    if (logEl) {
-        const time = new Date().toLocaleTimeString();
-        const entry = document.createElement('div');
-        entry.style.color = isError ? '#f00' : '#0f0';
-        entry.innerText = `[${time}] ${msg}`;
-        logEl.prepend(entry);
-    }
+    // Disabled for clean UI
+    console.log(msg);
 }
 
 const applyTheme = (theme) => {
