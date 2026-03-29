@@ -11,7 +11,7 @@ function debugLog(msg, isError = false) {
         const entry = document.createElement('div');
         entry.style.color = isError ? 'red' : 'green';
         entry.innerText = msg;
-        logEl.prepend(entry);
+        // logEl.prepend(entry);
     }
 }
 
@@ -29,7 +29,7 @@ async function fetchTasks() {
             for (let i = 0; i < binaryString.length; i++) bytes[i] = binaryString.charCodeAt(i);
             currentTasks = JSON.parse(new TextDecoder().decode(bytes));
             renderTasks(currentTasks);
-            debugLog("Success!");
+            debugLog("Success!");   
         } else {
             debugLog(`Fail: ${resp.status}`, true);
         }
