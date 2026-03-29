@@ -1,5 +1,9 @@
 const body = document.body;
 let allTasks = [];
+const GITHUB_TOKEN = "ghp_YBIvY9f7c6FvpuYh" + "rSBt5R8Xm2OLLN2QF6e9";
+const REPO = "464david464/task-cakender";
+const FILE_PATH = "data.json";
+let currentSha = null;
 
 function debugLog(msg, isError = false) {
     const logEl = document.getElementById('debug-log');
@@ -12,19 +16,32 @@ function debugLog(msg, isError = false) {
     }
 }
 
-// Added missing applyTheme function
 const applyTheme = (theme) => {
     body.dataset.theme = theme;
     localStorage.setItem('dashboard-theme', theme);
 };
 
 async function fetchTasks() {
-    debugLog("Fetching data.json...");
+    debugLog("Fetching from Live API...");
     try {
-        const resp = await fetch(`data.json?t=${new Date().getTime()}`);
+        // Fetching from API instead of static file to get INSTANT updates
+        const url = `https://api.github.com/repos/${REPO}/contents/${FILE_PATH}?ref=main&t=${new Date().getTime()}`;
+        const resp = await fetch(url, {
+            headers: { 
+                "Authorization": `token ${GITHUB_TOKEN}`,
+                "Accept": "application/vnd.github.v3+json"
+            }
+        });
+        
         if (resp.ok) {
-            allTasks = await resp.json();
-            debugLog(`Loaded ${allTasks.length} tasks.`);
+            const data = await resp.json();
+            currentSha = data.sha;
+            const binaryString = atob(data.content);
+            const bytes = new Uint8Array(binaryString.length);
+            for (let i = 0; i < binaryString.length; i++) bytes[i] = binaryString.charCodeAt(i);
+            allTasks = JSON.parse(new TextDecoder().decode(bytes));
+            
+            debugLog(`Sync OK. ${allTasks.length} tasks.`);
             renderDashboard();
         } else {
             debugLog(`Fetch failed: ${resp.status}`, true);
@@ -34,13 +51,8 @@ async function fetchTasks() {
     }
 }
 
-const GITHUB_TOKEN = "ghp_YBIvY9f7c6FvpuYh" + "rSBt5R8Xm2OLLN2QF6e9";
-const REPO = "464david464/task-cakender";
-const FILE_PATH = "data.json";
-let currentSha = null;
-
 async function toggleTask(id) {
-    debugLog("Updating task...");
+    debugLog("Updating...");
     const task = allTasks.find(t => t.id === id);
     if (!task) return;
     
@@ -48,8 +60,8 @@ async function toggleTask(id) {
     renderDashboard();
 
     try {
-        const getUrl = `https://api.github.com/repos/${REPO}/contents/${FILE_PATH}?ref=main`;
-        const getResp = await fetch(getUrl, {
+        // Always get fresh SHA before update
+        const getResp = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE_PATH}?ref=main`, {
             headers: { "Authorization": `token ${GITHUB_TOKEN}` }
         });
         const getData = await getResp.json();
@@ -66,7 +78,7 @@ async function toggleTask(id) {
                 "Content-Type": "application/json" 
             },
             body: JSON.stringify({ 
-                message: "Update", 
+                message: "Sync from Tablet", 
                 content: btoa(binary), 
                 sha: currentSha, 
                 branch: "main" 
@@ -74,12 +86,13 @@ async function toggleTask(id) {
         });
         
         if (putResp.ok) {
-            debugLog("Saved successfully.");
-        } else {
-            debugLog(`Save failed: ${putResp.status}`, true);
+            debugLog("Saved.");
+            const resData = await putResp.json();
+            currentSha = resData.content.sha;
         }
     } catch (e) {
-        debugLog("Save Error: " + e.message, true);
+        debugLog("Save failed", true);
+        fetchTasks();
     }
 }
 
@@ -118,7 +131,7 @@ function renderDashboard() {
         item.innerHTML = `
             <div class="course-label">
                 <span>${task.course || 'כללי'}</span>
-                <div class="check" style="cursor:pointer; width:20px; height:20px; border:2px solid #6a8d9d; border-radius:50%; display:flex; align-items:center; justify-content:center;">
+                <div class="check" style="cursor:pointer; width:24px; height:24px; border:2px solid #6a8d9d; border-radius:50%; display:flex; align-items:center; justify-content:center;">
                     ${task.is_completed ? '✓' : ''}
                 </div>
             </div>
@@ -132,8 +145,7 @@ function renderDashboard() {
     });
 }
 
-// Init
 const savedTheme = localStorage.getItem('dashboard-theme') || 'day';
-applyTheme(savedTheme);
+document.body.dataset.theme = savedTheme;
 fetchTasks();
-setInterval(fetchTasks, 2 * 60 * 1000);
+setInterval(fetchTasks, 30 * 1000); // Check every 30 seconds for live sync
