@@ -14,17 +14,17 @@
     "is_completed": true
   },
   {
-    "id": "54001fd5ad87ad7f169c9e8b391cf1fd",
-    "title": "תיבת הגשה 3",
-    "course": "פיזיקה כללית ג' (מודרנית)",
-    "due_date": "2026-03-31T21:00:00+00:00",
-    "is_completed": false
-  },
-  {
     "id": "f1fbc18985e5943298f6a511dd65f645",
     "title": "להגיש תרגיל בית מס 2 is due",
     "course": "שיטות מתמטיות בפיזיקה",
     "due_date": "2026-04-11T21:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "6e32d85ee2231c3b71e053cb613c9159",
+    "title": "תיבת הגשה 3",
+    "course": "פיזיקה כללית ג' (מודרנית)",
+    "due_date": "2026-04-14T21:00:00+00:00",
     "is_completed": false
   },
   {
