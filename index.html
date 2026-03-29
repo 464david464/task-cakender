@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#6a8d9d">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Assistant:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-texture"></div>
+    <div class="full-screen-container">
+        <header>
+            <div class="ornament"></div>
+            <h1>לו"ז הגשות</h1>
+            <div id="next-mission" class="mission-hero">
+                <!-- Hero content injected here -->
+            </div>
+            <div class="ornament bottom"></div>
+        </header>
+        
+        <main>
+            <div id="tasks-grid" class="tasks-grid">
+                <!-- Tasks will be injected here as grid items -->
+            </div>
+        </main>
+<div id="debug-log" style="position:fixed; bottom:0; left:0; right:0; background:rgba(0,0,0,0.8); color:#0f0; font-family:monospace; font-size:10px; padding:5px; max-height:60px; overflow-y:auto; z-index:9999; direction:ltr; text-align:left;">Initializing log...</div>
+
+        <footer>
+            <div id="last-updated">נבדק לאחרונה: ...</div>
+        </footer>
+    </div>
+    <button id="theme-toggle" title="החלף מצב תצוגה">🌙</button>
+
+    <!-- Remote Control Panel (Only for PC) -->
+    <div id="remote-control" class="remote-panel" style="display: none;">
+        <h3>שלט רחוק</h3>
+        <div class="remote-grid">
+            <button onclick="sendCommand('toggle_screen')" class="remote-btn btn-power" style="grid-column: span 2;">
+                <span style="font-size: 1.5rem;">⏻</span> הדלק / כבה מסך
+            </button>
+            <button onclick="sendCommand('refresh')" class="remote-btn btn-blue" style="grid-column: span 2;">
+                🚀 רענן והפעל מחדש
+            </button>
+        </div>
+        <div id="remote-status" class="status-text">ממתין...</div>
+    </div>
+
+    <div id="undo-toast">
+        מטלה סומנה כבוצעה.
+        <button id="undo-btn">ביטול (Undo)</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

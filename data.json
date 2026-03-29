@@ -1,0 +1,366 @@
+[
+  {
+    "id": "6b7034625d22f6c152de2c4c40453ebc",
+    "title": "תיבת הגשה 2",
+    "course": "פיזיקה כללית ג' (מודרנית)",
+    "due_date": "2026-03-24T22:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "842b02a4733cb73086095ad0d5efbcad",
+    "title": "תרגיל 5, העין is due",
+    "course": "אופטיקה גיאומטרית ב'-מיכשור אופטי",
+    "due_date": "2026-03-30T20:59:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "54001fd5ad87ad7f169c9e8b391cf1fd",
+    "title": "תיבת הגשה 3",
+    "course": "פיזיקה כללית ג' (מודרנית)",
+    "due_date": "2026-03-31T21:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "f1fbc18985e5943298f6a511dd65f645",
+    "title": "להגיש תרגיל בית מס 2 is due",
+    "course": "שיטות מתמטיות בפיזיקה",
+    "due_date": "2026-04-11T21:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "e33b2b571839778ddbfc9618424a0526",
+    "title": "להגיש תרגיל 3 is due",
+    "course": "שיטות מתמטיות בפיזיקה",
+    "due_date": "2026-04-16T22:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "684cb4bc7238d8a14a29221f890837ab",
+    "title": "תרגיל 1 מכשור אופטי",
+    "course": "אופטיקה גיאומטרית ב'-מיכשור אופטי",
+    "due_date": "2026-04-18T21:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "983a6f69dc5dd9f3eeabdf01daf36a0c",
+    "title": "תרגיל 1",
+    "course": "יישומים באופטיקה פיסיקלית",
+    "due_date": "2026-05-15T20:59:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "9e3e312623c7d4dc6743f9675de03963",
+    "title": "מכין ניסוי מס 4",
+    "course": "מעבדה בפיזיקה",
+    "due_date": "2026-09-23T21:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "0c6a2015507a4adda04d62bf71e75f68",
+    "title": "תוצאות ניסוי מס 4",
+    "course": "מעבדה בפיזיקה",
+    "due_date": "2026-09-23T21:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "088e51c7530229f402174e1aee0dd9a4",
+    "title": "מסכם ניסוי מס 4",
+    "course": "מעבדה בפיזיקה",
+    "due_date": "2026-09-23T21:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "6cdba6784f4e1e0ed4e3e7813e04f5b4",
+    "title": "מכין ניסוי מס 5",
+    "course": "מעבדה בפיזיקה",
+    "due_date": "2026-09-23T21:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "b14a2dd7a6092e53cc3072b6aa0f1f83",
+    "title": "תוצאות ניסוי מס 5",
+    "course": "מעבדה בפיזיקה",
+    "due_date": "2026-09-23T21:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "5e5ed8224963297b19b28f337d1f4c2a",
+    "title": "מסכם ניסוי מס 5",
+    "course": "מעבדה בפיזיקה",
+    "due_date": "2026-09-23T21:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "03d8e100eb463d50546a923065a5efb4",
+    "title": "מכין ניסוי מס 7",
+    "course": "מעבדה בפיזיקה",
+    "due_date": "2026-09-23T21:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "aff25735cf68cb51b3a49dc1c523da3c",
+    "title": "תוצאות ניסוי מס 7",
+    "course": "מעבדה בפיזיקה",
+    "due_date": "2026-09-23T21:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "9cce921530f94e4b4b6ebe91256c77bf",
+    "title": "מסכם ניסוי מס 7",
+    "course": "מעבדה בפיזיקה",
+    "due_date": "2026-09-23T21:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "637e08f4378465b9f2f759d4bf364d3d",
+    "title": "מכין ניסוי מס 1",
+    "course": "מעבדה בפיזיקה",
+    "due_date": "2026-09-23T21:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "6550eec580662f902b72c402df2c8942",
+    "title": "תוצאות ניסוי מס 1",
+    "course": "מעבדה בפיזיקה",
+    "due_date": "2026-09-23T21:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "2ff4ab067151f25fecaa7fc7e01a6635",
+    "title": "מסכם ניסוי מס 1",
+    "course": "מעבדה בפיזיקה",
+    "due_date": "2026-09-23T21:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "113f585e17f667909f78390c3933bcb0",
+    "title": "מכין ניסוי מס 9",
+    "course": "מעבדה בפיזיקה",
+    "due_date": "2026-09-23T21:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "3803c324d122f741b265acdca9bbd60b",
+    "title": "תוצאות ניסוי מס 9",
+    "course": "מעבדה בפיזיקה",
+    "due_date": "2026-09-23T21:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "77fca7409d0a39be592e103ef9467d00",
+    "title": "מסכם ניסוי מס 9",
+    "course": "מעבדה בפיזיקה",
+    "due_date": "2026-09-23T21:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "579abb3bdc8196abdbddb24e7540d3aa",
+    "title": "מכין ניסוי מס 2",
+    "course": "מעבדה בפיזיקה",
+    "due_date": "2026-09-23T21:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "94082eb7f82c4ab021cfef010830a115",
+    "title": "תוצאות ניסוי מס 2",
+    "course": "מעבדה בפיזיקה",
+    "due_date": "2026-09-23T21:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "10decdd13f2ca93167416f162375ba49",
+    "title": "מסכם ניסוי מס 2",
+    "course": "מעבדה בפיזיקה",
+    "due_date": "2026-09-23T21:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "acae98060fb4f13ecc100e7ed6ccac84",
+    "title": "מכין ניסוי מס 8",
+    "course": "מעבדה בפיזיקה",
+    "due_date": "2026-09-23T21:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "73a1ec5a41cd05095b2123cabc352f43",
+    "title": "תוצאות ניסוי מס 8",
+    "course": "מעבדה בפיזיקה",
+    "due_date": "2026-09-23T21:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "f4c3d39ebfa873da3e9fd496e7a6c57d",
+    "title": "מסכם ניסוי מס 8",
+    "course": "מעבדה בפיזיקה",
+    "due_date": "2026-09-23T21:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "10eb03256fdf0ed39ff42aa03df6294a",
+    "title": "מכין ניסוי מס 3",
+    "course": "מעבדה בפיזיקה",
+    "due_date": "2026-09-23T21:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "954fe4af3ecb73558096131901b677d2",
+    "title": "תוצאות ניסוי מס 3",
+    "course": "מעבדה בפיזיקה",
+    "due_date": "2026-09-23T21:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "5484ca6e470d954193a24a7b9bb53764",
+    "title": "מסכם ניסוי מס 3",
+    "course": "מעבדה בפיזיקה",
+    "due_date": "2026-09-23T21:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "7624ef9ed6380bba42c526ab003ca418",
+    "title": "מכין ניסוי מס 6",
+    "course": "מעבדה בפיזיקה",
+    "due_date": "2026-09-23T21:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "19a2e04c2c50188ba9e54fbf663f3f3e",
+    "title": "תוצאות ניסוי מס 6",
+    "course": "מעבדה בפיזיקה",
+    "due_date": "2026-09-23T21:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "af87e495c5e9ed082eda764649c5438a",
+    "title": "מסכם ניסוי מס 6",
+    "course": "מעבדה בפיזיקה",
+    "due_date": "2026-09-23T21:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "e19984c40253556b34be987c007b4fb9",
+    "title": "8 מכין",
+    "course": "מעבדה באופטיקה",
+    "due_date": "2027-03-14T22:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "5cc2c26eb343154ff33796debd2142fd",
+    "title": "8 מסכם",
+    "course": "מעבדה באופטיקה",
+    "due_date": "2027-03-14T22:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "58bdd953f0d3a2ca226569134fc8ef4f",
+    "title": "5 מכין",
+    "course": "מעבדה באופטיקה",
+    "due_date": "2027-03-14T22:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "8fd7f7362c8ff331c71c8d0ebd4c087e",
+    "title": "5 מסכם",
+    "course": "מעבדה באופטיקה",
+    "due_date": "2027-03-14T22:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "8244d082138d27f421d89c0a3c554c90",
+    "title": "2 מכין",
+    "course": "מעבדה באופטיקה",
+    "due_date": "2027-03-14T22:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "719b11755cd2e1a75af89efea6a4952a",
+    "title": "2 סכום",
+    "course": "מעבדה באופטיקה",
+    "due_date": "2027-03-14T22:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "6d68b89a77dc103cc66e05ff0eed6e70",
+    "title": "7 מכין",
+    "course": "מעבדה באופטיקה",
+    "due_date": "2027-03-14T22:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "32b66c915451398044bc3f8aea778577",
+    "title": "7 סכום",
+    "course": "מעבדה באופטיקה",
+    "due_date": "2027-03-14T22:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "9d018098e5574dca6af42cf8de9abbe0",
+    "title": "3 מכין",
+    "course": "מעבדה באופטיקה",
+    "due_date": "2027-03-14T22:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "89e75664736fd334d8cb2aed8941f7ff",
+    "title": "3 מסכם",
+    "course": "מעבדה באופטיקה",
+    "due_date": "2027-03-14T22:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "27fa9ddccb874c2b568d3fb1778a6e5a",
+    "title": "11 מכין",
+    "course": "מעבדה באופטיקה",
+    "due_date": "2027-03-14T22:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "732d4d6b3966cea766d175b7b7226382",
+    "title": "11 מסכם",
+    "course": "מעבדה באופטיקה",
+    "due_date": "2027-03-14T22:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "1210b997ce4edc89f02455838d5b5bf8",
+    "title": "8 תוצאות",
+    "course": "מעבדה באופטיקה",
+    "due_date": "2027-03-14T22:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "18777c128b96d92b70756de646ca6e84",
+    "title": "5  תוצאות",
+    "course": "מעבדה באופטיקה",
+    "due_date": "2027-03-15T22:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "34b2c608090b766165af6e10c6e36bfe",
+    "title": "2 תוצאות",
+    "course": "מעבדה באופטיקה",
+    "due_date": "2027-03-15T22:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "2833b5079b425b3d49c1025c05176f0a",
+    "title": "7 תוצאות",
+    "course": "מעבדה באופטיקה",
+    "due_date": "2027-03-15T22:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "e6a0702703ceb0992758f5db8c451346",
+    "title": "11 תוצאות",
+    "course": "מעבדה באופטיקה",
+    "due_date": "2027-03-15T22:00:00+00:00",
+    "is_completed": false
+  },
+  {
+    "id": "e2652c6e3485e7b87008e025992c9365",
+    "title": "3 תוצאות",
+    "course": "מעבדה באופטיקה",
+    "due_date": "2027-03-15T22:00:00+00:00",
+    "is_completed": false
+  }
+]

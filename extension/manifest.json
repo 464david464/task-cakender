@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Moodle Task Manager",
+  "version": "1.0",
+  "description": "ניהול משימות Moodle וסנכרון עם הלוח",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": ["storage"],
+  "host_permissions": ["http://192.168.33.22/*"]
+}

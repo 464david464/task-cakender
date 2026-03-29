@@ -1,0 +1,755 @@
+2026-03-28 20:14:42,498 - [INFO] - ACTION: Task Undo | DETAIL: Task ID: 842b02a4733cb73086095ad0d5efbcad | RESULT: Success
+2026-03-28 20:14:45,666 - [INFO] - ACTION: Task Completed | DETAIL: Task ID: 842b02a4733cb73086095ad0d5efbcad | RESULT: Success
+2026-03-28 20:17:59,534 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:17:59,534 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:18:02,289 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 51 events from Moodle | RESULT: Success
+2026-03-28 20:18:02,800 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_screen | RESULT: Success
+2026-03-28 20:18:02,954 - [INFO] - ACTION: Toggle Screen | DETAIL: Power button pressed via ADB | RESULT: Success
+2026-03-28 20:18:03,849 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_screen | RESULT: Success
+2026-03-28 20:18:03,991 - [INFO] - ACTION: Toggle Screen | DETAIL: Power button pressed via ADB | RESULT: Success
+2026-03-28 20:18:05,071 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:18:05,072 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:18:06,331 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:18:06,331 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:18:07,596 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:18:07,596 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:19:10,972 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 51 events from Moodle | RESULT: Success
+2026-03-28 20:19:13,440 - [INFO] - ACTION: Task Undo | DETAIL: Task ID: 842b02a4733cb73086095ad0d5efbcad | RESULT: Success
+2026-03-28 20:19:15,927 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:19:15,927 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:21:54,690 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:21:54,782 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sending refresh to 0 displays | RESULT: Failed (No displays connected)
+2026-03-28 20:21:54,782 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:21:56,365 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:21:56,420 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sending toggle_theme to 0 displays | RESULT: Failed (No displays connected)
+2026-03-28 20:21:56,420 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:21:58,102 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_screen | RESULT: Success
+2026-03-28 20:21:58,248 - [INFO] - ACTION: Toggle Screen | DETAIL: Power button pressed via Wi-Fi | RESULT: Success
+2026-03-28 20:21:58,981 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_screen | RESULT: Success
+2026-03-28 20:21:59,211 - [INFO] - ACTION: Toggle Screen | DETAIL: Power button pressed via Wi-Fi | RESULT: Success
+2026-03-28 20:22:00,331 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:22:00,336 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sending toggle_theme to 0 displays | RESULT: Failed (No displays connected)
+2026-03-28 20:22:00,336 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:22:00,702 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:22:00,710 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sending toggle_theme to 0 displays | RESULT: Failed (No displays connected)
+2026-03-28 20:22:00,710 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:22:00,883 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:22:00,892 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sending toggle_theme to 0 displays | RESULT: Failed (No displays connected)
+2026-03-28 20:22:00,892 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:22:01,046 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:22:01,055 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sending toggle_theme to 0 displays | RESULT: Failed (No displays connected)
+2026-03-28 20:22:01,055 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:22:01,218 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:22:01,231 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sending toggle_theme to 0 displays | RESULT: Failed (No displays connected)
+2026-03-28 20:22:01,231 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:22:01,303 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:22:01,309 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sending toggle_theme to 0 displays | RESULT: Failed (No displays connected)
+2026-03-28 20:22:01,309 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:22:01,464 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:22:01,542 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sending toggle_theme to 0 displays | RESULT: Failed (No displays connected)
+2026-03-28 20:22:01,542 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:22:02,449 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: launch_app | RESULT: Success
+2026-03-28 20:22:02,609 - [INFO] - ACTION: Launch App | DETAIL: Opening browser to http://192.168.33.22:8000 via Wi-Fi | RESULT: Success
+2026-03-28 20:22:03,597 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 51 events from Moodle | RESULT: Success
+2026-03-28 20:23:05,480 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:23:05,543 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sending refresh to 0 displays | RESULT: Failed (No displays connected)
+2026-03-28 20:23:05,543 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:23:06,394 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:23:06,469 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sending refresh to 0 displays | RESULT: Failed (No displays connected)
+2026-03-28 20:23:06,469 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:23:06,561 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:23:06,570 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sending refresh to 0 displays | RESULT: Failed (No displays connected)
+2026-03-28 20:23:06,570 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:23:06,727 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:23:06,769 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sending refresh to 0 displays | RESULT: Failed (No displays connected)
+2026-03-28 20:23:06,769 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:23:06,876 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:23:06,882 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sending refresh to 0 displays | RESULT: Failed (No displays connected)
+2026-03-28 20:23:06,882 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:23:09,826 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 51 events from Moodle | RESULT: Success
+2026-03-28 20:24:25,235 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:24:25,246 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sending toggle_theme to 0 displays | RESULT: Failed (No displays connected)
+2026-03-28 20:24:25,246 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:24:47,081 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:24:47,090 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 3/3 clients | RESULT: Success
+2026-03-28 20:24:47,090 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:24:48,651 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:24:48,764 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 3/3 clients | RESULT: Success
+2026-03-28 20:24:48,764 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:24:50,148 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: launch_app | RESULT: Success
+2026-03-28 20:24:50,324 - [INFO] - ACTION: Launch App | DETAIL: Opening browser to http://192.168.33.22:8000 via Wi-Fi | RESULT: Success
+2026-03-28 20:24:51,363 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 51 events from Moodle | RESULT: Success
+2026-03-28 20:24:51,612 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:24:51,672 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:24:51,672 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:24:51,800 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:24:51,808 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:24:51,808 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:24:51,978 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:24:51,982 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:24:51,983 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:24:52,140 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:24:52,149 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:24:52,149 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:24:52,320 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:24:52,354 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:24:52,354 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:24:52,511 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:24:52,528 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:24:52,528 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:24:52,691 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:24:52,696 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:24:52,696 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:24:55,373 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 51 events from Moodle | RESULT: Success
+2026-03-28 20:24:56,285 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:24:56,403 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:24:56,403 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:24:56,944 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:24:56,957 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:24:56,957 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:24:57,161 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:24:57,173 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:24:57,173 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:25:39,056 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 51 events from Moodle | RESULT: Success
+2026-03-28 20:25:39,609 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:25:39,667 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:25:39,667 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:25:40,619 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:25:40,636 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:25:40,636 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:25:40,777 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:25:40,782 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:25:40,782 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:25:40,947 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:25:40,986 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:25:40,986 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:25:41,201 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:25:41,206 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:25:41,206 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:25:41,362 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:25:41,371 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:25:41,371 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:25:41,553 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:25:41,600 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:25:41,600 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:25:41,784 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:25:41,789 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:25:41,789 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:25:41,984 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:25:41,995 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:25:41,995 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:25:42,185 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:25:42,225 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:25:42,225 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:25:42,373 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:25:42,384 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:25:42,384 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:25:42,538 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:25:42,544 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:25:42,544 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:25:42,752 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:25:42,758 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:25:42,758 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:26:52,973 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_screen | RESULT: Success
+2026-03-28 20:26:53,108 - [INFO] - ACTION: Toggle Screen | DETAIL: Power button pressed via Wi-Fi | RESULT: Success
+2026-03-28 20:26:53,827 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_screen | RESULT: Success
+2026-03-28 20:26:54,027 - [INFO] - ACTION: Toggle Screen | DETAIL: Power button pressed via Wi-Fi | RESULT: Success
+2026-03-28 20:26:57,244 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:26:57,296 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:26:57,296 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:26:58,416 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:26:58,424 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:26:58,425 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:26:59,138 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:26:59,221 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:26:59,221 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:26:59,357 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:26:59,364 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:26:59,364 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:26:59,550 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:26:59,558 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:26:59,558 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:26:59,723 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:26:59,835 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:26:59,835 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:27:00,591 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:27:00,600 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 4/4 clients | RESULT: Success
+2026-03-28 20:27:00,600 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:27:01,316 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: launch_app | RESULT: Success
+2026-03-28 20:27:01,450 - [INFO] - ACTION: Launch App | DETAIL: Opening browser to http://192.168.33.22:8000 via Wi-Fi | RESULT: Success
+2026-03-28 20:27:02,560 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 51 events from Moodle | RESULT: Success
+2026-03-28 20:27:04,288 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:27:04,341 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 5/5 clients | RESULT: Success
+2026-03-28 20:27:04,341 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:27:33,157 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_screen | RESULT: Success
+2026-03-28 20:27:33,345 - [INFO] - ACTION: Toggle Screen | DETAIL: Power button pressed via Wi-Fi | RESULT: Success
+2026-03-28 20:27:33,852 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_screen | RESULT: Success
+2026-03-28 20:27:34,045 - [INFO] - ACTION: Toggle Screen | DETAIL: Power button pressed via Wi-Fi | RESULT: Success
+2026-03-28 20:27:36,248 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:27:36,260 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:27:36,260 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:27:37,265 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:27:37,272 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:27:37,272 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:27:37,495 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:27:37,520 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:27:37,520 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:27:37,718 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:27:37,723 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:27:37,723 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:27:37,895 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:27:37,900 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:27:37,900 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:27:38,116 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:27:38,235 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:27:38,235 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:27:38,298 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:27:38,305 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:27:38,305 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:28:35,990 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:28:36,092 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:28:36,092 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:28:37,108 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:28:37,219 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:28:37,219 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:28:37,966 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:28:38,038 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:28:38,038 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:28:40,151 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 51 events from Moodle | RESULT: Success
+2026-03-28 20:28:40,615 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:28:40,628 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:28:40,628 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:28:51,648 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 51 events from Moodle | RESULT: Success
+2026-03-28 20:28:52,753 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 20:28:52,763 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 20:28:52,764 - [INFO] - ACTION: Toggle Theme | DETAIL: Sent theme change to all displays | RESULT: Success
+2026-03-28 20:28:56,314 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 51 events from Moodle | RESULT: Success
+2026-03-28 20:41:15,161 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:41:15,172 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 4/4 clients | RESULT: Success
+2026-03-28 20:41:15,172 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:41:18,013 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 20:41:27,453 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:41:27,506 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 4/4 clients | RESULT: Success
+2026-03-28 20:41:27,506 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:41:27,664 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:41:27,672 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 4/4 clients | RESULT: Success
+2026-03-28 20:41:27,672 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:41:28,001 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:41:28,006 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 4/4 clients | RESULT: Success
+2026-03-28 20:41:28,007 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:41:28,170 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:41:28,190 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 4/4 clients | RESULT: Success
+2026-03-28 20:41:28,190 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:41:28,360 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:41:28,366 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 4/4 clients | RESULT: Success
+2026-03-28 20:41:28,366 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:42:38,159 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:42:38,165 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 4/4 clients | RESULT: Success
+2026-03-28 20:42:38,165 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:42:39,548 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: launch_app | RESULT: Success
+2026-03-28 20:42:39,822 - [INFO] - ACTION: Launch App | DETAIL: Opening browser to http://192.168.33.22:8000 via Wi-Fi | RESULT: Success
+2026-03-28 20:42:40,718 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 20:42:53,876 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 51 events from Moodle | RESULT: Success
+2026-03-28 20:43:00,649 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 51 events from Moodle | RESULT: Success
+2026-03-28 20:48:19,614 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_screen | RESULT: Success
+2026-03-28 20:48:19,773 - [INFO] - ACTION: Toggle Screen | DETAIL: Power button pressed via Wi-Fi | RESULT: Success
+2026-03-28 20:48:20,561 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_screen | RESULT: Success
+2026-03-28 20:48:20,794 - [INFO] - ACTION: Toggle Screen | DETAIL: Power button pressed via Wi-Fi | RESULT: Success
+2026-03-28 20:52:35,784 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 51 events from Moodle | RESULT: Success
+2026-03-28 20:52:47,957 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 20:53:08,329 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 53 events from Moodle | RESULT: Success
+2026-03-28 20:53:35,053 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 54 events from Moodle | RESULT: Success
+2026-03-28 20:53:51,716 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 55 events from Moodle | RESULT: Success
+2026-03-28 20:55:28,436 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:55:28,497 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 5/5 clients | RESULT: Success
+2026-03-28 20:55:28,497 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:55:29,932 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:55:30,037 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 5/5 clients | RESULT: Success
+2026-03-28 20:55:30,037 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:58:40,340 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 55 events from Moodle | RESULT: Success
+2026-03-28 20:58:42,176 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:58:42,245 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 5/5 clients | RESULT: Success
+2026-03-28 20:58:42,245 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:58:43,013 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:58:43,064 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 5/5 clients | RESULT: Success
+2026-03-28 20:58:43,064 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:58:43,192 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:58:43,198 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 5/5 clients | RESULT: Success
+2026-03-28 20:58:43,198 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:58:43,385 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:58:43,390 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 5/5 clients | RESULT: Success
+2026-03-28 20:58:43,390 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:58:43,565 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:58:43,576 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 5/5 clients | RESULT: Success
+2026-03-28 20:58:43,576 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:58:43,753 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:58:43,781 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 5/5 clients | RESULT: Success
+2026-03-28 20:58:43,781 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:58:43,968 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:58:43,973 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 5/5 clients | RESULT: Success
+2026-03-28 20:58:43,973 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:58:44,136 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:58:44,143 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 5/5 clients | RESULT: Success
+2026-03-28 20:58:44,143 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:58:44,303 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:58:44,396 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 5/5 clients | RESULT: Success
+2026-03-28 20:58:44,396 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:58:44,476 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:58:44,486 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 5/5 clients | RESULT: Success
+2026-03-28 20:58:44,486 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:58:44,633 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:58:44,640 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 5/5 clients | RESULT: Success
+2026-03-28 20:58:44,641 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:58:44,812 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:58:44,818 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 5/5 clients | RESULT: Success
+2026-03-28 20:58:44,818 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:58:44,983 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:58:44,989 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 5/5 clients | RESULT: Success
+2026-03-28 20:58:44,989 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:58:45,135 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 20:58:45,142 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 5/5 clients | RESULT: Success
+2026-03-28 20:58:45,142 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 20:58:45,603 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: launch_app | RESULT: Success
+2026-03-28 20:58:45,891 - [INFO] - ACTION: Launch App | DETAIL: Opening browser to http://192.168.33.22:8000 via Wi-Fi | RESULT: Success
+2026-03-28 20:58:46,441 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: launch_app | RESULT: Success
+2026-03-28 20:58:46,719 - [INFO] - ACTION: Launch App | DETAIL: Opening browser to http://192.168.33.22:8000 via Wi-Fi | RESULT: Success
+2026-03-28 20:58:47,278 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 55 events from Moodle | RESULT: Success
+2026-03-28 20:58:48,148 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 55 events from Moodle | RESULT: Success
+2026-03-28 20:59:02,823 - [INFO] - ACTION: Task Undo | DETAIL: Task ID: 053d3a8dd9555d65b4129f92ee3b16ab | RESULT: Success
+2026-03-28 20:59:02,824 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 7/7 clients | RESULT: Success
+2026-03-28 20:59:05,831 - [INFO] - ACTION: Task Completed | DETAIL: Task ID: 053d3a8dd9555d65b4129f92ee3b16ab | RESULT: Success
+2026-03-28 20:59:05,831 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 7/7 clients | RESULT: Success
+2026-03-28 21:00:21,966 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 55 events from Moodle | RESULT: Success
+2026-03-28 21:00:21,969 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:00:23,174 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:00:23,657 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:00:23,848 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:00:24,018 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:00:24,189 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:00:24,365 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:00:26,640 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:00:55,131 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 54 events from Moodle | RESULT: Success
+2026-03-28 21:01:14,051 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 53 events from Moodle | RESULT: Success
+2026-03-28 21:01:27,598 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:02:06,528 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped (Lesson/General): תרגול 25/3/26 | RESULT: Filtered
+2026-03-28 21:02:06,529 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 0 events from Moodle | RESULT: Success
+2026-03-28 21:02:06,880 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:02:06,949 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent play_sound to 4/4 clients | RESULT: Success
+2026-03-28 21:02:06,949 - [INFO] - ACTION: Play Sound | DETAIL: Sent beep command to all displays | RESULT: Success
+2026-03-28 21:02:08,564 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:02:08,587 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent play_sound to 4/4 clients | RESULT: Success
+2026-03-28 21:02:08,587 - [INFO] - ACTION: Play Sound | DETAIL: Sent beep command to all displays | RESULT: Success
+2026-03-28 21:02:10,433 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped (Lesson/General): תרגול 25/3/26 | RESULT: Filtered
+2026-03-28 21:02:10,434 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 0 events from Moodle | RESULT: Success
+2026-03-28 21:02:11,575 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped (Lesson/General): תרגול 25/3/26 | RESULT: Filtered
+2026-03-28 21:02:11,576 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 0 events from Moodle | RESULT: Success
+2026-03-28 21:02:16,006 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped (Lesson/General): תרגול 25/3/26 | RESULT: Filtered
+2026-03-28 21:02:16,007 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 0 events from Moodle | RESULT: Success
+2026-03-28 21:02:20,537 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:02:20,544 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent play_sound to 4/4 clients | RESULT: Success
+2026-03-28 21:02:20,544 - [INFO] - ACTION: Play Sound | DETAIL: Sent beep command to all displays | RESULT: Success
+2026-03-28 21:02:20,901 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:02:20,908 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent play_sound to 4/4 clients | RESULT: Success
+2026-03-28 21:02:20,908 - [INFO] - ACTION: Play Sound | DETAIL: Sent beep command to all displays | RESULT: Success
+2026-03-28 21:02:21,068 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:02:21,078 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent play_sound to 4/4 clients | RESULT: Success
+2026-03-28 21:02:21,078 - [INFO] - ACTION: Play Sound | DETAIL: Sent beep command to all displays | RESULT: Success
+2026-03-28 21:02:21,245 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:02:21,285 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent play_sound to 4/4 clients | RESULT: Success
+2026-03-28 21:02:21,285 - [INFO] - ACTION: Play Sound | DETAIL: Sent beep command to all displays | RESULT: Success
+2026-03-28 21:02:21,398 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:02:21,403 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent play_sound to 4/4 clients | RESULT: Success
+2026-03-28 21:02:21,404 - [INFO] - ACTION: Play Sound | DETAIL: Sent beep command to all displays | RESULT: Success
+2026-03-28 21:03:14,035 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped (Lesson/General): תרגול 25/3/26 | RESULT: Filtered
+2026-03-28 21:03:14,036 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 0 events from Moodle | RESULT: Success
+2026-03-28 21:03:58,780 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped (Lesson/General): תרגול 25/3/26 | RESULT: Filtered
+2026-03-28 21:03:58,780 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 0 events from Moodle | RESULT: Success
+2026-03-28 21:04:03,644 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped (Lesson/General): תרגול 25/3/26 | RESULT: Filtered
+2026-03-28 21:04:03,645 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 0 events from Moodle | RESULT: Success
+2026-03-28 21:04:06,266 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped (Lesson/General): תרגול 25/3/26 | RESULT: Filtered
+2026-03-28 21:04:06,267 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 0 events from Moodle | RESULT: Success
+2026-03-28 21:04:07,243 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:04:07,251 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent play_sound to 4/4 clients | RESULT: Success
+2026-03-28 21:04:07,251 - [INFO] - ACTION: Play Sound | DETAIL: Sent beep command to all displays | RESULT: Success
+2026-03-28 21:04:08,457 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:04:08,500 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent play_sound to 4/4 clients | RESULT: Success
+2026-03-28 21:04:08,500 - [INFO] - ACTION: Play Sound | DETAIL: Sent beep command to all displays | RESULT: Success
+2026-03-28 21:04:08,792 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:04:08,909 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent play_sound to 4/4 clients | RESULT: Success
+2026-03-28 21:04:08,909 - [INFO] - ACTION: Play Sound | DETAIL: Sent beep command to all displays | RESULT: Success
+2026-03-28 21:04:09,008 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:04:09,013 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent play_sound to 4/4 clients | RESULT: Success
+2026-03-28 21:04:09,013 - [INFO] - ACTION: Play Sound | DETAIL: Sent beep command to all displays | RESULT: Success
+2026-03-28 21:04:09,189 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:04:09,193 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent play_sound to 4/4 clients | RESULT: Success
+2026-03-28 21:04:09,193 - [INFO] - ACTION: Play Sound | DETAIL: Sent beep command to all displays | RESULT: Success
+2026-03-28 21:04:09,466 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:04:09,528 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent play_sound to 4/4 clients | RESULT: Success
+2026-03-28 21:04:09,528 - [INFO] - ACTION: Play Sound | DETAIL: Sent beep command to all displays | RESULT: Success
+2026-03-28 21:04:09,650 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:04:09,659 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent play_sound to 4/4 clients | RESULT: Success
+2026-03-28 21:04:09,659 - [INFO] - ACTION: Play Sound | DETAIL: Sent beep command to all displays | RESULT: Success
+2026-03-28 21:04:09,839 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:04:09,844 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent play_sound to 4/4 clients | RESULT: Success
+2026-03-28 21:04:09,844 - [INFO] - ACTION: Play Sound | DETAIL: Sent beep command to all displays | RESULT: Success
+2026-03-28 21:04:29,147 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:04:37,283 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped (Lesson/General): תרגול 25/3/26 | RESULT: Filtered
+2026-03-28 21:04:37,284 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 0 events from Moodle | RESULT: Success
+2026-03-28 21:04:41,141 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped (Lesson/General): תרגול 25/3/26 | RESULT: Filtered
+2026-03-28 21:04:41,141 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 0 events from Moodle | RESULT: Success
+2026-03-28 21:04:42,449 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped (Lesson/General): תרגול 25/3/26 | RESULT: Filtered
+2026-03-28 21:04:42,449 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 0 events from Moodle | RESULT: Success
+2026-03-28 21:04:43,738 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped (Lesson/General): תרגול 25/3/26 | RESULT: Filtered
+2026-03-28 21:04:43,739 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 0 events from Moodle | RESULT: Success
+2026-03-28 21:04:46,291 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped (Lesson/General): תרגול 25/3/26 | RESULT: Filtered
+2026-03-28 21:04:46,292 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 0 events from Moodle | RESULT: Success
+2026-03-28 21:04:47,373 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped (Lesson/General): תרגול 25/3/26 | RESULT: Filtered
+2026-03-28 21:04:47,373 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 0 events from Moodle | RESULT: Success
+2026-03-28 21:04:47,637 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:04:47,642 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent play_sound to 4/4 clients | RESULT: Success
+2026-03-28 21:04:47,642 - [INFO] - ACTION: Play Sound | DETAIL: Sent beep command to all displays | RESULT: Success
+2026-03-28 21:04:48,318 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: launch_app | RESULT: Success
+2026-03-28 21:04:48,636 - [INFO] - ACTION: Launch App | DETAIL: Opening browser to http://192.168.33.22:8000 via Wi-Fi | RESULT: Success
+2026-03-28 21:04:49,468 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped (Lesson/General): תרגול 25/3/26 | RESULT: Filtered
+2026-03-28 21:04:49,469 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 0 events from Moodle | RESULT: Success
+2026-03-28 21:04:51,373 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_screen | RESULT: Success
+2026-03-28 21:04:51,529 - [INFO] - ACTION: Toggle Screen | DETAIL: Power button pressed via Wi-Fi | RESULT: Success
+2026-03-28 21:04:52,170 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_screen | RESULT: Success
+2026-03-28 21:04:52,327 - [INFO] - ACTION: Toggle Screen | DETAIL: Power button pressed via Wi-Fi | RESULT: Success
+2026-03-28 21:04:59,337 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped (Lesson/General): תרגול 25/3/26 | RESULT: Filtered
+2026-03-28 21:04:59,338 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 0 events from Moodle | RESULT: Success
+2026-03-28 21:05:02,021 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped (Lesson/General): תרגול 25/3/26 | RESULT: Filtered
+2026-03-28 21:05:02,023 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 0 events from Moodle | RESULT: Success
+2026-03-28 21:05:59,793 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:05:59,794 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:06:02,369 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: launch_app | RESULT: Success
+2026-03-28 21:06:02,522 - [INFO] - ACTION: Launch App | DETAIL: Opening browser to http://192.168.33.22:8000 via Wi-Fi | RESULT: Success
+2026-03-28 21:06:03,517 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:06:03,517 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:06:11,565 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:06:11,590 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent play_sound to 4/4 clients | RESULT: Success
+2026-03-28 21:06:11,590 - [INFO] - ACTION: Play Sound | DETAIL: Sent beep command to all displays | RESULT: Success
+2026-03-28 21:06:13,118 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:06:13,127 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent play_sound to 4/4 clients | RESULT: Success
+2026-03-28 21:06:13,127 - [INFO] - ACTION: Play Sound | DETAIL: Sent beep command to all displays | RESULT: Success
+2026-03-28 21:06:13,409 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:06:13,418 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent play_sound to 4/4 clients | RESULT: Success
+2026-03-28 21:06:13,418 - [INFO] - ACTION: Play Sound | DETAIL: Sent beep command to all displays | RESULT: Success
+2026-03-28 21:06:13,819 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:06:13,840 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent play_sound to 4/4 clients | RESULT: Success
+2026-03-28 21:06:13,841 - [INFO] - ACTION: Play Sound | DETAIL: Sent beep command to all displays | RESULT: Success
+2026-03-28 21:06:14,257 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:06:14,352 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent play_sound to 4/4 clients | RESULT: Success
+2026-03-28 21:06:14,352 - [INFO] - ACTION: Play Sound | DETAIL: Sent beep command to all displays | RESULT: Success
+2026-03-28 21:06:14,524 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:06:14,533 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent play_sound to 4/4 clients | RESULT: Success
+2026-03-28 21:06:14,533 - [INFO] - ACTION: Play Sound | DETAIL: Sent beep command to all displays | RESULT: Success
+2026-03-28 21:06:16,250 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_screen | RESULT: Success
+2026-03-28 21:06:16,385 - [INFO] - ACTION: Toggle Screen | DETAIL: Power button pressed via Wi-Fi | RESULT: Success
+2026-03-28 21:06:16,997 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_screen | RESULT: Success
+2026-03-28 21:06:17,271 - [INFO] - ACTION: Toggle Screen | DETAIL: Power button pressed via Wi-Fi | RESULT: Success
+2026-03-28 21:06:19,385 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 21:06:19,393 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 21:06:19,393 - [INFO] - ACTION: Toggle Theme | DETAIL: Theme switched to night | RESULT: Success
+2026-03-28 21:06:20,122 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 21:06:20,190 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 4/4 clients | RESULT: Success
+2026-03-28 21:06:20,190 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 21:06:20,636 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 21:06:20,702 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 4/4 clients | RESULT: Success
+2026-03-28 21:06:20,702 - [INFO] - ACTION: Toggle Theme | DETAIL: Theme switched to day | RESULT: Success
+2026-03-28 21:06:21,227 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:06:21,317 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent play_sound to 4/4 clients | RESULT: Success
+2026-03-28 21:06:21,317 - [INFO] - ACTION: Play Sound | DETAIL: Sent beep command to all displays | RESULT: Success
+2026-03-28 21:06:21,757 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:06:21,762 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent play_sound to 4/4 clients | RESULT: Success
+2026-03-28 21:06:21,762 - [INFO] - ACTION: Play Sound | DETAIL: Sent beep command to all displays | RESULT: Success
+2026-03-28 21:06:21,927 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:06:22,033 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent play_sound to 4/4 clients | RESULT: Success
+2026-03-28 21:06:22,033 - [INFO] - ACTION: Play Sound | DETAIL: Sent beep command to all displays | RESULT: Success
+2026-03-28 21:06:22,151 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:06:22,158 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent play_sound to 4/4 clients | RESULT: Success
+2026-03-28 21:06:22,158 - [INFO] - ACTION: Play Sound | DETAIL: Sent beep command to all displays | RESULT: Success
+2026-03-28 21:06:22,384 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: play_sound | RESULT: Success
+2026-03-28 21:06:22,391 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent play_sound to 4/4 clients | RESULT: Success
+2026-03-28 21:06:22,391 - [INFO] - ACTION: Play Sound | DETAIL: Sent beep command to all displays | RESULT: Success
+2026-03-28 21:07:22,151 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: launch_app | RESULT: Success
+2026-03-28 21:07:22,397 - [INFO] - ACTION: Launch App | DETAIL: Opening browser to http://192.168.33.22:8000 via Wi-Fi | RESULT: Success
+2026-03-28 21:07:23,995 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:07:23,996 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:08:06,210 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 21:08:06,278 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 5/5 clients | RESULT: Success
+2026-03-28 21:08:06,278 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 21:08:07,086 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 21:08:07,200 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 5/5 clients | RESULT: Success
+2026-03-28 21:08:07,200 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 21:08:07,266 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 21:08:07,274 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 5/5 clients | RESULT: Success
+2026-03-28 21:08:07,274 - [INFO] - ACTION: Refresh | DETAIL: Sent refresh command to all displays | RESULT: Success
+2026-03-28 21:08:33,413 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:08:33,413 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:08:35,042 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 21:08:35,144 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 5/5 clients | RESULT: Success
+2026-03-28 21:08:35,307 - [INFO] - ACTION: Refresh | DETAIL: Page reload forced via ADB | RESULT: Success
+2026-03-28 21:08:35,891 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 21:08:35,903 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 5/5 clients | RESULT: Success
+2026-03-28 21:08:36,096 - [INFO] - ACTION: Refresh | DETAIL: Page reload forced via ADB | RESULT: Success
+2026-03-28 21:08:36,671 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:08:36,672 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:08:37,684 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:08:37,685 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:08:39,052 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: launch_app | RESULT: Success
+2026-03-28 21:08:39,279 - [INFO] - ACTION: Launch App | DETAIL: Opening browser to http://192.168.33.22:8000 via Wi-Fi | RESULT: Success
+2026-03-28 21:08:40,058 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:08:40,059 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:08:41,260 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 21:08:41,299 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 8/8 clients | RESULT: Success
+2026-03-28 21:08:41,448 - [INFO] - ACTION: Refresh | DETAIL: Page reload forced via ADB | RESULT: Success
+2026-03-28 21:08:42,401 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:08:42,402 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:09:12,902 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 21:09:12,942 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 9/9 clients | RESULT: Success
+2026-03-28 21:09:13,095 - [INFO] - ACTION: Refresh | DETAIL: Page reload forced via ADB | RESULT: Success
+2026-03-28 21:09:14,054 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:09:14,055 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:10:43,910 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:10:43,911 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:10:44,712 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:10:44,713 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:10:47,133 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 21:10:47,139 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 10/10 clients | RESULT: Success
+2026-03-28 21:10:47,288 - [INFO] - ACTION: Refresh | DETAIL: Page reload forced via ADB | RESULT: Success
+2026-03-28 21:10:48,557 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:10:48,558 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:10:58,019 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 21:10:58,108 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 1/1 clients | RESULT: Success
+2026-03-28 21:10:58,248 - [INFO] - ACTION: Refresh | DETAIL: Page reload forced via ADB | RESULT: Success
+2026-03-28 21:11:00,679 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:11:00,679 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:11:01,769 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 21:11:01,795 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 2/2 clients | RESULT: Success
+2026-03-28 21:11:01,945 - [INFO] - ACTION: Refresh | DETAIL: Page reload forced via ADB | RESULT: Success
+2026-03-28 21:11:02,853 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:11:02,853 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:11:19,754 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:11:19,754 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:11:23,060 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 21:11:23,066 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 3/3 clients | RESULT: Success
+2026-03-28 21:11:23,287 - [INFO] - ACTION: Refresh | DETAIL: System-wide Refresh key sent via ADB | RESULT: Success
+2026-03-28 21:11:24,467 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 21:11:24,473 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 3/3 clients | RESULT: Success
+2026-03-28 21:11:24,751 - [INFO] - ACTION: Refresh | DETAIL: System-wide Refresh key sent via ADB | RESULT: Success
+2026-03-28 21:11:29,362 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: launch_app | RESULT: Success
+2026-03-28 21:11:29,578 - [INFO] - ACTION: Launch App | DETAIL: Opening browser to http://192.168.33.22:8000 via Wi-Fi | RESULT: Success
+2026-03-28 21:11:31,299 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:11:31,299 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:11:32,389 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 21:11:32,413 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 2/2 clients | RESULT: Success
+2026-03-28 21:11:32,627 - [INFO] - ACTION: Refresh | DETAIL: System-wide Refresh key sent via ADB | RESULT: Success
+2026-03-28 21:11:36,169 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 21:11:36,201 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 2/2 clients | RESULT: Success
+2026-03-28 21:11:36,410 - [INFO] - ACTION: Refresh | DETAIL: System-wide Refresh key sent via ADB | RESULT: Success
+2026-03-28 21:11:37,810 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 21:11:37,817 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 2/2 clients | RESULT: Success
+2026-03-28 21:11:38,080 - [INFO] - ACTION: Refresh | DETAIL: System-wide Refresh key sent via ADB | RESULT: Success
+2026-03-28 21:11:41,781 - [INFO] - ACTION: Task Undo | DETAIL: Task ID: bdf46c06eaa6942bb8e76ffe7a0ada8d | RESULT: Success
+2026-03-28 21:11:41,782 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 2/2 clients | RESULT: Success
+2026-03-28 21:11:43,075 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 21:11:43,201 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 2/2 clients | RESULT: Success
+2026-03-28 21:11:43,417 - [INFO] - ACTION: Refresh | DETAIL: System-wide Refresh key sent via ADB | RESULT: Success
+2026-03-28 21:11:45,485 - [INFO] - ACTION: Task Completed | DETAIL: Task ID: bdf46c06eaa6942bb8e76ffe7a0ada8d | RESULT: Success
+2026-03-28 21:11:45,485 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 2/2 clients | RESULT: Success
+2026-03-28 21:11:53,150 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 21:11:53,157 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 2/2 clients | RESULT: Success
+2026-03-28 21:11:53,368 - [INFO] - ACTION: Refresh | DETAIL: System-wide Refresh key sent via ADB | RESULT: Success
+2026-03-28 21:14:29,421 - [INFO] - ACTION: WebSocket Connected | DETAIL: Total: 1 | RESULT: Success
+2026-03-28 21:14:29,715 - [INFO] - ACTION: WebSocket Connected | DETAIL: Total: 2 | RESULT: Success
+2026-03-28 21:14:30,405 - [INFO] - ACTION: WebSocket Disconnected | DETAIL: Total: 1 | RESULT: Success
+2026-03-28 21:14:30,449 - [INFO] - ACTION: WebSocket Connected | DETAIL: Total: 2 | RESULT: Success
+2026-03-28 21:14:31,065 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:14:31,066 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:14:32,685 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 21:14:32,741 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 2/2 clients | RESULT: Success
+2026-03-28 21:14:33,441 - [INFO] - ACTION: WebSocket Disconnected | DETAIL: Total: 1 | RESULT: Success
+2026-03-28 21:14:34,656 - [INFO] - ACTION: WebSocket Connected | DETAIL: Total: 2 | RESULT: Success
+2026-03-28 21:14:35,879 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:14:35,880 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:14:35,881 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 21:14:35,893 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 2/2 clients | RESULT: Success
+2026-03-28 21:14:36,480 - [INFO] - ACTION: WebSocket Disconnected | DETAIL: Total: 1 | RESULT: Success
+2026-03-28 21:14:37,739 - [INFO] - ACTION: WebSocket Connected | DETAIL: Total: 2 | RESULT: Success
+2026-03-28 21:14:38,269 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:14:38,270 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:14:40,903 - [INFO] - ACTION: Task Undo | DETAIL: Task ID: bdf46c06eaa6942bb8e76ffe7a0ada8d | RESULT: Success
+2026-03-28 21:14:40,903 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 2/2 clients | RESULT: Success
+2026-03-28 21:14:42,682 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 21:14:42,777 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 2/2 clients | RESULT: Success
+2026-03-28 21:14:43,381 - [INFO] - ACTION: WebSocket Disconnected | DETAIL: Total: 1 | RESULT: Success
+2026-03-28 21:14:44,540 - [INFO] - ACTION: WebSocket Connected | DETAIL: Total: 2 | RESULT: Success
+2026-03-28 21:14:45,109 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:14:45,110 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:14:45,360 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: launch_app | RESULT: Success
+2026-03-28 21:14:47,927 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: launch_app | RESULT: Success
+2026-03-28 21:14:48,761 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: launch_app | RESULT: Success
+2026-03-28 21:14:48,947 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: launch_app | RESULT: Success
+2026-03-28 21:14:50,691 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: launch_app | RESULT: Success
+2026-03-28 21:14:51,285 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: launch_app | RESULT: Success
+2026-03-28 21:14:51,491 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: launch_app | RESULT: Success
+2026-03-28 21:14:51,658 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: launch_app | RESULT: Success
+2026-03-28 21:14:52,540 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 21:14:52,641 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 2/2 clients | RESULT: Success
+2026-03-28 21:14:53,209 - [INFO] - ACTION: WebSocket Disconnected | DETAIL: Total: 1 | RESULT: Success
+2026-03-28 21:14:54,577 - [INFO] - ACTION: WebSocket Connected | DETAIL: Total: 2 | RESULT: Success
+2026-03-28 21:14:55,113 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:14:55,113 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:15:10,886 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 21:15:10,937 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 2/2 clients | RESULT: Success
+2026-03-28 21:15:11,405 - [INFO] - ACTION: WebSocket Disconnected | DETAIL: Total: 1 | RESULT: Success
+2026-03-28 21:15:12,742 - [INFO] - ACTION: WebSocket Connected | DETAIL: Total: 2 | RESULT: Success
+2026-03-28 21:15:13,361 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:15:13,361 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:16:22,854 - [INFO] - ACTION: WebSocket Disconnected | DETAIL: Total: 1 | RESULT: Success
+2026-03-28 21:16:23,460 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:16:23,461 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:16:23,462 - [INFO] - ACTION: WebSocket Connected | DETAIL: Total: 2 | RESULT: Success
+2026-03-28 21:16:24,758 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 21:16:24,871 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 2/2 clients | RESULT: Success
+2026-03-28 21:16:25,483 - [INFO] - ACTION: WebSocket Disconnected | DETAIL: Total: 1 | RESULT: Success
+2026-03-28 21:16:27,601 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:16:27,602 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:16:27,603 - [INFO] - ACTION: WebSocket Connected | DETAIL: Total: 2 | RESULT: Success
+2026-03-28 21:16:28,445 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 21:16:28,557 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 2/2 clients | RESULT: Success
+2026-03-28 21:17:40,661 - [INFO] - ACTION: WebSocket Disconnected | DETAIL: Total: 1 | RESULT: Success
+2026-03-28 21:17:41,297 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:17:41,297 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:17:41,299 - [INFO] - ACTION: WebSocket Connected | DETAIL: Total: 2 | RESULT: Success
+2026-03-28 21:17:41,791 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 21:17:41,883 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 2/2 clients | RESULT: Success
+2026-03-28 21:17:43,829 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 21:17:43,838 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 2/2 clients | RESULT: Success
+2026-03-28 21:17:44,463 - [INFO] - ACTION: WebSocket Disconnected | DETAIL: Total: 1 | RESULT: Success
+2026-03-28 21:17:45,725 - [INFO] - ACTION: WebSocket Connected | DETAIL: Total: 2 | RESULT: Success
+2026-03-28 21:17:46,343 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:17:46,344 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:17:47,272 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 21:17:47,360 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 2/2 clients | RESULT: Success
+2026-03-28 21:17:48,734 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 21:17:48,743 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 2/2 clients | RESULT: Success
+2026-03-28 21:17:48,899 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 21:17:48,909 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 2/2 clients | RESULT: Success
+2026-03-28 21:19:21,597 - [INFO] - ACTION: WebSocket Disconnected | DETAIL: Total: 1 | RESULT: Success
+2026-03-28 21:19:22,382 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:19:22,382 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:19:22,384 - [INFO] - ACTION: WebSocket Connected | DETAIL: Total: 2 | RESULT: Success
+2026-03-28 21:21:21,904 - [INFO] - ACTION: WebSocket Disconnected | DETAIL: Total: 1 | RESULT: Success
+2026-03-28 21:21:23,940 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:21:23,941 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:21:23,942 - [INFO] - ACTION: WebSocket Connected | DETAIL: Total: 2 | RESULT: Success
+2026-03-28 21:21:28,637 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 21:21:28,696 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 2/2 clients | RESULT: Success
+2026-03-28 21:21:41,292 - [INFO] - ACTION: WebSocket Connected | DETAIL: Total: 1 | RESULT: Success
+2026-03-28 21:21:41,459 - [INFO] - ACTION: WebSocket Connected | DETAIL: Total: 2 | RESULT: Success
+2026-03-28 21:21:42,731 - [INFO] - ACTION: WebSocket Disconnected | DETAIL: Total: 1 | RESULT: Success
+2026-03-28 21:21:42,888 - [INFO] - ACTION: WebSocket Connected | DETAIL: Total: 2 | RESULT: Success
+2026-03-28 21:21:43,565 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:21:43,566 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:21:44,159 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 21:21:44,174 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 2/2 clients | RESULT: Success
+2026-03-28 21:21:44,801 - [INFO] - ACTION: Toggle Theme | DETAIL: Theme switched to night and Refresh triggered via ADB | RESULT: Success
+2026-03-28 21:21:44,802 - [INFO] - ACTION: WebSocket Disconnected | DETAIL: Total: 1 | RESULT: Success
+2026-03-28 21:21:46,716 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:21:46,717 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:21:46,719 - [INFO] - ACTION: WebSocket Connected | DETAIL: Total: 2 | RESULT: Success
+2026-03-28 21:21:48,318 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 21:21:48,326 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 2/2 clients | RESULT: Success
+2026-03-28 21:21:48,968 - [INFO] - ACTION: Toggle Theme | DETAIL: Theme switched to day and Refresh triggered via ADB | RESULT: Success
+2026-03-28 21:21:48,968 - [INFO] - ACTION: WebSocket Disconnected | DETAIL: Total: 1 | RESULT: Success
+2026-03-28 21:21:50,266 - [INFO] - ACTION: WebSocket Connected | DETAIL: Total: 2 | RESULT: Success
+2026-03-28 21:21:51,299 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:21:51,300 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:28:25,092 - [INFO] - ACTION: WebSocket Disconnected | DETAIL: Total: 1 | RESULT: Success
+2026-03-28 21:28:25,786 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:28:25,786 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:28:25,788 - [INFO] - ACTION: WebSocket Connected | DETAIL: Total: 2 | RESULT: Success
+2026-03-28 21:28:27,329 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 21:28:27,413 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 2/2 clients | RESULT: Success
+2026-03-28 21:28:28,016 - [INFO] - ACTION: Toggle Theme | DETAIL: Theme switched to night and Refresh triggered via ADB | RESULT: Success
+2026-03-28 21:28:28,017 - [INFO] - ACTION: WebSocket Disconnected | DETAIL: Total: 1 | RESULT: Success
+2026-03-28 21:28:29,840 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:28:29,841 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:28:29,843 - [INFO] - ACTION: WebSocket Connected | DETAIL: Total: 2 | RESULT: Success
+2026-03-28 21:28:53,015 - [INFO] - ACTION: WebSocket Connected | DETAIL: Total: 1 | RESULT: Success
+2026-03-28 21:28:53,104 - [INFO] - ACTION: WebSocket Connected | DETAIL: Total: 2 | RESULT: Success
+2026-03-28 21:28:54,009 - [INFO] - ACTION: WebSocket Disconnected | DETAIL: Total: 1 | RESULT: Success
+2026-03-28 21:28:54,060 - [INFO] - ACTION: WebSocket Connected | DETAIL: Total: 2 | RESULT: Success
+2026-03-28 21:28:54,657 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:28:54,658 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:28:55,299 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 21:28:55,369 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 2/2 clients | RESULT: Success
+2026-03-28 21:28:55,369 - [INFO] - ACTION: Toggle Theme | DETAIL: Theme switched to night (WS Only) | RESULT: Success
+2026-03-28 21:28:56,473 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 21:28:56,481 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 2/2 clients | RESULT: Success
+2026-03-28 21:28:56,481 - [INFO] - ACTION: Toggle Theme | DETAIL: Theme switched to day (WS Only) | RESULT: Success
+2026-03-28 21:28:56,665 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 21:28:56,673 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 2/2 clients | RESULT: Success
+2026-03-28 21:28:56,673 - [INFO] - ACTION: Toggle Theme | DETAIL: Theme switched to night (WS Only) | RESULT: Success
+2026-03-28 21:28:57,186 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 21:28:57,192 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 2/2 clients | RESULT: Success
+2026-03-28 21:28:57,192 - [INFO] - ACTION: Toggle Theme | DETAIL: Theme switched to day (WS Only) | RESULT: Success
+2026-03-28 21:28:57,381 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 21:28:57,443 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 2/2 clients | RESULT: Success
+2026-03-28 21:28:57,443 - [INFO] - ACTION: Toggle Theme | DETAIL: Theme switched to night (WS Only) | RESULT: Success
+2026-03-28 21:28:57,569 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 21:28:57,576 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 2/2 clients | RESULT: Success
+2026-03-28 21:28:57,576 - [INFO] - ACTION: Toggle Theme | DETAIL: Theme switched to day (WS Only) | RESULT: Success
+2026-03-28 21:28:57,757 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 21:28:57,772 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 2/2 clients | RESULT: Success
+2026-03-28 21:28:57,772 - [INFO] - ACTION: Toggle Theme | DETAIL: Theme switched to night (WS Only) | RESULT: Success
+2026-03-28 21:28:57,960 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 21:28:57,982 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 2/2 clients | RESULT: Success
+2026-03-28 21:28:57,982 - [INFO] - ACTION: Toggle Theme | DETAIL: Theme switched to day (WS Only) | RESULT: Success
+2026-03-28 21:28:58,139 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 21:28:58,161 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 2/2 clients | RESULT: Success
+2026-03-28 21:28:58,161 - [INFO] - ACTION: Toggle Theme | DETAIL: Theme switched to night (WS Only) | RESULT: Success
+2026-03-28 21:28:58,275 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 21:28:58,282 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 2/2 clients | RESULT: Success
+2026-03-28 21:28:58,282 - [INFO] - ACTION: Toggle Theme | DETAIL: Theme switched to day (WS Only) | RESULT: Success
+2026-03-28 21:28:58,437 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: toggle_theme | RESULT: Success
+2026-03-28 21:28:58,444 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent toggle_theme to 2/2 clients | RESULT: Success
+2026-03-28 21:28:58,444 - [INFO] - ACTION: Toggle Theme | DETAIL: Theme switched to night (WS Only) | RESULT: Success
+2026-03-28 21:28:59,175 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 21:28:59,261 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 2/2 clients | RESULT: Success
+2026-03-28 21:29:00,003 - [INFO] - ACTION: WebSocket Disconnected | DETAIL: Total: 1 | RESULT: Success
+2026-03-28 21:29:01,137 - [INFO] - ACTION: WebSocket Connected | DETAIL: Total: 2 | RESULT: Success
+2026-03-28 21:29:02,357 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:29:02,358 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:29:16,754 - [INFO] - ACTION: WebSocket Disconnected | DETAIL: Total: 1 | RESULT: Success
+2026-03-28 21:29:17,708 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:29:17,709 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:29:17,710 - [INFO] - ACTION: WebSocket Connected | DETAIL: Total: 2 | RESULT: Success
+2026-03-28 21:29:20,573 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 21:29:20,662 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 2/2 clients | RESULT: Success
+2026-03-28 21:29:21,275 - [INFO] - ACTION: WebSocket Disconnected | DETAIL: Total: 1 | RESULT: Success
+2026-03-28 21:29:22,500 - [INFO] - ACTION: WebSocket Connected | DETAIL: Total: 2 | RESULT: Success
+2026-03-28 21:29:23,031 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:29:23,032 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:31:19,909 - [INFO] - ACTION: WebSocket Connected | DETAIL: Total: 3 | RESULT: Success
+2026-03-28 21:31:20,917 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:31:20,918 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:32:56,299 - [INFO] - ACTION: WebSocket Connected | DETAIL: Total: 4 | RESULT: Success
+2026-03-28 21:32:56,952 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:32:56,953 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:37:13,521 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 21:37:13,553 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 4/4 clients | RESULT: Success
+2026-03-28 21:37:13,980 - [INFO] - ACTION: WebSocket Disconnected | DETAIL: Total: 3 | RESULT: Success
+2026-03-28 21:37:13,980 - [INFO] - ACTION: WebSocket Disconnected | DETAIL: Total: 2 | RESULT: Success
+2026-03-28 21:37:13,981 - [INFO] - ACTION: WebSocket Disconnected | DETAIL: Total: 1 | RESULT: Success
+2026-03-28 21:37:15,938 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:37:15,938 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 52 events from Moodle | RESULT: Success
+2026-03-28 21:37:15,940 - [INFO] - ACTION: WebSocket Connected | DETAIL: Total: 2 | RESULT: Success
+2026-03-28 21:37:25,480 - [INFO] - ACTION: Remote Command Received | DETAIL: Command: refresh | RESULT: Success
+2026-03-28 21:37:25,532 - [INFO] - ACTION: WebSocket Broadcast | DETAIL: Sent refresh to 2/2 clients | RESULT: Success
+2026-03-28 21:37:26,145 - [INFO] - ACTION: WebSocket Disconnected | DETAIL: Total: 1 | RESULT: Success
+2026-03-28 21:37:27,347 - [INFO] - ACTION: WebSocket Connected | DETAIL: Total: 2 | RESULT: Success
+2026-03-28 21:37:27,988 - [INFO] - ACTION: Moodle Filter | DETAIL: Skipped: תרגול 25/3/26 (Course: יישומים באופטיקה פיסיקלית) | RESULT: Filtered
+2026-03-28 21:37:27,989 - [INFO] - ACTION: Fetch Tasks | DETAIL: Retrieved 51 events from Moodle | RESULT: Success

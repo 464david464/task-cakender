@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Remote Control</title>
+    <style>
+        body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background: #1a1a1a; color: white; gap: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 400px; }
+        button { padding: 20px; font-size: 1.2rem; cursor: pointer; border: none; border-radius: 12px; transition: 0.2s; background: #333; color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+        button:active { transform: scale(0.95); }
+        .btn-green { background: #2ecc71; }
+        .btn-red { background: #e74c3c; }
+        .btn-blue { background: #3498db; }
+        .status { margin-top: 10px; color: #888; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <h1>שלט רחוק לטאבלט</h1>
+    <div class="grid">
+        <button onclick="sendCommand('screen_on')" class="btn-green">הדלק מסך</button>
+        <button onclick="sendCommand('screen_off')" class="btn-red">כבה מסך</button>
+        <button onclick="sendCommand('day_mode')">מצב יום ☀️</button>
+        <button onclick="sendCommand('night_mode')">מצב לילה 🌙</button>
+        <button onclick="sendCommand('refresh')" class="btn-blue" style="grid-column: span 2;">רענן נתונים 🔄</button>
+    </div>
+    <div id="status" class="status">ממתין לפקודה...</div>
+
+    <script>
+        async function sendCommand(cmd) {
+            const statusEl = document.getElementById('status');
+            statusEl.innerText = "שולח: " + cmd + "...";
+            try {
+                const response = await fetch('/api/remote/command', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ command: cmd })
+                });
+                const data = await response.json();
+                statusEl.innerText = data.message || data.detail;
+            } catch (error) {
+                statusEl.innerText = "שגיאה בחיבור לשרת";
+            }
+        }
+    </script>
+</body>
+</html>

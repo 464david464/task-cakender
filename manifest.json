@@ -1,0 +1,16 @@
+{
+  "name": "Moodle Dashboard",
+  "short_name": "Dashboard",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fdfdfa",
+  "theme_color": "#6a8d9d",
+  "orientation": "landscape",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/2693/2693507.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

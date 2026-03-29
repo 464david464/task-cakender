@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>משימות Moodle</title>
+    <style>
+        body { width: 350px; font-family: 'Assistant', sans-serif; background: #fdfdfa; color: #4a403a; margin: 0; padding: 15px; }
+        h2 { font-size: 1.2rem; margin-top: 0; display: flex; justify-content: space-between; align-items: center; }
+        .refresh-btn { cursor: pointer; border: none; background: #6a8d9d; color: white; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; }
+        #tasks { max-height: 400px; overflow-y: auto; }
+        .task-item { background: white; border: 1px solid #ddd; border-radius: 8px; padding: 10px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+        .task-item.completed { opacity: 0.5; background: #f0f0f0; }
+        .task-info { flex-grow: 1; }
+        .course { font-size: 0.7rem; color: #888; }
+        .title { font-size: 0.9rem; font-weight: bold; margin: 3px 0; }
+        .due { font-size: 0.75rem; color: #666; }
+        .check { cursor: pointer; width: 20px; height: 20px; border: 2px solid #6a8d9d; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .completed .check { background: #4caf50; border-color: #4caf50; color: white; }
+    </style>
+</head>
+<body>
+    <h2>
+        הגשות Moodle
+        <button id="refresh" class="refresh-btn">🔄 רענן</button>
+    </h2>
+    <div id="tasks">טוען משימות...</div>
+    <script src="popup.js"></script>
+<div id="debug-log" style="background:#eee; color:#333; font-family:monospace; font-size:9px; padding:5px; margin-top:10px; border-top:1px solid #ccc; direction:ltr;">Initializing log...</div>
+</body>
+</html>
