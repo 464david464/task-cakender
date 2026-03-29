@@ -12,10 +12,15 @@ function debugLog(msg, isError = false) {
     }
 }
 
+// Added missing applyTheme function
+const applyTheme = (theme) => {
+    body.dataset.theme = theme;
+    localStorage.setItem('dashboard-theme', theme);
+};
+
 async function fetchTasks() {
     debugLog("Fetching data.json...");
     try {
-        // Simple fetch from the same directory
         const resp = await fetch(`data.json?t=${new Date().getTime()}`);
         if (resp.ok) {
             allTasks = await resp.json();
@@ -29,7 +34,6 @@ async function fetchTasks() {
     }
 }
 
-// Reuse the toggleTask from the extension but using the split token strategy
 const GITHUB_TOKEN = "ghp_YBIvY9f7c6FvpuYh" + "rSBt5R8Xm2OLLN2QF6e9";
 const REPO = "464david464/task-cakender";
 const FILE_PATH = "data.json";
@@ -44,7 +48,6 @@ async function toggleTask(id) {
     renderDashboard();
 
     try {
-        // We still need the API to update (PUT)
         const getUrl = `https://api.github.com/repos/${REPO}/contents/${FILE_PATH}?ref=main`;
         const getResp = await fetch(getUrl, {
             headers: { "Authorization": `token ${GITHUB_TOKEN}` }
@@ -131,6 +134,6 @@ function renderDashboard() {
 
 // Init
 const savedTheme = localStorage.getItem('dashboard-theme') || 'day';
-document.body.dataset.theme = savedTheme;
+applyTheme(savedTheme);
 fetchTasks();
 setInterval(fetchTasks, 2 * 60 * 1000);
