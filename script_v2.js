@@ -139,6 +139,15 @@ function renderDashboard() {
     });
 }
 
+// Theme Logic
+const themeToggle = document.getElementById('theme-toggle');
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = body.dataset.theme === 'day' ? 'night' : 'day';
+        applyTheme(currentTheme);
+    });
+}
+
 const savedTheme = localStorage.getItem('dashboard-theme') || 'day';
 document.body.dataset.theme = savedTheme;
 fetchTasks();
