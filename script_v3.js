@@ -12,27 +12,15 @@ function updateStatus(msg, isError = false) {
         el.innerText = `[${new Date().toLocaleTimeString()}] ${msg}`;
         el.style.color = isError ? '#f00' : '#0f0';
     }
-    console.log(msg);
 }
 
-const applyTheme = (theme) => {
-    body.dataset.theme = theme;
-    localStorage.setItem('dashboard-theme', theme);
-    const themeToggle = document.getElementById('theme-toggle');
-    if (themeToggle) themeToggle.innerText = theme === 'day' ? '🌙' : '☀️';
-};
-
 async function fetchTasks() {
-    updateStatus("Fetching data...");
+    updateStatus("Syncing...");
     try {
         const url = `https://api.github.com/repos/${REPO}/contents/${FILE_PATH}?ref=main&t=${new Date().getTime()}`;
         const resp = await fetch(url, {
-            headers: { 
-                "Authorization": `token ${GITHUB_TOKEN}`,
-                "Accept": "application/vnd.github.v3+json"
-            }
+            headers: { "Authorization": `token ${GITHUB_TOKEN}`, "Accept": "application/vnd.github.v3+json" }
         });
-        
         if (resp.ok) {
             const data = await resp.json();
             currentSha = data.sha;
@@ -40,55 +28,58 @@ async function fetchTasks() {
             const bytes = new Uint8Array(binaryString.length);
             for (let i = 0; i < binaryString.length; i++) bytes[i] = binaryString.charCodeAt(i);
             allTasks = JSON.parse(new TextDecoder().decode(bytes));
-            
-            const completedCount = allTasks.filter(t => t.is_completed).length;
-            updateStatus(`Success: ${allTasks.length} tasks loaded (${completedCount} completed).`);
             renderDashboard();
-        } else {
-            updateStatus(`Fetch Error: ${resp.status} ${resp.statusText}`, true);
+            updateStatus(`Online: ${allTasks.length} tasks.`);
         }
-    } catch (e) { 
-        updateStatus(`Connection Error: ${e.message}`, true);
-    }
+    } catch (e) { updateStatus("Connection Error", true); }
 }
 
 async function toggleTask(id) {
-    updateStatus(`Updating task ${id.substring(0,5)}...`);
-    const task = allTasks.find(t => t.id === id);
-    if (!task) return;
+    updateStatus("Saving change...");
     
-    task.is_completed = !task.is_completed;
-    task.completed_at = task.is_completed ? new Date().toISOString() : null;
-    renderDashboard();
-
     try {
-        const getResp = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE_PATH}?ref=main`, {
+        // 1. Force a fresh fetch to get the absolute latest SHA (Prevents 409 Error)
+        const getUrl = `https://api.github.com/repos/${REPO}/contents/${FILE_PATH}?ref=main&t=${new Date().getTime()}`;
+        const getResp = await fetch(getUrl, {
             headers: { "Authorization": `token ${GITHUB_TOKEN}` }
         });
         const getData = await getResp.json();
-        currentSha = getData.sha;
+        currentSha = getData.sha; // Get the MUST-HAVE current SHA
+        
+        const binaryString = atob(getData.content);
+        const bytes = new Uint8Array(binaryString.length);
+        for (let i = 0; i < binaryString.length; i++) bytes[i] = binaryString.charCodeAt(i);
+        allTasks = JSON.parse(new TextDecoder().decode(bytes));
 
-        const bytes = new TextEncoder().encode(JSON.stringify(allTasks, null, 2));
+        // 2. Modify the task
+        const task = allTasks.find(t => t.id === id);
+        if (!task) return;
+        task.is_completed = !task.is_completed;
+        task.completed_at = task.is_completed ? new Date().toISOString() : null;
+
+        // 3. Save back to GitHub
+        const jsonStr = JSON.stringify(allTasks, null, 2);
+        const bytesToUpload = new TextEncoder().encode(jsonStr);
         let binary = "";
-        for (let i = 0; i < bytes.byteLength; i++) binary += String.fromCharCode(bytes[i]);
+        for (let i = 0; i < bytesToUpload.byteLength; i++) binary += String.fromCharCode(bytesToUpload[i]);
 
         const putResp = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE_PATH}`, {
             method: 'PUT',
-            headers: { 
-                "Authorization": `token ${GITHUB_TOKEN}`, 
-                "Content-Type": "application/json" 
-            },
-            body: JSON.stringify({ message: "Sync", content: btoa(binary), sha: currentSha, branch: "main" })
+            headers: { "Authorization": `token ${GITHUB_TOKEN}`, "Content-Type": "application/json" },
+            body: JSON.stringify({ message: "Task Toggle", content: btoa(binary), sha: currentSha, branch: "main" })
         });
         
         if (putResp.ok) {
-            updateStatus("Saved successfully to GitHub.");
+            updateStatus("Saved.");
             const resData = await putResp.json();
             currentSha = resData.content.sha;
+            renderDashboard();
         } else {
-            updateStatus(`Save failed: ${putResp.status}`, true);
+            const err = await putResp.json();
+            updateStatus(`Error ${putResp.status}: ${err.message}`, true);
+            fetchTasks();
         }
-    } catch (e) { updateStatus(`Save Error: ${e.message}`, true); fetchTasks(); }
+    } catch (e) { updateStatus("Update failed", true); fetchTasks(); }
 }
 
 function getTimeRemaining(dueDate) {
@@ -98,33 +89,28 @@ function getTimeRemaining(dueDate) {
 }
 
 function renderDashboard() {
-    const tasksGridEl = document.getElementById('tasks-grid');
+    const gridEl = document.getElementById('tasks-grid');
     const archiveContainer = document.getElementById('archive-container');
     const archiveBtn = document.getElementById('archive-toggle-btn');
-    if (!tasksGridEl) return;
+    if (!gridEl) return;
 
-    tasksGridEl.innerHTML = '';
-    const now = new Date();
+    gridEl.innerHTML = '';
     
-    // Logic for hiding/showing completed tasks (20 min rule)
-    const activeTasks = allTasks.filter(t => {
-        if (!t.is_completed) return true;
-        if (!t.completed_at) return false;
-        return (now - new Date(t.completed_at)) / (1000 * 60) < 20;
-    });
-
+    // Split: Active (Not completed) vs Completed
+    const activeTasks = allTasks.filter(t => !t.is_completed);
     const completedTasks = allTasks.filter(t => t.is_completed);
-    const tasksToRender = showArchive ? allTasks : activeTasks;
+    
+    const tasksToDisplay = showArchive ? allTasks : activeTasks;
 
     // Render Hero
-    const nextTask = activeTasks.find(t => !t.is_completed) || activeTasks[0];
     const heroEl = document.getElementById('next-mission');
+    const nextTask = activeTasks[0] || allTasks[0];
     if (heroEl && nextTask) {
         heroEl.innerHTML = `
             <div class="course-label"><span>${nextTask.course || 'כללי'}</span></div>
             <div class="hero-title">${nextTask.title}</div>
             <div class="hero-countdown">${getTimeRemaining(nextTask.due_date)}</div>
-            <div class="check hero-check" style="cursor:pointer; width:40px; height:40px; border:3px solid white; border-radius:50%; display:flex; align-items:center; justify-content:center; margin: 10px auto;">
+            <div class="check hero-check" style="cursor:pointer; width:40px; height:40px; border:3px solid white; border-radius:50%; display:flex; align-items:center; justify-content:center; margin: 15px auto;">
                 ${nextTask.is_completed ? '✓' : ''}
             </div>
         `;
@@ -132,7 +118,7 @@ function renderDashboard() {
     }
 
     // Render Grid
-    tasksToRender.forEach(task => {
+    tasksToDisplay.forEach(task => {
         const item = document.createElement('div');
         item.className = `task-item ${task.is_completed ? 'completed' : ''} track-${task.track || 'general'}`;
         item.innerHTML = `
@@ -146,10 +132,10 @@ function renderDashboard() {
             <div class="task-footer"><span>${getTimeRemaining(task.due_date)}</span></div>
         `;
         item.querySelector('.check').onclick = (e) => { e.stopPropagation(); toggleTask(task.id); };
-        tasksGridEl.appendChild(item);
+        gridEl.appendChild(item);
     });
 
-    // Handle Archive Button
+    // ARCHIVE BUTTON LOGIC
     if (completedTasks.length > 0) {
         archiveContainer.style.display = 'block';
         archiveBtn.innerText = showArchive ? "הסתר משימות שהושלמו" : `הצג משימות שהושלמו (${completedTasks.length})`;
@@ -159,16 +145,17 @@ function renderDashboard() {
     }
 }
 
-// Init
 const themeToggle = document.getElementById('theme-toggle');
 if (themeToggle) {
     themeToggle.onclick = () => {
         const currentTheme = body.dataset.theme === 'day' ? 'night' : 'day';
-        applyTheme(currentTheme);
+        body.dataset.theme = currentTheme;
+        localStorage.setItem('dashboard-theme', currentTheme);
+        themeToggle.innerText = currentTheme === 'day' ? '🌙' : '☀️';
     };
 }
 
 const savedTheme = localStorage.getItem('dashboard-theme') || 'day';
-applyTheme(savedTheme);
+body.dataset.theme = savedTheme;
 fetchTasks();
 setInterval(fetchTasks, 30 * 1000); 
