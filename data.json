@@ -36,28 +36,32 @@
     "title": "תרגיל 1 מכשור אופטי",
     "course": "אופטיקה גיאומטרית ב'-מיכשור אופטי",
     "due_date": "2026-04-18T21:00:00+00:00",
-    "is_completed": false
+    "is_completed": true,
+    "completed_at": "2026-03-30T04:03:26.409Z"
   },
   {
     "id": "983a6f69dc5dd9f3eeabdf01daf36a0c",
     "title": "תרגיל 1",
     "course": "יישומים באופטיקה פיסיקלית",
     "due_date": "2026-05-15T20:59:00+00:00",
-    "is_completed": false
+    "is_completed": true,
+    "completed_at": "2026-03-30T04:03:26.582Z"
   },
   {
     "id": "9e3e312623c7d4dc6743f9675de03963",
     "title": "מכין ניסוי מס 4",
     "course": "מעבדה בפיזיקה",
     "due_date": "2026-09-23T21:00:00+00:00",
-    "is_completed": false
+    "is_completed": true,
+    "completed_at": "2026-03-30T04:03:26.705Z"
   },
   {
     "id": "0c6a2015507a4adda04d62bf71e75f68",
     "title": "תוצאות ניסוי מס 4",
     "course": "מעבדה בפיזיקה",
     "due_date": "2026-09-23T21:00:00+00:00",
-    "is_completed": false
+    "is_completed": true,
+    "completed_at": "2026-03-30T04:03:26.964Z"
   },
   {
     "id": "088e51c7530229f402174e1aee0dd9a4",
