@@ -12,7 +12,7 @@
     "title": "מטלה 2",
     "course": "כללי",
     "due_date": "2026-03-31T05:36:00+00:00",
-    "is_completed": false
+    "is_completed": true
   },
   {
     "id": "f1fbc18985e5943298f6a511dd65f645",
@@ -61,7 +61,7 @@
     "title": "8 מסכם",
     "course": "מעבדה באופטיקה",
     "due_date": "2027-03-14T22:00:00+00:00",
-    "is_completed": false
+    "is_completed": true
   },
   {
     "id": "58bdd953f0d3a2ca226569134fc8ef4f",
