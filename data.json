@@ -116,21 +116,24 @@
     "title": "מסכם ניסוי מס 7",
     "course": "מעבדה בפיזיקה",
     "due_date": "2026-09-23T21:00:00+00:00",
-    "is_completed": false
+    "is_completed": true,
+    "completed_at": "2026-03-30T04:03:28.388Z"
   },
   {
     "id": "637e08f4378465b9f2f759d4bf364d3d",
     "title": "מכין ניסוי מס 1",
     "course": "מעבדה בפיזיקה",
     "due_date": "2026-09-23T21:00:00+00:00",
-    "is_completed": false
+    "is_completed": true,
+    "completed_at": "2026-03-30T04:03:28.556Z"
   },
   {
     "id": "6550eec580662f902b72c402df2c8942",
     "title": "תוצאות ניסוי מס 1",
     "course": "מעבדה בפיזיקה",
     "due_date": "2026-09-23T21:00:00+00:00",
-    "is_completed": false
+    "is_completed": true,
+    "completed_at": "2026-03-30T04:03:28.727Z"
   },
   {
     "id": "2ff4ab067151f25fecaa7fc7e01a6635",
