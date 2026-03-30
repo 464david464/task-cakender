@@ -145,7 +145,7 @@
     "title": "5  תוצאות",
     "course": "מעבדה באופטיקה",
     "due_date": "2027-03-15T22:00:00+00:00",
-    "is_completed": true
+    "is_completed": false
   },
   {
     "id": "34b2c608090b766165af6e10c6e36bfe",
