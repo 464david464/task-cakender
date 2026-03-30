@@ -20,6 +20,7 @@
             --card-bg: rgba(252, 248, 243, 0.95);
             --card-border: rgba(139, 90, 43, 0.2);
             --shadow-color: rgba(74, 55, 40, 0.12);
+            --urgent-color: #d4a373;
         }
 
         /* --- Night Theme: Prism --- */
@@ -30,6 +31,7 @@
             --card-bg: rgba(255, 255, 255, 0.02);
             --card-border: rgba(255, 255, 255, 0.1);
             --shadow-color: rgba(0, 0, 0, 0.5);
+            --urgent-color: #00f0ff;
         }
 
         body {
@@ -51,7 +53,6 @@
             opacity: 0.4;
         }
 
-        /* Status Bar - Neon Green */
         #debug-status {
             background: #000;
             color: #2ed573;
@@ -67,7 +68,7 @@
         .full-screen-container {
             width: 95%; max-width: 1400px;
             margin: 0 auto; display: flex; flex-direction: column; flex-grow: 1;
-            overflow: hidden;
+            /* Removed overflow: hidden to allow glows to breathe */
             padding-top: 40px;
         }
 
@@ -75,7 +76,7 @@
         h1 { font-family: var(--serif-font); font-size: 2rem; font-weight: 300; margin: 0; opacity: 0.8; }
 
         main {
-            flex-grow: 1; padding: 0 10px 120px 10px;
+            flex-grow: 1; padding: 20px 20px 120px 20px; /* Increased side padding for glow */
             overflow-y: auto; scrollbar-width: none;
         }
         main::-webkit-scrollbar { display: none; }
@@ -94,6 +95,12 @@
             box-shadow: 0 8px 25px var(--shadow-color);
             transition: all 0.4s ease;
             display: flex; flex-direction: column; justify-content: space-between;
+        }
+
+        /* URGENT GLOW EFFECT */
+        .task-item.urgent {
+            border: 2px solid var(--urgent-color);
+            box-shadow: 0 0 20px var(--urgent-color), 0 8px 25px var(--shadow-color);
         }
 
         .task-item.completed { display: none; }
@@ -122,33 +129,20 @@
             color: #000; box-shadow: 0 0 15px rgba(74, 222, 128, 0.4);
         }
 
-        /* FLOATING STICKY ARCHIVE BUTTON */
         #archive-floating-wrap {
-            position: fixed;
-            bottom: 30px;
-            left: 0;
-            right: 0;
-            z-index: 9999;
-            text-align: center;
-            pointer-events: none;
+            position: fixed; bottom: 30px; left: 0; right: 0; z-index: 9999;
+            text-align: center; pointer-events: none;
         }
 
         #archive-toggle-btn {
             pointer-events: auto;
-            background: var(--text-accent);
-            color: white;
-            border: none;
-            padding: 14px 40px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 600;
-            font-family: inherit;
+            background: var(--text-accent); color: white;
+            border: none; padding: 14px 40px; border-radius: 50px;
+            cursor: pointer; font-weight: 600; font-family: inherit;
             box-shadow: 0 10px 25px rgba(0,0,0,0.4);
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: none; /* Controlled by JS */
+            display: none;
         }
-
-        #archive-toggle-btn:active { transform: scale(0.95); }
 
         #theme-toggle {
             position: fixed; top: 50px; left: 20px; z-index: 99999;
@@ -160,13 +154,7 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
-        .mission-hero {
-            background: var(--card-bg); padding: 25px;
-            border-radius: 20px; margin: 20px auto 30px auto;
-            text-align: center; border: 1px solid var(--card-border);
-            display: none;
-        }
-        .hero-title { font-size: 2rem; font-weight: 700; margin: 10px 0; }
+        .mission-hero { display: none !important; } /* Hidden as requested */
     </style>
 </head>
 <body data-theme="day">
@@ -175,14 +163,12 @@
     <div class="full-screen-container">
         <header>
             <h1>לו"ז הגשות</h1>
-            <div id="next-mission" class="mission-hero"></div>
         </header>
         <main>
             <div id="tasks-grid" class="tasks-grid"></div>
         </main>
     </div>
 
-    <!-- Floating Archive Button -->
     <div id="archive-floating-wrap">
         <button id="archive-toggle-btn">הצג משימות שהושלמו</button>
     </div>
@@ -261,7 +247,6 @@
         function renderDashboard() {
             const gridEl = document.getElementById('tasks-grid');
             const archiveBtn = document.getElementById('archive-toggle-btn');
-            const heroEl = document.getElementById('next-mission');
             const now = new Date();
 
             if (showArchive) document.body.classList.add('show-archive-active');
@@ -271,27 +256,16 @@
             const activeTasks = allTasks.filter(t => !t.is_completed);
             const completedCount = allTasks.filter(t => t.is_completed).length;
 
-            const nextTask = activeTasks[0];
-            if (nextTask && heroEl) {
-                const daysDiff = (Date.parse(nextTask.due_date) - now.getTime()) / 86400000;
-                if (daysDiff <= 3) {
-                    heroEl.style.display = 'block';
-                    heroEl.innerHTML = `
-                        <div class="course-label">${nextTask.course || 'כללי'}</div>
-                        <div class="hero-title">${nextTask.title}</div>
-                        <div style="font-size:1.1rem; margin-bottom:15px;">${getTimeRemaining(nextTask.due_date)}</div>
-                        <div class="check" style="margin:0 auto;">${nextTask.is_completed ? '✓' : ''}</div>
-                    `;
-                    heroEl.querySelector('.check').onclick = () => toggleTask(nextTask.id);
-                } else { heroEl.style.display = 'none'; }
-            } else { heroEl.style.display = 'none'; }
-
             allTasks.forEach(task => {
-                const isHero = heroEl.style.display === 'block' && nextTask && task.id === nextTask.id;
-                if (isHero) return;
-
                 const item = document.createElement('div');
-                item.className = `task-item ${task.is_completed ? 'completed' : ''}`;
+                
+                // Urgent Logic: Mark if due in <= 3 days
+                const timeDiff = Date.parse(task.due_date) - now.getTime();
+                const daysDiff = timeDiff / 86400000;
+                const isUrgent = !task.is_completed && daysDiff <= 3 && daysDiff >= -1;
+
+                item.className = `task-item ${task.is_completed ? 'completed' : ''} ${isUrgent ? 'urgent' : ''}`;
+                
                 item.innerHTML = `
                     <div style="display:flex; justify-content:space-between; align-items:flex-start;">
                         <span class="course-label">${task.course || 'כללי'}</span>
