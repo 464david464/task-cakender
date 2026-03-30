@@ -61,14 +61,14 @@
     "title": "8 מסכם",
     "course": "מעבדה באופטיקה",
     "due_date": "2027-03-14T22:00:00+00:00",
-    "is_completed": true
+    "is_completed": false
   },
   {
     "id": "58bdd953f0d3a2ca226569134fc8ef4f",
     "title": "5 מכין",
     "course": "מעבדה באופטיקה",
     "due_date": "2027-03-14T22:00:00+00:00",
-    "is_completed": true
+    "is_completed": false
   },
   {
     "id": "8fd7f7362c8ff331c71c8d0ebd4c087e",
