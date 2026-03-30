@@ -27,8 +27,8 @@
     "title": "להגיש תרגיל 3 is due",
     "course": "שיטות מתמטיות בפיזיקה",
     "due_date": "2026-04-16T22:00:00+00:00",
-    "is_completed": false,
-    "completed_at": null
+    "is_completed": true,
+    "completed_at": "2026-03-30T03:03:24.361Z"
   },
   {
     "id": "684cb4bc7238d8a14a29221f890837ab",
