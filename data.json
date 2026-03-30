@@ -26,7 +26,7 @@
     "title": "תיבת הגשה 3",
     "course": "פיזיקה כללית ג' (מודרנית)",
     "due_date": "2026-04-14T21:00:00+00:00",
-    "is_completed": false
+    "is_completed": true
   },
   {
     "id": "e33b2b571839778ddbfc9618424a0526",
@@ -68,7 +68,7 @@
     "title": "5 מכין",
     "course": "מעבדה באופטיקה",
     "due_date": "2027-03-14T22:00:00+00:00",
-    "is_completed": false
+    "is_completed": true
   },
   {
     "id": "8fd7f7362c8ff331c71c8d0ebd4c087e",
