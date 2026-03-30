@@ -13,6 +13,9 @@ function debugLog(msg, isError = false) {
 const applyTheme = (theme) => {
     body.dataset.theme = theme;
     localStorage.setItem('dashboard-theme', theme);
+    if (themeToggle) {
+        themeToggle.innerText = theme === 'day' ? '🌙' : '☀️';
+    }
 };
 
 async function fetchTasks() {
