@@ -43,7 +43,8 @@
     "title": "תרגיל 1",
     "course": "יישומים באופטיקה פיסיקלית",
     "due_date": "2026-05-15T20:59:00+00:00",
-    "is_completed": false
+    "is_completed": true,
+    "completed_at": "2026-03-30T03:03:39.065Z"
   },
   {
     "id": "9e3e312623c7d4dc6743f9675de03963",
