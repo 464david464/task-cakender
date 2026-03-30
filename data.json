@@ -89,7 +89,7 @@
     "title": "2 סכום",
     "course": "מעבדה באופטיקה",
     "due_date": "2027-03-14T22:00:00+00:00",
-    "is_completed": true
+    "is_completed": false
   },
   {
     "id": "6d68b89a77dc103cc66e05ff0eed6e70",
