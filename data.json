@@ -12,8 +12,8 @@
     "title": "להגיש תרגיל בית מס 2 is due",
     "course": "שיטות מתמטיות בפיזיקה",
     "due_date": "2026-04-11T21:00:00+00:00",
-    "is_completed": true,
-    "completed_at": "2026-03-30T03:06:15.779Z"
+    "is_completed": false,
+    "completed_at": null
   },
   {
     "id": "6e32d85ee2231c3b71e053cb613c9159",
