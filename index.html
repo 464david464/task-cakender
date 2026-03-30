@@ -2,33 +2,36 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <title>Academic Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Assistant:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Assistant:wght@200;300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --serif-font: 'Merriweather', serif;
             --sans-font: 'Assistant', sans-serif;
         }
+
+        /* --- Day Theme: Warm Library / Watercolor --- */
         body[data-theme="day"] {
-            --bg-paper: #fdfdfa;
-            --text-main: #4a403a;
-            --text-accent: #6a8d9d;
-            --border-color: #a1887f;
-            --card-bg: rgba(255, 255, 255, 0.7);
-            --card-border: rgba(161, 136, 127, 0.2);
-            --shadow-color: rgba(0,0,0,0.05);
+            --bg-paper: #f4ece1; 
+            --text-main: #4a3728; 
+            --text-accent: #8b5a2b; 
+            --card-bg: rgba(252, 248, 243, 0.8);
+            --card-border: rgba(139, 90, 43, 0.15);
+            --shadow-color: rgba(74, 55, 40, 0.1);
         }
+
+        /* --- Night Theme: Prism / Neon --- */
         body[data-theme="night"] {
-            --bg-paper: #0d0c1d;
-            --text-main: #e0e0e0;
-            --text-accent: #00f0ff;
-            --border-color: #ff00ff;
-            --card-bg: rgba(23, 23, 43, 0.7);
-            --card-border: rgba(0, 240, 255, 0.3);
-            --shadow-color: rgba(0, 240, 255, 0.1);
+            --bg-paper: #05070a;
+            --text-main: #e2e8f0;
+            --text-accent: #a5b4fc;
+            --card-bg: rgba(255, 255, 255, 0.02);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --shadow-color: rgba(0, 0, 0, 0.5);
         }
+
         body {
             background-color: var(--bg-paper);
             color: var(--text-main);
@@ -38,93 +41,123 @@
             height: 100vh;
             display: flex; flex-direction: column;
             overflow: hidden;
+            overscroll-behavior-y: contain;
+            transition: background-color 0.8s ease;
         }
+
+        body[data-theme="day"]::before {
+            content: ""; position: fixed; inset: 0; z-index: -1;
+            background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+            opacity: 0.4;
+        }
+
+        /* Fixed Green Status Bar */
         #debug-status {
-            background: rgba(0,0,0,0.9);
+            background: rgba(0, 0, 0, 0.95);
             color: #2ed573;
             font-family: monospace;
-            font-size: 12px;
-            padding: 8px 15px;
+            font-size: 11px;
+            padding: 6px 15px;
+            z-index: 10000;
+            border-bottom: 1px solid #2ed573;
+            direction: ltr; text-align: left;
             position: fixed;
             top: 0; left: 0; right: 0;
-            z-index: 10000;
-            border-bottom: 2px solid #2ed573;
-            transform: translateY(-100%);
-            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            direction: ltr; text-align: left;
         }
-        #debug-status.show { transform: translateY(0); }
+
         .full-screen-container {
             width: 95%; max-width: 1400px;
             margin: 0 auto; display: flex; flex-direction: column; flex-grow: 1;
             overflow: hidden;
+            padding-top: 30px; /* Space for the status bar */
         }
+
+        header { text-align: center; padding: 2vh 0; flex-shrink: 0; }
+        h1 { font-family: var(--serif-font); font-size: 2rem; font-weight: 300; margin: 0; opacity: 0.9; }
+
         main {
-            flex-grow: 1; padding: 0 10px 80px 10px;
+            flex-grow: 1; padding: 0 10px 100px 10px;
             overflow-y: auto; scrollbar-width: none;
         }
         main::-webkit-scrollbar { display: none; }
+
         .tasks-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
         }
+
         .task-item {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
-            padding: 15px; border-radius: 12px;
-            backdrop-filter: blur(5px);
-            box-shadow: 0 4px 15px var(--shadow-color);
-            transition: all 0.4s ease;
+            padding: 20px; border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 25px var(--shadow-color);
+            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
             display: flex; flex-direction: column; justify-content: space-between;
         }
-        .task-item.completed { opacity: 0.5; filter: grayscale(0.5); border-right: 6px solid #4ade80; }
-        .task-item h4 { font-size: 1.3rem; margin: 10px 0; }
+
+        .task-item.completed {
+            display: none; /* Hidden by default when completed */
+        }
+        
+        /* Show completed tasks only if archive is active */
+        body.show-archive-active .task-item.completed {
+            display: flex !important;
+            opacity: 0.4;
+            filter: grayscale(0.8);
+        }
+
+        .course-label { font-size: 0.7rem; opacity: 0.6; font-weight: 600; text-transform: uppercase; }
+        h4 { font-size: 1.3rem; margin: 10px 0; font-weight: 400; font-family: var(--serif-font); }
+
         .check {
-            width: 36px; height: 36px;
-            border: 2px solid var(--card-border);
+            width: 38px; height: 38px;
+            border: 1px solid var(--card-border);
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            font-size: 1.3rem; font-weight: bold;
+            transition: all 0.4s var(--spring);
+            font-size: 1.4rem;
             background: rgba(255,255,255,0.05);
-            color: transparent;
         }
+
         .completed .check {
-            background: #4ade80; border-color: #4ade80;
-            color: #000; box-shadow: 0 0 15px rgba(74, 222, 128, 0.5);
-            transform: scale(1.1);
+            background: #4ade80; border-color: #27ae60;
+            color: #000; box-shadow: 0 0 15px rgba(74, 222, 128, 0.4);
         }
-        .check:active { transform: scale(0.8); }
+
         #archive-container {
             position: fixed; bottom: 0; left: 0; right: 0;
-            background: linear-gradient(to top, var(--bg-paper) 60%, transparent);
-            padding: 20px 0; text-align: center; z-index: 100;
+            background: linear-gradient(to top, var(--bg-paper) 70%, transparent);
+            padding: 30px 0; text-align: center; z-index: 100;
         }
+
         #archive-toggle-btn {
-            background: var(--text-accent); color: var(--bg-paper);
-            border: none; padding: 12px 30px; border-radius: 30px;
+            background: var(--text-accent); color: white;
+            border: none; padding: 12px 35px; border-radius: 40px;
             cursor: pointer; font-weight: bold; font-family: inherit;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 20px var(--shadow-color);
         }
+
         #theme-toggle {
-            position: fixed; top: 20px; left: 20px; z-index: 999;
+            position: fixed; top: 40px; left: 20px; z-index: 9999;
             background: var(--card-bg); border: 1px solid var(--card-border);
             color: var(--text-accent); font-size: 1.5rem;
             cursor: pointer; border-radius: 50%; width: 50px; height: 50px;
             display: flex; justify-content: center; align-items: center;
             backdrop-filter: blur(5px);
         }
+
         .mission-hero {
-            background: var(--card-bg); padding: 20px;
-            border-radius: 12px; margin-bottom: 20px; text-align: center;
+            background: var(--card-bg); padding: 25px;
+            border-radius: 20px; margin-bottom: 25px; text-align: center;
+            border: 1px solid var(--card-border);
         }
-        .hero-title { font-size: 2rem; font-weight: 700; }
     </style>
 </head>
 <body data-theme="day">
-    <div id="debug-status">Initializing...</div>
+    <div id="debug-status">Ready.</div>
     <div class="full-screen-container">
         <header>
             <h1>לו"ז הגשות</h1>
@@ -146,17 +179,12 @@
         let allTasks = [];
         let currentSha = null;
         let showArchive = false;
-        let statusTimeout = null;
 
         function updateStatus(msg, isError = false) {
             const el = document.getElementById('debug-status');
             if (el) {
-                el.innerText = msg;
+                el.innerText = `[${new Date().toLocaleTimeString()}] ${msg}`;
                 el.style.color = isError ? '#ff4757' : '#2ed573';
-                el.style.borderBottomColor = isError ? '#ff4757' : '#2ed573';
-                el.classList.add('show');
-                if (statusTimeout) clearTimeout(statusTimeout);
-                statusTimeout = setTimeout(() => el.classList.remove('show'), 3000);
             }
         }
 
@@ -176,23 +204,17 @@
                 if (resp.ok) {
                     const data = await resp.json();
                     currentSha = data.sha;
-                    allTasks = JSON.parse(new TextDecoder().decode(new Uint8Array(atob(data.content).split('').map(c => c.charCodeAt(0)))));
+                    const decoded = new TextDecoder().decode(new Uint8Array(atob(data.content).split('').map(c => c.charCodeAt(0))));
+                    allTasks = JSON.parse(decoded);
                     renderDashboard();
-                    updateStatus("Updated.");
+                    updateStatus(`Connected. ${allTasks.length} tasks.`);
                 }
-            } catch (e) { updateStatus("Connection Error", true); }
+            } catch (e) { updateStatus("Offline", true); }
         }
 
         async function toggleTask(id) {
-            updateStatus("Saving...");
+            updateStatus("Updating...");
             try {
-                const getResp = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE_PATH}?ref=main&t=${new Date().getTime()}`, {
-                    headers: { "Authorization": `token ${GITHUB_TOKEN}` }
-                });
-                const data = await getResp.json();
-                currentSha = data.sha;
-                allTasks = JSON.parse(new TextDecoder().decode(new Uint8Array(atob(data.content).split('').map(c => c.charCodeAt(0)))));
-
                 const task = allTasks.find(t => t.id === id);
                 if (!task) return;
                 task.is_completed = !task.is_completed;
@@ -215,44 +237,53 @@
             } catch (e) { updateStatus("Sync Error", true); fetchTasks(); }
         }
 
+        function getTimeRemaining(dueDate) {
+            const total = Date.parse(dueDate) - Date.parse(new Date());
+            const days = Math.floor(total / (1000 * 60 * 60 * 24));
+            return days < 0 ? "עבר המועד" : (days === 0 ? "היום!" : `עוד ${days} ימים`);
+        }
+
         function renderDashboard() {
             const gridEl = document.getElementById('tasks-grid');
             const archiveContainer = document.getElementById('archive-container');
             const archiveBtn = document.getElementById('archive-toggle-btn');
             const heroEl = document.getElementById('next-mission');
-            const now = new Date();
+            
+            if (showArchive) document.body.classList.add('show-archive-active');
+            else document.body.classList.remove('show-archive-active');
 
             gridEl.innerHTML = '';
-            const activeTasks = allTasks.filter(t => !t.is_completed || (t.completed_at && (now - new Date(t.completed_at)) / 60000 < 20));
+            const activeTasks = allTasks.filter(t => !t.is_completed);
             const completedCount = allTasks.filter(t => t.is_completed).length;
-            const tasksToRender = showArchive ? allTasks : activeTasks;
 
-            const nextTask = activeTasks.find(t => !t.is_completed) || activeTasks[0];
-            if (nextTask) {
+            const nextTask = activeTasks[0] || allTasks[0];
+            if (nextTask && heroEl) {
                 heroEl.innerHTML = `
-                    <div style="font-size:0.8rem; opacity:0.7;">${nextTask.course || 'כללי'}</div>
+                    <div class="course-label">${nextTask.course || 'כללי'}</div>
                     <div class="hero-title">${nextTask.title}</div>
+                    <div style="font-size:1.1rem; margin:10px 0;">${getTimeRemaining(nextTask.due_date)}</div>
                     <div class="check" style="margin:10px auto;">${nextTask.is_completed ? '✓' : ''}</div>
                 `;
                 heroEl.querySelector('.check').onclick = () => toggleTask(nextTask.id);
             }
 
-            tasksToRender.forEach(task => {
+            allTasks.forEach(task => {
                 const item = document.createElement('div');
                 item.className = `task-item ${task.is_completed ? 'completed' : ''}`;
                 item.innerHTML = `
-                    <div style="display:flex; justify-content:space-between;">
-                        <span style="font-size:0.7rem; opacity:0.8;">${task.course || 'כללי'}</span>
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                        <span class="course-label">${task.course || 'כללי'}</span>
                         <div class="check">${task.is_completed ? '✓' : ''}</div>
                     </div>
                     <h4>${task.title}</h4>
+                    <div style="font-size:0.8rem; opacity:0.7;">${getTimeRemaining(task.due_date)}</div>
                 `;
                 item.querySelector('.check').onclick = () => toggleTask(task.id);
                 gridEl.appendChild(item);
             });
 
             archiveContainer.style.display = completedCount > 0 ? 'block' : 'none';
-            archiveBtn.innerText = showArchive ? "הסתר משימות" : `הצג משימות שהושלמו (${completedCount})`;
+            archiveBtn.innerText = showArchive ? "הסתר משימות שהושלמו" : `הצג משימות שהושלמו (${completedCount})`;
             archiveBtn.onclick = () => { showArchive = !showArchive; renderDashboard(); };
         }
 
