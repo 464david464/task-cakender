@@ -92,8 +92,8 @@
     "title": "מסכם ניסוי מס 5",
     "course": "מעבדה בפיזיקה",
     "due_date": "2026-09-23T21:00:00+00:00",
-    "is_completed": true,
-    "completed_at": "2026-03-30T04:03:27.905Z"
+    "is_completed": false,
+    "completed_at": null
   },
   {
     "id": "03d8e100eb463d50546a923065a5efb4",
