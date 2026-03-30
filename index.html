@@ -256,7 +256,7 @@
             const activeTasks = allTasks.filter(t => !t.is_completed);
             const completedCount = allTasks.filter(t => t.is_completed).length;
 
-            allTasks.forEach(task => {
+            tasksToRender.forEach(task => {
                 const item = document.createElement('div');
                 
                 // Urgent Logic: Mark if due in <= 3 days
