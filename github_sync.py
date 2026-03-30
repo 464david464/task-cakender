@@ -30,6 +30,7 @@ def fetch_moodle_tasks():
             elif dtstart.tzinfo is None:
                 dtstart = dtstart.replace(tzinfo=timezone.utc)
 
+            # Course Name Extraction
             course_name = "כללי"
             categories = component.get('categories')
             if categories:
@@ -42,9 +43,17 @@ def fetch_moodle_tasks():
             
             if any(kw in lower_s for kw in assignment_keywords):
                 task_id = hashlib.md5(f"{summary}{dtstart.isoformat()}".encode()).hexdigest()
+                
+                clean_title = summary.replace("יש להגיש את '", "").replace("'", "").strip()
+                
+                # Special Logic for Geometric Optics B
+                if "אופטיקה גיאומטרית ב" in course_name:
+                    if "מכשור אופטי" not in summary:
+                        clean_title = f"Zemax: {clean_title}"
+                
                 events.append({
                     "id": task_id,
-                    "title": summary.replace("יש להגיש את '", "").replace("'", "").strip(),
+                    "title": clean_title,
                     "course": course_name,
                     "due_date": dtstart.isoformat(),
                     "is_completed": False
@@ -64,9 +73,7 @@ def sync_to_github(new_tasks):
         sha = content['sha']
         existing = json.loads(base64.b64decode(content['content']).decode('utf-8'))
         
-        # Mapping existing completion status AND timestamps
         status_map = {t['id']: (t.get('is_completed', False), t.get('completed_at')) for t in existing}
-        
         for t in new_tasks:
             if t['id'] in status_map:
                 is_done, timestamp = status_map[t['id']]
@@ -75,7 +82,7 @@ def sync_to_github(new_tasks):
 
     final_json = json.dumps(new_tasks, indent=2, ensure_ascii=False)
     payload = {
-        "message": "Global Sync with Timestamps",
+        "message": "Zemax Logic Update",
         "content": base64.b64encode(final_json.encode('utf-8')).decode('utf-8'),
         "sha": sha,
         "branch": branch
