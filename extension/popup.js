@@ -36,7 +36,6 @@ function getTimeRemaining(dueDate) {
     const days = Math.floor(total / (1000 * 60 * 60 * 24));
     if (days < 0) return "עבר המועד";
     if (days === 0) return "היום!";
-    if (days === 1) return "מחר";
     return `עוד ${days} ימים`;
 }
 
@@ -48,6 +47,8 @@ function renderTasks(tasks) {
     }
     
     tasksDiv.innerHTML = '';
+    
+    // In extension, we show all tasks but grey out completed ones
     tasks.forEach(task => {
         const item = document.createElement('div');
         item.className = `task-card-wrapper ${task.is_completed ? 'completed' : ''}`;
@@ -59,13 +60,8 @@ function renderTasks(tasks) {
         const time = dueDate.toLocaleTimeString('he-IL', { hour:'2-digit', minute:'2-digit' });
 
         item.innerHTML = `
-            <!-- Layer 1: Artistic Object BEHIND -->
             <div class="art-backdrop ${getObjectStyle(task.course)}"></div>
-            
-            <!-- Layer 2: The Glass Lens -->
             <div class="glass-pane"></div>
-            
-            <!-- Layer 3: UI Content ON TOP -->
             <div class="content-layer">
                 <div class="task-top">
                     <div class="course-label">${task.course || 'GENERAL'}</div>
@@ -88,10 +84,8 @@ function renderTasks(tasks) {
             </div>
         `;
         
-        // Handle click on the checkbox without re-rendering everything immediately
         const checkbox = item.querySelector(`#check-${task.id}`);
         checkbox.addEventListener('change', () => toggleTask(task.id, checkbox.checked));
-        
         tasksDiv.appendChild(item);
     });
 }
@@ -101,6 +95,13 @@ async function toggleTask(id, isChecked) {
     if (!task) return;
     
     task.is_completed = isChecked;
+    if (task.is_completed) {
+        task.completed_at = new Date().toISOString();
+    } else {
+        delete task.completed_at;
+    }
+
+    renderTasks(currentTasks);
 
     try {
         const getResp = await fetch(`${API_URL}?ref=main`, {
@@ -123,10 +124,7 @@ async function toggleTask(id, isChecked) {
                 branch: "main" 
             })
         });
-    } catch (e) {
-        console.error("Save failed", e);
-        fetchTasks();
-    }
+    } catch (e) { fetchTasks(); }
 }
 
 document.getElementById('refresh').onclick = fetchTasks;

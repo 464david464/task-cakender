@@ -13,7 +13,6 @@ REPO = "464david464/task-cakender"
 FILE_PATH = "data.json"
 
 def fetch_moodle_tasks():
-    print("Fetching from Moodle...")
     headers = {"User-Agent": "Mozilla/5.0"}
     resp = requests.get(MOODLE_URL, headers=headers, verify=False)
     if not resp.content.strip().startswith(b"BEGIN:VCALENDAR"): return []
@@ -31,7 +30,6 @@ def fetch_moodle_tasks():
             elif dtstart.tzinfo is None:
                 dtstart = dtstart.replace(tzinfo=timezone.utc)
 
-            # Course Name
             course_name = "כללי"
             categories = component.get('categories')
             if categories:
@@ -59,26 +57,30 @@ def sync_to_github(new_tasks):
     url = f"https://api.github.com/repos/{REPO}/contents/{FILE_PATH}?ref={branch}"
     headers = {"Authorization": f"token {GITHUB_TOKEN}"}
     
-    # Get SHA
     resp = requests.get(url, headers=headers)
     sha = None
     if resp.status_code == 200:
         content = resp.json()
         sha = content['sha']
         existing = json.loads(base64.b64decode(content['content']).decode('utf-8'))
-        completed_ids = {t['id'] for t in existing if t.get('is_completed')}
+        
+        # Mapping existing completion status AND timestamps
+        status_map = {t['id']: (t.get('is_completed', False), t.get('completed_at')) for t in existing}
+        
         for t in new_tasks:
-            if t['id'] in completed_ids: t['is_completed'] = True
+            if t['id'] in status_map:
+                is_done, timestamp = status_map[t['id']]
+                t['is_completed'] = is_done
+                if timestamp: t['completed_at'] = timestamp
 
     final_json = json.dumps(new_tasks, indent=2, ensure_ascii=False)
     payload = {
-        "message": "Global Sync to Main",
+        "message": "Global Sync with Timestamps",
         "content": base64.b64encode(final_json.encode('utf-8')).decode('utf-8'),
         "sha": sha,
         "branch": branch
     }
-    put_resp = requests.put(f"https://api.github.com/repos/{REPO}/contents/{FILE_PATH}", headers=headers, json=payload)
-    print(f"Sync Status: {put_resp.status_code}")
+    requests.put(f"https://api.github.com/repos/{REPO}/contents/{FILE_PATH}", headers=headers, json=payload)
 
 if __name__ == "__main__":
     tasks = fetch_moodle_tasks()

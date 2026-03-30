@@ -4,24 +4,23 @@ const GITHUB_TOKEN = "ghp_YBIvY9f7c6FvpuYh" + "rSBt5R8Xm2OLLN2QF6e9";
 const REPO = "464david464/task-cakender";
 const FILE_PATH = "data.json";
 let currentSha = null;
+let showArchive = false;
 
 function debugLog(msg, isError = false) {
-    // Disabled for clean UI
     console.log(msg);
 }
 
 const applyTheme = (theme) => {
     body.dataset.theme = theme;
     localStorage.setItem('dashboard-theme', theme);
+    const themeToggle = document.getElementById('theme-toggle');
     if (themeToggle) {
         themeToggle.innerText = theme === 'day' ? '🌙' : '☀️';
     }
 };
 
 async function fetchTasks() {
-    debugLog("Fetching from Live API...");
     try {
-        // Fetching from API instead of static file to get INSTANT updates
         const url = `https://api.github.com/repos/${REPO}/contents/${FILE_PATH}?ref=main&t=${new Date().getTime()}`;
         const resp = await fetch(url, {
             headers: { 
@@ -37,27 +36,26 @@ async function fetchTasks() {
             const bytes = new Uint8Array(binaryString.length);
             for (let i = 0; i < binaryString.length; i++) bytes[i] = binaryString.charCodeAt(i);
             allTasks = JSON.parse(new TextDecoder().decode(bytes));
-            
-            debugLog(`Sync OK. ${allTasks.length} tasks.`);
             renderDashboard();
-        } else {
-            debugLog(`Fetch failed: ${resp.status}`, true);
         }
-    } catch (e) {
-        debugLog(`Error: ${e.message}`, true);
-    }
+    } catch (e) { console.error("Fetch error:", e); }
 }
 
 async function toggleTask(id) {
-    debugLog("Updating...");
     const task = allTasks.find(t => t.id === id);
     if (!task) return;
     
     task.is_completed = !task.is_completed;
+    // Add completion timestamp if newly completed
+    if (task.is_completed) {
+        task.completed_at = new Date().toISOString();
+    } else {
+        delete task.completed_at;
+    }
+    
     renderDashboard();
 
     try {
-        // Always get fresh SHA before update
         const getResp = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE_PATH}?ref=main`, {
             headers: { "Authorization": `token ${GITHUB_TOKEN}` }
         });
@@ -70,12 +68,9 @@ async function toggleTask(id) {
 
         const putResp = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE_PATH}`, {
             method: 'PUT',
-            headers: { 
-                "Authorization": `token ${GITHUB_TOKEN}`, 
-                "Content-Type": "application/json" 
-            },
+            headers: { "Authorization": `token ${GITHUB_TOKEN}`, "Content-Type": "application/json" },
             body: JSON.stringify({ 
-                message: "Sync from Tablet", 
+                message: "Status Update", 
                 content: btoa(binary), 
                 sha: currentSha, 
                 branch: "main" 
@@ -83,14 +78,10 @@ async function toggleTask(id) {
         });
         
         if (putResp.ok) {
-            debugLog("Saved.");
             const resData = await putResp.json();
             currentSha = resData.content.sha;
         }
-    } catch (e) {
-        debugLog("Save failed", true);
-        fetchTasks();
-    }
+    } catch (e) { fetchTasks(); }
 }
 
 function getTimeRemaining(dueDate) {
@@ -107,8 +98,22 @@ function renderDashboard() {
     if (!nextMissionEl || !tasksGridEl) return;
 
     tasksGridEl.innerHTML = '';
-    const upcoming = allTasks.filter(t => !t.is_completed);
-    const nextTask = upcoming[0] || allTasks[0];
+    const now = new Date();
+    
+    // Filter tasks for main view:
+    // Show if: NOT completed OR (completed AND less than 20 minutes ago)
+    const activeTasks = allTasks.filter(t => {
+        if (!t.is_completed) return true;
+        if (!t.completed_at) return true; // Legacy completed tasks without timestamp
+        const completedTime = new Date(t.completed_at);
+        const diffMinutes = (now - completedTime) / (1000 * 60);
+        return diffMinutes < 20;
+    });
+
+    const archivedTasks = allTasks.filter(t => !activeTasks.includes(t));
+
+    const upcoming = activeTasks.filter(t => !t.is_completed);
+    const nextTask = upcoming[0] || activeTasks[0];
 
     if (nextTask) {
         nextMissionEl.innerHTML = `
@@ -122,7 +127,9 @@ function renderDashboard() {
         nextMissionEl.querySelector('.hero-check').onclick = () => toggleTask(nextTask.id);
     }
 
-    allTasks.forEach(task => {
+    const tasksToShow = showArchive ? allTasks : activeTasks;
+
+    tasksToShow.forEach(task => {
         const item = document.createElement('div');
         item.className = `task-item ${task.is_completed ? 'completed' : ''} track-${task.track || 'general'}`;
         item.innerHTML = `
@@ -140,6 +147,18 @@ function renderDashboard() {
         item.querySelector('.check').onclick = (e) => { e.stopPropagation(); toggleTask(task.id); };
         tasksGridEl.appendChild(item);
     });
+
+    // Add Archive Toggle Button
+    if (archivedTasks.length > 0) {
+        const btnFrame = document.createElement('div');
+        btnFrame.style = "grid-column: 1/-1; text-align: center; padding: 20px;";
+        const btn = document.createElement('button');
+        btn.innerText = showArchive ? "הסתר משימות שהושלמו" : `הצג משימות בארכיון (${archivedTasks.length})`;
+        btn.style = "background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 10px 20px; border-radius: 30px; cursor: pointer; font-family: inherit;";
+        btn.onclick = () => { showArchive = !showArchive; renderDashboard(); };
+        btnFrame.appendChild(btn);
+        tasksGridEl.appendChild(btnFrame);
+    }
 }
 
 // Theme Logic
@@ -152,6 +171,6 @@ if (themeToggle) {
 }
 
 const savedTheme = localStorage.getItem('dashboard-theme') || 'day';
-document.body.dataset.theme = savedTheme;
+applyTheme(savedTheme);
 fetchTasks();
-setInterval(fetchTasks, 30 * 1000); // Check every 30 seconds for live sync
+setInterval(fetchTasks, 30 * 1000); 
