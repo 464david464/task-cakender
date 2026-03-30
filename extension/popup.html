@@ -30,74 +30,96 @@
             opacity: 0.4; margin: 0; text-transform: uppercase;
         }
 
+        #sync-status {
+            font-size: 0.5rem;
+            font-family: 'JetBrains Mono';
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.5;
+            transition: all 0.3s ease;
+            margin-top: 4px;
+        }
+        .status-syncing { color: var(--accent); opacity: 1 !important; }
+        .status-success { color: #4ade80; opacity: 1 !important; }
+        .status-error { color: #ef4444; opacity: 1 !important; }
+
+        #archive-toggle {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--accent);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.65rem;
+            font-family: 'JetBrains Mono';
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        #archive-toggle:hover {
+            background: rgba(165, 180, 252, 0.1);
+            border-color: var(--accent);
+        }
+
         /* --- THE CARD WRAPPER --- */
         .task-card-wrapper {
             position: relative;
             margin-bottom: 25px;
             border-radius: 24px;
             min-height: 130px;
-            overflow: hidden; /* חיתוך האופטיקה הפנימית */
+            overflow: hidden;
             background: transparent;
             transition: transform 0.5s var(--spring);
         }
 
-        /* 1. BACKGROUND ARTISTIC LAYER (BEHIND THE GLASS) */
         .art-backdrop {
             position: absolute;
             top: 0; left: 0;
             width: 80%; height: 100%;
             z-index: 1;
             pointer-events: none;
-            /* דעיכה חלקה לכיוון הטקסט (ימין) */
             mask-image: linear-gradient(to right, black 20%, transparent 80%);
             -webkit-mask-image: linear-gradient(to right, black 20%, transparent 80%);
             transition: filter 0.8s var(--spring), opacity 0.8s ease;
         }
 
-        /* Physical Optical Objects */
-        .prism-object { /* מנסרה וקרני אור */
+        .prism-object {
             background: 
                 linear-gradient(110deg, transparent 20%, #fbbf24 21%, #fbbf24 22%, transparent 23%),
                 linear-gradient(130deg, transparent 40%, #22d3ee 41%, #22d3ee 42%, transparent 43.5%),
                 radial-gradient(triangle at 10% 50%, #fff 0%, transparent 50%);
         }
-        .laser-object { /* קרן לייזר חדה */
+        .laser-object {
             background: linear-gradient(to right, transparent 15%, #ef4444 16%, #ef4444 17%, transparent 18%);
             filter: drop-shadow(0 0 15px #ef4444);
         }
-        .interference-object { /* אדוות התאבכות */
+        .interference-object {
             background: repeating-radial-gradient(circle at 0% 50%, transparent 0, transparent 15px, rgba(34, 197, 94, 0.3) 16px, transparent 18px);
         }
-        .orbital-object { /* אורביטלים מודרניים */
+        .orbital-object {
             background: radial-gradient(circle at 20% 40%, #3b82f6 0%, transparent 60%), radial-gradient(circle at 30% 70%, #f59e0b 0%, transparent 50%);
             filter: blur(5px);
         }
 
-        /* 2. THE LIQUID GLASS PANE (THE LENS) */
         .glass-pane {
             position: absolute;
             inset: 0;
             z-index: 2;
             border-radius: 24px;
-            /* שקיפות מוחלטת כנדרש */
             background: rgba(255, 255, 255, 0.02);
-            
-            /* שבירת אור פיזיקלית */
             backdrop-filter: var(--glass-refraction);
             -webkit-backdrop-filter: var(--glass-refraction);
-            
-            /* עובי ונפח (Total Internal Reflection) */
             box-shadow: 
-                inset 0 1px 1.5px rgba(255,255,255,0.3), /* Specular Highlight */
-                inset 0 -1.5px 3px rgba(0,0,0,0.5),      /* Edge Depth */
-                0 15px 35px rgba(0,0,0,0.5);             /* Drop Shadow */
-            
-            /* מסגרת מלוטשת */
+                inset 0 1px 1.5px rgba(255,255,255,0.3),
+                inset 0 -1.5px 3px rgba(0,0,0,0.5),
+                0 15px 35px rgba(0,0,0,0.5);
             border: 1px solid transparent;
             border-image: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 50%) 1;
         }
 
-        /* 3. CONTENT LAYER (ON TOP) */
         .content-layer {
             position: relative;
             z-index: 3;
@@ -122,7 +144,6 @@
             transition: all 0.5s ease;
         }
 
-        /* Selector: Lens Cap Design */
         .check-container { 
             width: 34px; height: 34px; cursor: pointer; 
             pointer-events: auto; position: relative;
@@ -142,14 +163,12 @@
             backdrop-filter: blur(5px);
         }
 
-        /* --- KINEMATICS: CHECKED STATE --- */
         .task-card-wrapper:has(:checked) .task-name {
             color: #64748b;
             text-shadow: none;
             opacity: 0.5;
         }
 
-        /* Optical Shift: Art becomes out of focus */
         .task-card-wrapper:has(:checked) .art-backdrop {
             filter: blur(20px) brightness(0.2) saturate(0);
             opacity: 0.3;
@@ -165,18 +184,58 @@
         }
         .task-card-wrapper:has(:checked) .lens-cap::after { display: block; }
 
+        /* --- UNMISSABLE NEON URGENT GLOW --- */
+        .task-card-wrapper.urgent .glass-pane {
+            border: 2px solid #22d3ee; /* ליבה בוהקת */
+            box-shadow: 
+                0 0 15px rgba(34, 211, 238, 0.6), /* זוהר קרוב */
+                0 0 30px rgba(34, 211, 238, 0.3), /* זוהר רחוק */
+                inset 0 0 15px rgba(34, 211, 238, 0.4); /* זוהר פנימי לתוך הזכוכית */
+            animation: neon-pulse 1.5s infinite alternate ease-in-out;
+        }
+
+        @keyframes neon-pulse {
+            from { filter: brightness(1) drop-shadow(0 0 2px #22d3ee); }
+            to { filter: brightness(1.5) drop-shadow(0 0 8px #22d3ee); }
+        }
+
+        /* --- RED LED INDICATOR --- */
+        .urgent-led {
+            width: 8px; height: 8px;
+            background: #ff0000;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #ff0000, 0 0 5px rgba(255,0,0,0.5);
+            animation: led-blink 2s infinite ease-in-out;
+        }
+
+        @keyframes led-blink {
+            0%, 100% { opacity: 1; filter: brightness(1.5); }
+            50% { opacity: 0.3; filter: brightness(0.5); }
+        }
+
         .due-row { display: flex; align-items: center; gap: 12px; margin-top: 10px; }
         .countdown { color: var(--accent); font-weight: 800; font-size: 0.8rem; }
         .full-date { font-size: 0.65rem; color: #94a3b8; font-family: 'JetBrains Mono'; }
 
-        .empty-state { text-align: center; padding: 100px 20px; color: #475569; letter-spacing: 3px; }
+        .empty-state { text-align: center; padding: 100px 20px; color: #475569; letter-spacing: 3px; font-family: 'JetBrains Mono'; font-size: 0.7rem; }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h2>OPTICAL_ENGINE // FINAL</h2>
-            <button id="refresh" style="border:none; cursor:pointer; background:none; color:#fff; font-size:1.2rem;">↻</button>
+        <div class="header" style="margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <div style="display:flex; flex-direction:column; gap: 2px; flex-shrink: 0;">
+                <h2 style="font-size: 0.8rem; opacity: 0.6; margin: 0;">TASK_COMMAND</h2>
+                <div id="sync-status">READY</div>
+            </div>
+            <div style="display:flex; gap:20px; align-items:center; margin-right: auto; padding-right: 20px;">
+                <button id="archive-toggle"></button>
+                <button id="refresh" style="border:none; cursor:pointer; background:none; color:#fff; font-size:1.2rem; padding: 5px;">↻</button>
+            </div>
         </div>
         <div id="tasks">
             <div class="empty-state">MOUNTING LENSES...</div>

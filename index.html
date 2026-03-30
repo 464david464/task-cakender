@@ -240,7 +240,9 @@
                     const data = await resp.json();
                     currentSha = data.sha;
                     const decoded = new TextDecoder().decode(new Uint8Array(atob(data.content).split('').map(c => c.charCodeAt(0))));
-                    allTasks = JSON.parse(decoded);
+                    const rawTasks = JSON.parse(decoded);
+                    // Filter out "מעבדה בפיזיקה" tasks
+                    allTasks = rawTasks.filter(t => !t.course || !t.course.includes("מעבדה בפיזיקה"));
                     renderDashboard();
                     updateStatus(`Sync OK. ${allTasks.length} tasks ready.`);
                 }
