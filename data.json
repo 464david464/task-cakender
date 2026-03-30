@@ -51,7 +51,8 @@
     "title": "מכין ניסוי מס 4",
     "course": "מעבדה בפיזיקה",
     "due_date": "2026-09-23T21:00:00+00:00",
-    "is_completed": false
+    "is_completed": true,
+    "completed_at": "2026-03-30T03:03:41.404Z"
   },
   {
     "id": "0c6a2015507a4adda04d62bf71e75f68",
