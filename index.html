@@ -51,7 +51,6 @@
             opacity: 0.4;
         }
 
-        /* Fixed Green Status Bar */
         #debug-status {
             background: rgba(0, 0, 0, 0.95);
             color: #2ed573;
@@ -69,7 +68,7 @@
             width: 95%; max-width: 1400px;
             margin: 0 auto; display: flex; flex-direction: column; flex-grow: 1;
             overflow: hidden;
-            padding-top: 30px; /* Space for the status bar */
+            padding-top: 30px;
         }
 
         header { text-align: center; padding: 2vh 0; flex-shrink: 0; }
@@ -97,11 +96,7 @@
             display: flex; flex-direction: column; justify-content: space-between;
         }
 
-        .task-item.completed {
-            display: none; /* Hidden by default when completed */
-        }
-        
-        /* Show completed tasks only if archive is active */
+        .task-item.completed { display: none; }
         body.show-archive-active .task-item.completed {
             display: flex !important;
             opacity: 0.4;
@@ -109,7 +104,7 @@
         }
 
         .course-label { font-size: 0.7rem; opacity: 0.6; font-weight: 600; text-transform: uppercase; }
-        h4 { font-size: 1.3rem; margin: 10px 0; font-weight: 400; font-family: var(--serif-font); }
+        h4 { font-size: 1.4rem; margin: 10px 0; font-weight: 400; font-family: var(--serif-font); }
 
         .check {
             width: 38px; height: 38px;
@@ -117,7 +112,7 @@
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             cursor: pointer;
-            transition: all 0.4s var(--spring);
+            transition: all 0.4s ease;
             font-size: 1.4rem;
             background: rgba(255,255,255,0.05);
         }
@@ -151,8 +146,12 @@
 
         .mission-hero {
             background: var(--card-bg); padding: 25px;
-            border-radius: 20px; margin-bottom: 25px; text-align: center;
+            border-radius: 20px; margin: 30px auto 25px auto; /* Added top margin for gap from theme toggle */
+            text-align: center;
             border: 1px solid var(--card-border);
+            display: none; /* Hidden by default, JS will show if < 3 days */
+            width: 100%;
+            max-width: 800px;
         }
     </style>
 </head>
@@ -195,7 +194,6 @@
         };
 
         async function fetchTasks() {
-            updateStatus("Syncing...");
             try {
                 const url = `https://api.github.com/repos/${REPO}/contents/${FILE_PATH}?ref=main&t=${new Date().getTime()}`;
                 const resp = await fetch(url, {
@@ -207,13 +205,12 @@
                     const decoded = new TextDecoder().decode(new Uint8Array(atob(data.content).split('').map(c => c.charCodeAt(0))));
                     allTasks = JSON.parse(decoded);
                     renderDashboard();
-                    updateStatus(`Connected. ${allTasks.length} tasks.`);
+                    updateStatus(`Sync OK. ${allTasks.length} tasks.`);
                 }
-            } catch (e) { updateStatus("Offline", true); }
+            } catch (e) { updateStatus("Cloud Error", true); }
         }
 
         async function toggleTask(id) {
-            updateStatus("Updating...");
             try {
                 const task = allTasks.find(t => t.id === id);
                 if (!task) return;
@@ -231,10 +228,10 @@
                     body: JSON.stringify({ message: "Sync", content: btoa(binary), sha: currentSha, branch: "main" })
                 });
                 if (putResp.ok) {
-                    updateStatus("Saved.");
                     currentSha = (await putResp.json()).content.sha;
+                    updateStatus("Saved.");
                 }
-            } catch (e) { updateStatus("Sync Error", true); fetchTasks(); }
+            } catch (e) { fetchTasks(); }
         }
 
         function getTimeRemaining(dueDate) {
@@ -248,7 +245,8 @@
             const archiveContainer = document.getElementById('archive-container');
             const archiveBtn = document.getElementById('archive-toggle-btn');
             const heroEl = document.getElementById('next-mission');
-            
+            const now = new Date();
+
             if (showArchive) document.body.classList.add('show-archive-active');
             else document.body.classList.remove('show-archive-active');
 
@@ -256,18 +254,34 @@
             const activeTasks = allTasks.filter(t => !t.is_completed);
             const completedCount = allTasks.filter(t => t.is_completed).length;
 
-            const nextTask = activeTasks[0] || allTasks[0];
+            const nextTask = activeTasks[0];
+            let heroShown = false;
+
             if (nextTask && heroEl) {
-                heroEl.innerHTML = `
-                    <div class="course-label">${nextTask.course || 'כללי'}</div>
-                    <div class="hero-title">${nextTask.title}</div>
-                    <div style="font-size:1.1rem; margin:10px 0;">${getTimeRemaining(nextTask.due_date)}</div>
-                    <div class="check" style="margin:10px auto;">${nextTask.is_completed ? '✓' : ''}</div>
-                `;
-                heroEl.querySelector('.check').onclick = () => toggleTask(nextTask.id);
+                const timeDiff = Date.parse(nextTask.due_date) - now.getTime();
+                const daysDiff = timeDiff / (1000 * 60 * 60 * 24);
+
+                if (daysDiff <= 3 && daysDiff >= -1) {
+                    heroEl.style.display = 'block';
+                    heroEl.innerHTML = `
+                        <div class="course-label">${nextTask.course || 'כללי'}</div>
+                        <div class="hero-title">${nextTask.title}</div>
+                        <div style="font-size:1.1rem; margin:10px 0;">${getTimeRemaining(nextTask.due_date)}</div>
+                        <div class="check" style="margin:10px auto;">${nextTask.is_completed ? '✓' : ''}</div>
+                    `;
+                    heroEl.querySelector('.check').onclick = () => toggleTask(nextTask.id);
+                    heroShown = true;
+                } else {
+                    heroEl.style.display = 'none';
+                }
+            } else if (heroEl) {
+                heroEl.style.display = 'none';
             }
 
-            allTasks.forEach(task => {
+            allTasks.forEach((task, index) => {
+                // If hero is shown, don't show the same task in the grid
+                if (heroShown && nextTask && task.id === nextTask.id) return;
+
                 const item = document.createElement('div');
                 item.className = `task-item ${task.is_completed ? 'completed' : ''}`;
                 item.innerHTML = `
