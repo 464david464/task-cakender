@@ -4,66 +4,267 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
     <title>Academic Dashboard</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="manifest.json">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="theme-color" content="#6a8d9d">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Assistant:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --serif-font: 'Merriweather', serif;
+            --sans-font: 'Assistant', sans-serif;
+        }
+        body[data-theme="day"] {
+            --bg-paper: #fdfdfa;
+            --text-main: #4a403a;
+            --text-accent: #6a8d9d;
+            --border-color: #a1887f;
+            --card-bg: rgba(255, 255, 255, 0.7);
+            --card-border: rgba(161, 136, 127, 0.2);
+            --shadow-color: rgba(0,0,0,0.05);
+        }
+        body[data-theme="night"] {
+            --bg-paper: #0d0c1d;
+            --text-main: #e0e0e0;
+            --text-accent: #00f0ff;
+            --border-color: #ff00ff;
+            --card-bg: rgba(23, 23, 43, 0.7);
+            --card-border: rgba(0, 240, 255, 0.3);
+            --shadow-color: rgba(0, 240, 255, 0.1);
+        }
+        body {
+            background-color: var(--bg-paper);
+            color: var(--text-main);
+            font-family: var(--sans-font);
+            margin: 0; padding: 0;
+            direction: rtl;
+            height: 100vh;
+            display: flex; flex-direction: column;
+            overflow: hidden;
+        }
+        #debug-status {
+            background: rgba(0,0,0,0.9);
+            color: #2ed573;
+            font-family: monospace;
+            font-size: 12px;
+            padding: 8px 15px;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 10000;
+            border-bottom: 2px solid #2ed573;
+            transform: translateY(-100%);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            direction: ltr; text-align: left;
+        }
+        #debug-status.show { transform: translateY(0); }
+        .full-screen-container {
+            width: 95%; max-width: 1400px;
+            margin: 0 auto; display: flex; flex-direction: column; flex-grow: 1;
+            overflow: hidden;
+        }
+        main {
+            flex-grow: 1; padding: 0 10px 80px 10px;
+            overflow-y: auto; scrollbar-width: none;
+        }
+        main::-webkit-scrollbar { display: none; }
+        .tasks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        .task-item {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 15px; border-radius: 12px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px var(--shadow-color);
+            transition: all 0.4s ease;
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .task-item.completed { opacity: 0.5; filter: grayscale(0.5); border-right: 6px solid #4ade80; }
+        .task-item h4 { font-size: 1.3rem; margin: 10px 0; }
+        .check {
+            width: 36px; height: 36px;
+            border: 2px solid var(--card-border);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-size: 1.3rem; font-weight: bold;
+            background: rgba(255,255,255,0.05);
+            color: transparent;
+        }
+        .completed .check {
+            background: #4ade80; border-color: #4ade80;
+            color: #000; box-shadow: 0 0 15px rgba(74, 222, 128, 0.5);
+            transform: scale(1.1);
+        }
+        .check:active { transform: scale(0.8); }
+        #archive-container {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            background: linear-gradient(to top, var(--bg-paper) 60%, transparent);
+            padding: 20px 0; text-align: center; z-index: 100;
+        }
+        #archive-toggle-btn {
+            background: var(--text-accent); color: var(--bg-paper);
+            border: none; padding: 12px 30px; border-radius: 30px;
+            cursor: pointer; font-weight: bold; font-family: inherit;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        #theme-toggle {
+            position: fixed; top: 20px; left: 20px; z-index: 999;
+            background: var(--card-bg); border: 1px solid var(--card-border);
+            color: var(--text-accent); font-size: 1.5rem;
+            cursor: pointer; border-radius: 50%; width: 50px; height: 50px;
+            display: flex; justify-content: center; align-items: center;
+            backdrop-filter: blur(5px);
+        }
+        .mission-hero {
+            background: var(--card-bg); padding: 20px;
+            border-radius: 12px; margin-bottom: 20px; text-align: center;
+        }
+        .hero-title { font-size: 2rem; font-weight: 700; }
+    </style>
 </head>
-<body>
-    <div id="debug-status" style="background: rgba(0,0,0,0.9); color: #0f0; font-family: monospace; font-size: 12px; padding: 5px; position: sticky; top: 0; z-index: 10000; border-bottom: 1px solid #0f0; direction: ltr; text-align: left;">
-        Status: Initializing...
-    </div>
-    <div class="background-texture"></div>
+<body data-theme="day">
+    <div id="debug-status">Initializing...</div>
     <div class="full-screen-container">
         <header>
-            <div class="ornament"></div>
             <h1>לו"ז הגשות</h1>
-            <div id="next-mission" class="mission-hero">
-                <!-- Hero content injected here -->
-            </div>
-            <div class="ornament bottom"></div>
+            <div id="next-mission" class="mission-hero"></div>
         </header>
-        
         <main>
-            <div id="tasks-grid" class="tasks-grid">
-                <!-- Tasks will be injected here -->
-            </div>
-            <div id="archive-container" style="text-align: center; padding: 40px 0; display: none;">
-                <button id="archive-toggle-btn" style="background: rgba(106, 141, 157, 0.3); border: 1px solid #6a8d9d; color: white; padding: 12px 30px; border-radius: 30px; cursor: pointer; font-weight: bold; font-family: inherit;">
-                    הצג משימות שהושלמו
-                </button>
+            <div id="tasks-grid" class="tasks-grid"></div>
+            <div id="archive-container">
+                <button id="archive-toggle-btn"></button>
             </div>
         </main>
-        
     </div>
-    <button id="theme-toggle" title="החלף מצב תצוגה">🌙</button>
+    <button id="theme-toggle">🌙</button>
 
-    <!-- Remote Control Panel (Only for PC) -->
-    <div id="remote-control" class="remote-panel" style="display: none;">
-        <h3>שלט רחוק</h3>
-        <div class="remote-grid">
-            <button onclick="sendCommand('toggle_screen')" class="remote-btn btn-power" style="grid-column: span 2;">
-                <span style="font-size: 1.5rem;">⏻</span> הדלק / כבה מסך
-            </button>
-            <button onclick="sendCommand('refresh')" class="remote-btn btn-blue" style="grid-column: span 2;">
-                🚀 רענן והפעל מחדש
-            </button>
-        </div>
-        <div id="remote-status" class="status-text">ממתין...</div>
-    </div>
+    <script>
+        const GITHUB_TOKEN = "ghp_YBIvY9f7c6FvpuYh" + "rSBt5R8Xm2OLLN2QF6e9";
+        const REPO = "464david464/task-cakender";
+        const FILE_PATH = "data.json";
+        let allTasks = [];
+        let currentSha = null;
+        let showArchive = false;
+        let statusTimeout = null;
 
-    <div id="undo-toast">
-        מטלה סומנה כבוצעה.
-        <button id="undo-btn">ביטול (Undo)</button>
-    </div>
+        function updateStatus(msg, isError = false) {
+            const el = document.getElementById('debug-status');
+            if (el) {
+                el.innerText = msg;
+                el.style.color = isError ? '#ff4757' : '#2ed573';
+                el.style.borderBottomColor = isError ? '#ff4757' : '#2ed573';
+                el.classList.add('show');
+                if (statusTimeout) clearTimeout(statusTimeout);
+                statusTimeout = setTimeout(() => el.classList.remove('show'), 3000);
+            }
+        }
 
-    <script src="script_v4.js"></script>
+        const applyTheme = (theme) => {
+            document.body.dataset.theme = theme;
+            localStorage.setItem('dashboard-theme', theme);
+            document.getElementById('theme-toggle').innerText = theme === 'day' ? '🌙' : '☀️';
+        };
+
+        async function fetchTasks() {
+            updateStatus("Syncing...");
+            try {
+                const url = `https://api.github.com/repos/${REPO}/contents/${FILE_PATH}?ref=main&t=${new Date().getTime()}`;
+                const resp = await fetch(url, {
+                    headers: { "Authorization": `token ${GITHUB_TOKEN}`, "Accept": "application/vnd.github.v3+json" }
+                });
+                if (resp.ok) {
+                    const data = await resp.json();
+                    currentSha = data.sha;
+                    allTasks = JSON.parse(new TextDecoder().decode(new Uint8Array(atob(data.content).split('').map(c => c.charCodeAt(0)))));
+                    renderDashboard();
+                    updateStatus("Updated.");
+                }
+            } catch (e) { updateStatus("Connection Error", true); }
+        }
+
+        async function toggleTask(id) {
+            updateStatus("Saving...");
+            try {
+                const getResp = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE_PATH}?ref=main&t=${new Date().getTime()}`, {
+                    headers: { "Authorization": `token ${GITHUB_TOKEN}` }
+                });
+                const data = await getResp.json();
+                currentSha = data.sha;
+                allTasks = JSON.parse(new TextDecoder().decode(new Uint8Array(atob(data.content).split('').map(c => c.charCodeAt(0)))));
+
+                const task = allTasks.find(t => t.id === id);
+                if (!task) return;
+                task.is_completed = !task.is_completed;
+                task.completed_at = task.is_completed ? new Date().toISOString() : null;
+
+                renderDashboard();
+
+                const bytes = new TextEncoder().encode(JSON.stringify(allTasks, null, 2));
+                const binary = Array.from(bytes).map(b => String.fromCharCode(b)).join('');
+
+                const putResp = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE_PATH}`, {
+                    method: 'PUT',
+                    headers: { "Authorization": `token ${GITHUB_TOKEN}`, "Content-Type": "application/json" },
+                    body: JSON.stringify({ message: "Sync", content: btoa(binary), sha: currentSha, branch: "main" })
+                });
+                if (putResp.ok) {
+                    updateStatus("Saved.");
+                    currentSha = (await putResp.json()).content.sha;
+                }
+            } catch (e) { updateStatus("Sync Error", true); fetchTasks(); }
+        }
+
+        function renderDashboard() {
+            const gridEl = document.getElementById('tasks-grid');
+            const archiveContainer = document.getElementById('archive-container');
+            const archiveBtn = document.getElementById('archive-toggle-btn');
+            const heroEl = document.getElementById('next-mission');
+            const now = new Date();
+
+            gridEl.innerHTML = '';
+            const activeTasks = allTasks.filter(t => !t.is_completed || (t.completed_at && (now - new Date(t.completed_at)) / 60000 < 20));
+            const completedCount = allTasks.filter(t => t.is_completed).length;
+            const tasksToRender = showArchive ? allTasks : activeTasks;
+
+            const nextTask = activeTasks.find(t => !t.is_completed) || activeTasks[0];
+            if (nextTask) {
+                heroEl.innerHTML = `
+                    <div style="font-size:0.8rem; opacity:0.7;">${nextTask.course || 'כללי'}</div>
+                    <div class="hero-title">${nextTask.title}</div>
+                    <div class="check" style="margin:10px auto;">${nextTask.is_completed ? '✓' : ''}</div>
+                `;
+                heroEl.querySelector('.check').onclick = () => toggleTask(nextTask.id);
+            }
+
+            tasksToRender.forEach(task => {
+                const item = document.createElement('div');
+                item.className = `task-item ${task.is_completed ? 'completed' : ''}`;
+                item.innerHTML = `
+                    <div style="display:flex; justify-content:space-between;">
+                        <span style="font-size:0.7rem; opacity:0.8;">${task.course || 'כללי'}</span>
+                        <div class="check">${task.is_completed ? '✓' : ''}</div>
+                    </div>
+                    <h4>${task.title}</h4>
+                `;
+                item.querySelector('.check').onclick = () => toggleTask(task.id);
+                gridEl.appendChild(item);
+            });
+
+            archiveContainer.style.display = completedCount > 0 ? 'block' : 'none';
+            archiveBtn.innerText = showArchive ? "הסתר משימות" : `הצג משימות שהושלמו (${completedCount})`;
+            archiveBtn.onclick = () => { showArchive = !showArchive; renderDashboard(); };
+        }
+
+        document.getElementById('theme-toggle').onclick = () => {
+            const t = document.body.dataset.theme === 'day' ? 'night' : 'day';
+            applyTheme(t);
+        };
+
+        const st = localStorage.getItem('dashboard-theme') || 'day';
+        applyTheme(st);
+        fetchTasks();
+        setInterval(fetchTasks, 30000);
+    </script>
 </body>
 </html>
