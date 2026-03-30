@@ -5,52 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <title>Academic Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Assistant:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --serif-font: 'Merriweather', serif;
             --sans-font: 'Assistant', sans-serif;
         }
 
-        /* --- Day Theme: Warm Library --- */
+        /* --- Day Theme: Library & Coarse Paper --- */
         body[data-theme="day"] {
-            --bg-paper: #f4ece1; 
-            --text-main: #4a3728; 
-            --text-accent: #8b5a2b; 
-            --card-bg: rgba(252, 248, 243, 0.95);
-            --card-border: rgba(139, 90, 43, 0.2);
-            --shadow-color: rgba(74, 55, 40, 0.12);
-            --urgent-color: #d4a373;
+            --bg-paper: #f8f3eb;               /* רקע נייר שמנת חמים */
+            --text-main: #2a241e;              /* צבע דיו עמוק */
+            --text-accent: #7d5a3c;            /* חום עץ עדין */
+            --card-bg: rgba(255, 255, 255, 0.7); /* כרטיסיית נייר חלק */
+            --card-border: rgba(125, 90, 60, 0.12);
+            --shadow-color: rgba(80, 60, 40, 0.15); /* צל עדין מאוד בגוון חום-נייר */
+            --urgent-color: #d4a373;           /* חום-כתום-זהב (דחוף) */
         }
 
-        /* --- Night Theme: Prism --- */
+        /* --- Night Theme: Prism (Glow Edition) --- */
         body[data-theme="night"] {
-            --bg-paper: #05070a;
-            --text-main: #e2e8f0;
-            --text-accent: #a5b4fc;
-            --card-bg: rgba(255, 255, 255, 0.02);
-            --card-border: rgba(255, 255, 255, 0.1);
-            --shadow-color: rgba(0, 0, 0, 0.5);
-            --urgent-color: #00f0ff;
+            --bg-paper: #0a0c14;               /* רקע כחול-שחור רך יותר */
+            --text-main: #ffffff;              /* ליבה לבנה לטקסט */
+            --text-accent: #a5b4fc;            /* הכחול המקורי */
+            --card-bg: rgba(15, 20, 35, 0.8);  /* רקע כרטיסייה משתלב */
+            --card-border: rgba(255, 255, 255, 0.2);
+            --shadow-color: rgba(139, 92, 246, 0.4); /* סגול עמוק לכרטיסיות */
+            --urgent-color: #00f0ff;           /* ציאן המקורי (דחוף) */
+        }
+
+        /* יצירת הזוהר (Glow) - שכבות כפולות */
+        body[data-theme="night"] .task-item {
+            border: 1px solid rgba(255, 255, 255, 0.3); 
+            box-shadow: 0 0 10px rgba(139, 92, 246, 0.3), 0 0 20px rgba(139, 92, 246, 0.15); /* זוהר סגול רב-שכבתי */
+        }
+
+        body[data-theme="night"] .check {
+            border-color: #f0f9ff;
+            box-shadow: 0 0 8px rgba(165, 180, 252, 0.6), 0 0 15px rgba(165, 180, 252, 0.3); /* זוהר כחול עמוק */
+            color: #ffffff;
+        }
+
+        body[data-theme="night"] .course-label {
+            color: #fff1f2; /* לבן ורדרד נקי */
+            text-shadow: none;
+        }
+
+        /* הראשי (Urgent) נשאר זוהר בדיוק כמו שהוא */
+        body[data-theme="night"] .task-item.urgent {
+            border: 2px solid #ffffff; /* חיזוק הליבה הלבנה */
+            box-shadow: 0 0 25px var(--urgent-color), 0 0 10px var(--urgent-color);
         }
 
         body {
             background-color: var(--bg-paper);
             color: var(--text-main);
             font-family: var(--sans-font);
+            font-weight: 200;
+            letter-spacing: 0.2px;
             margin: 0; padding: 0;
             direction: rtl;
             height: 100vh;
             display: flex; flex-direction: column;
-            overflow: hidden;
+            overflow: hidden; /* Keep body fixed */
             overscroll-behavior-y: contain;
             transition: background-color 0.8s ease;
         }
 
         body[data-theme="day"]::before {
             content: ""; position: fixed; inset: 0; z-index: -1;
-            background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
-            opacity: 0.4;
+            /* טקסטורת נייר גסה עם סיבים בולטים */
+            background-image: url("https://www.transparenttextures.com/patterns/exclusive-paper.png");
+            opacity: 0.8;
         }
 
         /* Status Bar - Neon Green */
@@ -68,16 +93,21 @@
 
         .full-screen-container {
             width: 95%; max-width: 1400px;
-            margin: 0 auto; display: flex; flex-direction: column; flex-grow: 1;
+            margin: 0 auto; display: flex; flex-direction: column; 
+            height: 100vh; /* Force container to screen height */
+            min-height: 0; /* Crucial for flex scrolling */
             padding-top: 40px;
         }
 
         header { text-align: center; padding: 15px 0; flex-shrink: 0; }
-        h1 { font-family: var(--serif-font); font-size: 2rem; font-weight: 300; margin: 0; opacity: 0.8; }
+        h1 { font-family: var(--sans-font); font-size: 2.2rem; font-weight: 200; margin: 0; opacity: 0.9; letter-spacing: 1px; }
 
         main {
-            flex-grow: 1; padding: 20px 20px 120px 20px;
-            overflow-y: auto; scrollbar-width: none;
+            flex: 1; /* Grow and shrink as needed */
+            padding: 20px 20px 120px 20px;
+            overflow-y: auto; /* Enable vertical scroll */
+            -webkit-overflow-scrolling: touch; /* Smooth scroll for tablet */
+            scrollbar-width: none;
         }
         main::-webkit-scrollbar { display: none; }
 
@@ -109,21 +139,27 @@
             filter: grayscale(0.8);
         }
 
-        .course-label { font-size: 0.9rem; opacity: 0.6; font-weight: 600; text-transform: uppercase; }
-        h4 { font-size: 1.4rem; margin: 10px 0; font-weight: 400; font-family: var(--serif-font); line-height: 1.2; }
+        .course-label { font-size: 0.8rem; opacity: 0.8; font-weight: 300; text-transform: uppercase; letter-spacing: 0.5px; }
+        h4 { font-size: 1.3rem; margin: 10px 0; font-weight: 300; font-family: var(--sans-font); line-height: 1.3; }
 
         .check {
             width: 40px; height: 40px;
-            border: 1px solid var(--card-border);
+            border: 1px solid rgba(169, 76, 9, 0.859); /* אדום חותמת שעווה למצב יום */
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             cursor: pointer;
             transition: all 0.3s ease;
             font-size: 1.5rem;
-            background: rgba(255,255,255,0.05);
+            background: rgba(166, 61, 64, 0.05); /* רקע אדמדם עדין */
+            box-shadow: 0 0 5px rgba(166, 61, 64, 0.1);
         }
 
         .completed .check {
+            background: #a63d40; border-color: #822f31;
+            color: #ffffff; box-shadow: 0 0 15px rgba(166, 61, 64, 0.4);
+        }
+
+        body[data-theme="night"] .completed .check {
             background: #4ade80; border-color: #27ae60;
             color: #000; box-shadow: 0 0 15px rgba(74, 222, 128, 0.4);
         }
@@ -269,7 +305,7 @@
                         <div class="check">${task.is_completed ? '✓' : ''}</div>
                     </div>
                     <h4>${task.title}</h4>
-                    <div style="font-size:0.85rem; opacity:0.7;">${getTimeRemaining(task.due_date)}</div>
+                    <div style="font-size:0.85rem; opacity:0.8; font-weight: 600;">${getTimeRemaining(task.due_date)}</div>
                 `;
                 item.querySelector('.check').onclick = () => toggleTask(task.id);
                 gridEl.appendChild(item);
