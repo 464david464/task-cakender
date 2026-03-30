@@ -20,14 +20,16 @@
     "title": "תיבת הגשה 3",
     "course": "פיזיקה כללית ג' (מודרנית)",
     "due_date": "2026-04-14T21:00:00+00:00",
-    "is_completed": false
+    "is_completed": true,
+    "completed_at": "2026-03-30T04:03:26.065Z"
   },
   {
     "id": "e33b2b571839778ddbfc9618424a0526",
     "title": "להגיש תרגיל 3",
     "course": "שיטות מתמטיות בפיזיקה",
     "due_date": "2026-04-16T22:00:00+00:00",
-    "is_completed": false
+    "is_completed": true,
+    "completed_at": "2026-03-30T04:03:26.235Z"
   },
   {
     "id": "684cb4bc7238d8a14a29221f890837ab",
