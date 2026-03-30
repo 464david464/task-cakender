@@ -96,8 +96,7 @@
     "title": "7 סכום",
     "course": "מעבדה באופטיקה",
     "due_date": "2027-03-14T22:00:00+00:00",
-    "is_completed": true,
-    "completed_at": "2026-03-30T05:41:43.340Z"
+    "is_completed": false
   },
   {
     "id": "9d018098e5574dca6af42cf8de9abbe0",
