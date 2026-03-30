@@ -75,21 +75,21 @@
     "title": "5 מסכם",
     "course": "מעבדה באופטיקה",
     "due_date": "2027-03-14T22:00:00+00:00",
-    "is_completed": false
+    "is_completed": true
   },
   {
     "id": "8244d082138d27f421d89c0a3c554c90",
     "title": "2 מכין",
     "course": "מעבדה באופטיקה",
     "due_date": "2027-03-14T22:00:00+00:00",
-    "is_completed": false
+    "is_completed": true
   },
   {
     "id": "719b11755cd2e1a75af89efea6a4952a",
     "title": "2 סכום",
     "course": "מעבדה באופטיקה",
     "due_date": "2027-03-14T22:00:00+00:00",
-    "is_completed": false
+    "is_completed": true
   },
   {
     "id": "6d68b89a77dc103cc66e05ff0eed6e70",
