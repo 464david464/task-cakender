@@ -46,7 +46,6 @@ async function toggleTask(id) {
     if (!task) return;
     
     task.is_completed = !task.is_completed;
-    // Add completion timestamp if newly completed
     if (task.is_completed) {
         task.completed_at = new Date().toISOString();
     } else {
@@ -68,7 +67,10 @@ async function toggleTask(id) {
 
         const putResp = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE_PATH}`, {
             method: 'PUT',
-            headers: { "Authorization": `token ${GITHUB_TOKEN}`, "Content-Type": "application/json" },
+            headers: { 
+                "Authorization": `token ${GITHUB_TOKEN}`, 
+                "Content-Type": "application/json" 
+            },
             body: JSON.stringify({ 
                 message: "Status Update", 
                 content: btoa(binary), 
@@ -100,17 +102,16 @@ function renderDashboard() {
     tasksGridEl.innerHTML = '';
     const now = new Date();
     
-    // Filter tasks for main view
+    // Split tasks
+    const allCompleted = allTasks.filter(t => t.is_completed);
+    
+    // Active are: NOT completed OR (completed but less than 20 minutes)
     const activeTasks = allTasks.filter(t => {
         if (!t.is_completed) return true;
-        if (!t.completed_at) return false; // Hide legacy completed tasks
-        const completedTime = new Date(t.completed_at);
-        const diffMinutes = (now - completedTime) / (1000 * 60);
-        return diffMinutes < 20;
+        if (!t.completed_at) return false;
+        const diff = (now - new Date(t.completed_at)) / (1000 * 60);
+        return diff < 20;
     });
-
-    const archivedTasks = allTasks.filter(t => t.is_completed && !activeTasks.includes(t));
-    const allCompletedTasks = allTasks.filter(t => t.is_completed);
 
     const upcoming = activeTasks.filter(t => !t.is_completed);
     const nextTask = upcoming[0] || activeTasks[0];
@@ -149,19 +150,20 @@ function renderDashboard() {
     });
 
     // Add Archive Toggle Button
-    if (allCompletedTasks.length > 0) {
+    if (allCompleted.length > 0) {
         const btnFrame = document.createElement('div');
-        btnFrame.style = "grid-column: 1/-1; text-align: center; padding: 20px;";
+        btnFrame.style = "grid-column: 1/-1; text-align: center; padding: 30px 0;";
         const btn = document.createElement('button');
-        btn.innerText = showArchive ? "הסתר משימות שהושלמו" : `הצג משימות שהושלמו (${allCompletedTasks.length})`;
-        btn.style = "background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 10px 20px; border-radius: 30px; cursor: pointer; font-family: inherit;";
+        btn.innerText = showArchive ? "הסתר משימות שהושלמו" : `הצג משימות שהושלמו (${allCompleted.length})`;
+        // More visible styling
+        btn.style = "background: #6a8d9d; border: none; color: white; padding: 12px 25px; border-radius: 30px; cursor: pointer; font-family: inherit; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.3);";
         btn.onclick = () => { showArchive = !showArchive; renderDashboard(); };
         btnFrame.appendChild(btn);
         tasksGridEl.appendChild(btnFrame);
     }
 }
 
-// Theme Logic
+// Init
 const themeToggle = document.getElementById('theme-toggle');
 if (themeToggle) {
     themeToggle.addEventListener('click', () => {
