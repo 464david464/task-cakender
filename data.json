@@ -12,152 +12,133 @@
     "title": "להגיש תרגיל בית מס 2",
     "course": "שיטות מתמטיות בפיזיקה",
     "due_date": "2026-04-11T21:00:00+00:00",
-    "is_completed": false,
-    "completed_at": null
+    "is_completed": false
   },
   {
     "id": "6e32d85ee2231c3b71e053cb613c9159",
     "title": "תיבת הגשה 3",
     "course": "פיזיקה כללית ג' (מודרנית)",
     "due_date": "2026-04-14T21:00:00+00:00",
-    "is_completed": false,
-    "completed_at": null
+    "is_completed": false
   },
   {
     "id": "e33b2b571839778ddbfc9618424a0526",
     "title": "להגיש תרגיל 3",
     "course": "שיטות מתמטיות בפיזיקה",
     "due_date": "2026-04-16T22:00:00+00:00",
-    "is_completed": false,
-    "completed_at": null
+    "is_completed": false
   },
   {
     "id": "684cb4bc7238d8a14a29221f890837ab",
     "title": "תרגיל 1 מכשור אופטי",
     "course": "אופטיקה גיאומטרית ב'-מיכשור אופטי",
     "due_date": "2026-04-18T21:00:00+00:00",
-    "is_completed": false,
-    "completed_at": null
+    "is_completed": false
   },
   {
     "id": "983a6f69dc5dd9f3eeabdf01daf36a0c",
     "title": "תרגיל 1",
     "course": "יישומים באופטיקה פיסיקלית",
     "due_date": "2026-05-15T20:59:00+00:00",
-    "is_completed": false,
-    "completed_at": null
+    "is_completed": false
   },
   {
     "id": "9e3e312623c7d4dc6743f9675de03963",
     "title": "מכין ניסוי מס 4",
     "course": "מעבדה בפיזיקה",
     "due_date": "2026-09-23T21:00:00+00:00",
-    "is_completed": false,
-    "completed_at": null
+    "is_completed": false
   },
   {
     "id": "0c6a2015507a4adda04d62bf71e75f68",
     "title": "תוצאות ניסוי מס 4",
     "course": "מעבדה בפיזיקה",
     "due_date": "2026-09-23T21:00:00+00:00",
-    "is_completed": false,
-    "completed_at": null
+    "is_completed": false
   },
   {
     "id": "088e51c7530229f402174e1aee0dd9a4",
     "title": "מסכם ניסוי מס 4",
     "course": "מעבדה בפיזיקה",
     "due_date": "2026-09-23T21:00:00+00:00",
-    "is_completed": false,
-    "completed_at": null
+    "is_completed": false
   },
   {
     "id": "6cdba6784f4e1e0ed4e3e7813e04f5b4",
     "title": "מכין ניסוי מס 5",
     "course": "מעבדה בפיזיקה",
     "due_date": "2026-09-23T21:00:00+00:00",
-    "is_completed": false,
-    "completed_at": null
+    "is_completed": false
   },
   {
     "id": "b14a2dd7a6092e53cc3072b6aa0f1f83",
     "title": "תוצאות ניסוי מס 5",
     "course": "מעבדה בפיזיקה",
     "due_date": "2026-09-23T21:00:00+00:00",
-    "is_completed": false,
-    "completed_at": null
+    "is_completed": false
   },
   {
     "id": "5e5ed8224963297b19b28f337d1f4c2a",
     "title": "מסכם ניסוי מס 5",
     "course": "מעבדה בפיזיקה",
     "due_date": "2026-09-23T21:00:00+00:00",
-    "is_completed": false,
-    "completed_at": null
+    "is_completed": false
   },
   {
     "id": "03d8e100eb463d50546a923065a5efb4",
     "title": "מכין ניסוי מס 7",
     "course": "מעבדה בפיזיקה",
     "due_date": "2026-09-23T21:00:00+00:00",
-    "is_completed": false,
-    "completed_at": null
+    "is_completed": false
   },
   {
     "id": "aff25735cf68cb51b3a49dc1c523da3c",
     "title": "תוצאות ניסוי מס 7",
     "course": "מעבדה בפיזיקה",
     "due_date": "2026-09-23T21:00:00+00:00",
-    "is_completed": false,
-    "completed_at": null
+    "is_completed": false
   },
   {
     "id": "9cce921530f94e4b4b6ebe91256c77bf",
     "title": "מסכם ניסוי מס 7",
     "course": "מעבדה בפיזיקה",
     "due_date": "2026-09-23T21:00:00+00:00",
-    "is_completed": false,
-    "completed_at": null
+    "is_completed": false
   },
   {
     "id": "637e08f4378465b9f2f759d4bf364d3d",
     "title": "מכין ניסוי מס 1",
     "course": "מעבדה בפיזיקה",
     "due_date": "2026-09-23T21:00:00+00:00",
-    "is_completed": false,
-    "completed_at": null
+    "is_completed": false
   },
   {
     "id": "6550eec580662f902b72c402df2c8942",
     "title": "תוצאות ניסוי מס 1",
     "course": "מעבדה בפיזיקה",
     "due_date": "2026-09-23T21:00:00+00:00",
-    "is_completed": false,
-    "completed_at": null
+    "is_completed": false
   },
   {
     "id": "2ff4ab067151f25fecaa7fc7e01a6635",
     "title": "מסכם ניסוי מס 1",
     "course": "מעבדה בפיזיקה",
     "due_date": "2026-09-23T21:00:00+00:00",
-    "is_completed": false,
-    "completed_at": null
+    "is_completed": false
   },
   {
     "id": "113f585e17f667909f78390c3933bcb0",
     "title": "מכין ניסוי מס 9",
     "course": "מעבדה בפיזיקה",
     "due_date": "2026-09-23T21:00:00+00:00",
-    "is_completed": false,
-    "completed_at": null
+    "is_completed": false
   },
   {
     "id": "3803c324d122f741b265acdca9bbd60b",
     "title": "תוצאות ניסוי מס 9",
     "course": "מעבדה בפיזיקה",
     "due_date": "2026-09-23T21:00:00+00:00",
-    "is_completed": false,
-    "completed_at": null
+    "is_completed": false
   },
   {
     "id": "77fca7409d0a39be592e103ef9467d00",
