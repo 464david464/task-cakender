@@ -46,6 +46,9 @@ def fetch_moodle_tasks():
                 
                 clean_title = summary.replace("יש להגיש את '", "").replace("'", "").strip()
                 
+                # Global cleanup of common Moodle suffixes
+                clean_title = clean_title.replace(" is due", "").replace(" is overdue", "").replace("להגשה", "").strip()
+                
                 # Special Logic for Geometric Optics B
                 if "אופטיקה גיאומטרית ב" in course_name:
                     if "מכשור אופטי" not in summary:
