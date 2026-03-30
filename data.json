@@ -68,14 +68,16 @@
     "title": "מסכם ניסוי מס 4",
     "course": "מעבדה בפיזיקה",
     "due_date": "2026-09-23T21:00:00+00:00",
-    "is_completed": false
+    "is_completed": true,
+    "completed_at": "2026-03-30T04:03:27.228Z"
   },
   {
     "id": "6cdba6784f4e1e0ed4e3e7813e04f5b4",
     "title": "מכין ניסוי מס 5",
     "course": "מעבדה בפיזיקה",
     "due_date": "2026-09-23T21:00:00+00:00",
-    "is_completed": false
+    "is_completed": true,
+    "completed_at": "2026-03-30T04:03:27.526Z"
   },
   {
     "id": "b14a2dd7a6092e53cc3072b6aa0f1f83",
