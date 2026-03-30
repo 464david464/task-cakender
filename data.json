@@ -33,7 +33,8 @@
     "title": "תרגיל 1 מכשור אופטי",
     "course": "אופטיקה גיאומטרית ב'-מיכשור אופטי",
     "due_date": "2026-04-18T21:00:00+00:00",
-    "is_completed": false
+    "is_completed": true,
+    "completed_at": "2026-03-30T02:54:49.557Z"
   },
   {
     "id": "983a6f69dc5dd9f3eeabdf01daf36a0c",
