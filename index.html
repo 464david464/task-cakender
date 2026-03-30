@@ -12,17 +12,17 @@
             --sans-font: 'Assistant', sans-serif;
         }
 
-        /* --- Day Theme: Warm Library / Watercolor --- */
+        /* --- Day Theme: Warm Library --- */
         body[data-theme="day"] {
             --bg-paper: #f4ece1; 
             --text-main: #4a3728; 
             --text-accent: #8b5a2b; 
-            --card-bg: rgba(252, 248, 243, 0.8);
-            --card-border: rgba(139, 90, 43, 0.15);
-            --shadow-color: rgba(74, 55, 40, 0.1);
+            --card-bg: rgba(252, 248, 243, 0.95);
+            --card-border: rgba(139, 90, 43, 0.2);
+            --shadow-color: rgba(74, 55, 40, 0.12);
         }
 
-        /* --- Night Theme: Prism / Neon --- */
+        /* --- Night Theme: Prism --- */
         body[data-theme="night"] {
             --bg-paper: #05070a;
             --text-main: #e2e8f0;
@@ -51,31 +51,31 @@
             opacity: 0.4;
         }
 
+        /* Status Bar - Neon Green */
         #debug-status {
-            background: rgba(0, 0, 0, 0.95);
+            background: #000;
             color: #2ed573;
             font-family: monospace;
             font-size: 11px;
             padding: 6px 15px;
-            z-index: 10000;
+            z-index: 100000;
             border-bottom: 1px solid #2ed573;
             direction: ltr; text-align: left;
-            position: fixed;
-            top: 0; left: 0; right: 0;
+            position: fixed; top: 0; left: 0; right: 0;
         }
 
         .full-screen-container {
             width: 95%; max-width: 1400px;
             margin: 0 auto; display: flex; flex-direction: column; flex-grow: 1;
             overflow: hidden;
-            padding-top: 30px;
+            padding-top: 40px;
         }
 
-        header { text-align: center; padding: 2vh 0; flex-shrink: 0; }
-        h1 { font-family: var(--serif-font); font-size: 2rem; font-weight: 300; margin: 0; opacity: 0.9; }
+        header { text-align: center; padding: 15px 0; flex-shrink: 0; }
+        h1 { font-family: var(--serif-font); font-size: 2rem; font-weight: 300; margin: 0; opacity: 0.8; }
 
         main {
-            flex-grow: 1; padding: 0 10px 100px 10px;
+            flex-grow: 1; padding: 0 10px 120px 10px;
             overflow-y: auto; scrollbar-width: none;
         }
         main::-webkit-scrollbar { display: none; }
@@ -92,7 +92,7 @@
             padding: 20px; border-radius: 15px;
             backdrop-filter: blur(10px);
             box-shadow: 0 8px 25px var(--shadow-color);
-            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transition: all 0.4s ease;
             display: flex; flex-direction: column; justify-content: space-between;
         }
 
@@ -104,16 +104,16 @@
         }
 
         .course-label { font-size: 0.7rem; opacity: 0.6; font-weight: 600; text-transform: uppercase; }
-        h4 { font-size: 1.4rem; margin: 10px 0; font-weight: 400; font-family: var(--serif-font); }
+        h4 { font-size: 1.4rem; margin: 10px 0; font-weight: 400; font-family: var(--serif-font); line-height: 1.2; }
 
         .check {
-            width: 38px; height: 38px;
+            width: 40px; height: 40px;
             border: 1px solid var(--card-border);
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             cursor: pointer;
-            transition: all 0.4s ease;
-            font-size: 1.4rem;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
             background: rgba(255,255,255,0.05);
         }
 
@@ -122,41 +122,56 @@
             color: #000; box-shadow: 0 0 15px rgba(74, 222, 128, 0.4);
         }
 
-        #archive-container {
-            position: fixed; bottom: 0; left: 0; right: 0;
-            background: linear-gradient(to top, var(--bg-paper) 70%, transparent);
-            padding: 30px 0; text-align: center; z-index: 100;
+        /* FLOATING STICKY ARCHIVE BUTTON */
+        #archive-floating-wrap {
+            position: fixed;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            text-align: center;
+            pointer-events: none;
         }
 
         #archive-toggle-btn {
-            background: var(--text-accent); color: white;
-            border: none; padding: 12px 35px; border-radius: 40px;
-            cursor: pointer; font-weight: bold; font-family: inherit;
-            box-shadow: 0 5px 20px var(--shadow-color);
+            pointer-events: auto;
+            background: var(--text-accent);
+            color: white;
+            border: none;
+            padding: 14px 40px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-family: inherit;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: none; /* Controlled by JS */
         }
 
+        #archive-toggle-btn:active { transform: scale(0.95); }
+
         #theme-toggle {
-            position: fixed; top: 40px; left: 20px; z-index: 9999;
+            position: fixed; top: 50px; left: 20px; z-index: 99999;
             background: var(--card-bg); border: 1px solid var(--card-border);
             color: var(--text-accent); font-size: 1.5rem;
             cursor: pointer; border-radius: 50%; width: 50px; height: 50px;
             display: flex; justify-content: center; align-items: center;
             backdrop-filter: blur(5px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
         .mission-hero {
             background: var(--card-bg); padding: 25px;
-            border-radius: 20px; margin: 30px auto 25px auto; /* Added top margin for gap from theme toggle */
-            text-align: center;
-            border: 1px solid var(--card-border);
-            display: none; /* Hidden by default, JS will show if < 3 days */
-            width: 100%;
-            max-width: 800px;
+            border-radius: 20px; margin: 20px auto 30px auto;
+            text-align: center; border: 1px solid var(--card-border);
+            display: none;
         }
+        .hero-title { font-size: 2rem; font-weight: 700; margin: 10px 0; }
     </style>
 </head>
 <body data-theme="day">
-    <div id="debug-status">Ready.</div>
+    <div id="debug-status">Initializing System...</div>
+    
     <div class="full-screen-container">
         <header>
             <h1>לו"ז הגשות</h1>
@@ -164,11 +179,14 @@
         </header>
         <main>
             <div id="tasks-grid" class="tasks-grid"></div>
-            <div id="archive-container">
-                <button id="archive-toggle-btn"></button>
-            </div>
         </main>
     </div>
+
+    <!-- Floating Archive Button -->
+    <div id="archive-floating-wrap">
+        <button id="archive-toggle-btn">הצג משימות שהושלמו</button>
+    </div>
+
     <button id="theme-toggle">🌙</button>
 
     <script>
@@ -205,7 +223,7 @@
                     const decoded = new TextDecoder().decode(new Uint8Array(atob(data.content).split('').map(c => c.charCodeAt(0))));
                     allTasks = JSON.parse(decoded);
                     renderDashboard();
-                    updateStatus(`Sync OK. ${allTasks.length} tasks.`);
+                    updateStatus(`Connected. ${allTasks.length} tasks ready.`);
                 }
             } catch (e) { updateStatus("Cloud Error", true); }
         }
@@ -225,13 +243,13 @@
                 const putResp = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE_PATH}`, {
                     method: 'PUT',
                     headers: { "Authorization": `token ${GITHUB_TOKEN}`, "Content-Type": "application/json" },
-                    body: JSON.stringify({ message: "Sync", content: btoa(binary), sha: currentSha, branch: "main" })
+                    body: JSON.stringify({ message: "Sync Update", content: btoa(binary), sha: currentSha, branch: "main" })
                 });
                 if (putResp.ok) {
                     currentSha = (await putResp.json()).content.sha;
                     updateStatus("Saved.");
                 }
-            } catch (e) { fetchTasks(); }
+            } catch (e) { updateStatus("Error saving", true); fetchTasks(); }
         }
 
         function getTimeRemaining(dueDate) {
@@ -242,7 +260,6 @@
 
         function renderDashboard() {
             const gridEl = document.getElementById('tasks-grid');
-            const archiveContainer = document.getElementById('archive-container');
             const archiveBtn = document.getElementById('archive-toggle-btn');
             const heroEl = document.getElementById('next-mission');
             const now = new Date();
@@ -255,32 +272,23 @@
             const completedCount = allTasks.filter(t => t.is_completed).length;
 
             const nextTask = activeTasks[0];
-            let heroShown = false;
-
             if (nextTask && heroEl) {
-                const timeDiff = Date.parse(nextTask.due_date) - now.getTime();
-                const daysDiff = timeDiff / (1000 * 60 * 60 * 24);
-
-                if (daysDiff <= 3 && daysDiff >= -1) {
+                const daysDiff = (Date.parse(nextTask.due_date) - now.getTime()) / 86400000;
+                if (daysDiff <= 3) {
                     heroEl.style.display = 'block';
                     heroEl.innerHTML = `
                         <div class="course-label">${nextTask.course || 'כללי'}</div>
                         <div class="hero-title">${nextTask.title}</div>
-                        <div style="font-size:1.1rem; margin:10px 0;">${getTimeRemaining(nextTask.due_date)}</div>
-                        <div class="check" style="margin:10px auto;">${nextTask.is_completed ? '✓' : ''}</div>
+                        <div style="font-size:1.1rem; margin-bottom:15px;">${getTimeRemaining(nextTask.due_date)}</div>
+                        <div class="check" style="margin:0 auto;">${nextTask.is_completed ? '✓' : ''}</div>
                     `;
                     heroEl.querySelector('.check').onclick = () => toggleTask(nextTask.id);
-                    heroShown = true;
-                } else {
-                    heroEl.style.display = 'none';
-                }
-            } else if (heroEl) {
-                heroEl.style.display = 'none';
-            }
+                } else { heroEl.style.display = 'none'; }
+            } else { heroEl.style.display = 'none'; }
 
-            allTasks.forEach((task, index) => {
-                // If hero is shown, don't show the same task in the grid
-                if (heroShown && nextTask && task.id === nextTask.id) return;
+            allTasks.forEach(task => {
+                const isHero = heroEl.style.display === 'block' && nextTask && task.id === nextTask.id;
+                if (isHero) return;
 
                 const item = document.createElement('div');
                 item.className = `task-item ${task.is_completed ? 'completed' : ''}`;
@@ -290,15 +298,19 @@
                         <div class="check">${task.is_completed ? '✓' : ''}</div>
                     </div>
                     <h4>${task.title}</h4>
-                    <div style="font-size:0.8rem; opacity:0.7;">${getTimeRemaining(task.due_date)}</div>
+                    <div style="font-size:0.85rem; opacity:0.7;">${getTimeRemaining(task.due_date)}</div>
                 `;
                 item.querySelector('.check').onclick = () => toggleTask(task.id);
                 gridEl.appendChild(item);
             });
 
-            archiveContainer.style.display = completedCount > 0 ? 'block' : 'none';
-            archiveBtn.innerText = showArchive ? "הסתר משימות שהושלמו" : `הצג משימות שהושלמו (${completedCount})`;
-            archiveBtn.onclick = () => { showArchive = !showArchive; renderDashboard(); };
+            if (completedCount > 0) {
+                archiveBtn.style.display = 'inline-block';
+                archiveBtn.innerText = showArchive ? "הסתר משימות שהושלמו" : `הצג משימות שהושלמו (${completedCount})`;
+                archiveBtn.onclick = () => { showArchive = !showArchive; renderDashboard(); };
+            } else {
+                archiveBtn.style.display = 'none';
+            }
         }
 
         document.getElementById('theme-toggle').onclick = () => {
