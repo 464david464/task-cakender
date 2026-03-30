@@ -53,6 +53,7 @@
             opacity: 0.4;
         }
 
+        /* Status Bar - Neon Green */
         #debug-status {
             background: #000;
             color: #2ed573;
@@ -68,7 +69,6 @@
         .full-screen-container {
             width: 95%; max-width: 1400px;
             margin: 0 auto; display: flex; flex-direction: column; flex-grow: 1;
-            /* Removed overflow: hidden to allow glows to breathe */
             padding-top: 40px;
         }
 
@@ -76,7 +76,7 @@
         h1 { font-family: var(--serif-font); font-size: 2rem; font-weight: 300; margin: 0; opacity: 0.8; }
 
         main {
-            flex-grow: 1; padding: 20px 20px 120px 20px; /* Increased side padding for glow */
+            flex-grow: 1; padding: 20px 20px 120px 20px;
             overflow-y: auto; scrollbar-width: none;
         }
         main::-webkit-scrollbar { display: none; }
@@ -97,7 +97,6 @@
             display: flex; flex-direction: column; justify-content: space-between;
         }
 
-        /* URGENT GLOW EFFECT */
         .task-item.urgent {
             border: 2px solid var(--urgent-color);
             box-shadow: 0 0 20px var(--urgent-color), 0 8px 25px var(--shadow-color);
@@ -140,7 +139,7 @@
             border: none; padding: 14px 40px; border-radius: 50px;
             cursor: pointer; font-weight: 600; font-family: inherit;
             box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.3s ease;
             display: none;
         }
 
@@ -153,8 +152,6 @@
             backdrop-filter: blur(5px);
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
-
-        .mission-hero { display: none !important; } /* Hidden as requested */
     </style>
 </head>
 <body data-theme="day">
@@ -209,7 +206,7 @@
                     const decoded = new TextDecoder().decode(new Uint8Array(atob(data.content).split('').map(c => c.charCodeAt(0))));
                     allTasks = JSON.parse(decoded);
                     renderDashboard();
-                    updateStatus(`Connected. ${allTasks.length} tasks ready.`);
+                    updateStatus(`Sync OK. ${allTasks.length} tasks ready.`);
                 }
             } catch (e) { updateStatus("Cloud Error", true); }
         }
@@ -219,8 +216,6 @@
                 const task = allTasks.find(t => t.id === id);
                 if (!task) return;
                 task.is_completed = !task.is_completed;
-                task.completed_at = task.is_completed ? new Date().toISOString() : null;
-
                 renderDashboard();
 
                 const bytes = new TextEncoder().encode(JSON.stringify(allTasks, null, 2));
@@ -233,7 +228,7 @@
                 });
                 if (putResp.ok) {
                     currentSha = (await putResp.json()).content.sha;
-                    updateStatus("Saved.");
+                    updateStatus("Saved successfully.");
                 }
             } catch (e) { updateStatus("Error saving", true); fetchTasks(); }
         }
@@ -252,14 +247,16 @@
             if (showArchive) document.body.classList.add('show-archive-active');
             else document.body.classList.remove('show-archive-active');
 
+            if (!gridEl) return;
             gridEl.innerHTML = '';
+            
             const activeTasks = allTasks.filter(t => !t.is_completed);
             const completedCount = allTasks.filter(t => t.is_completed).length;
+            const tasksToRender = showArchive ? allTasks : activeTasks;
 
             tasksToRender.forEach(task => {
                 const item = document.createElement('div');
                 
-                // Urgent Logic: Mark if due in <= 3 days
                 const timeDiff = Date.parse(task.due_date) - now.getTime();
                 const daysDiff = timeDiff / 86400000;
                 const isUrgent = !task.is_completed && daysDiff <= 3 && daysDiff >= -1;
