@@ -100,16 +100,16 @@
     "title": "מכין ניסוי מס 7",
     "course": "מעבדה בפיזיקה",
     "due_date": "2026-09-23T21:00:00+00:00",
-    "is_completed": true,
-    "completed_at": "2026-03-30T04:03:28.056Z"
+    "is_completed": false,
+    "completed_at": null
   },
   {
     "id": "aff25735cf68cb51b3a49dc1c523da3c",
     "title": "תוצאות ניסוי מס 7",
     "course": "מעבדה בפיזיקה",
     "due_date": "2026-09-23T21:00:00+00:00",
-    "is_completed": true,
-    "completed_at": "2026-03-30T04:03:28.222Z"
+    "is_completed": false,
+    "completed_at": null
   },
   {
     "id": "9cce921530f94e4b4b6ebe91256c77bf",
