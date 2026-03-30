@@ -100,17 +100,17 @@ function renderDashboard() {
     tasksGridEl.innerHTML = '';
     const now = new Date();
     
-    // Filter tasks for main view:
-    // Show if: NOT completed OR (completed AND less than 20 minutes ago)
+    // Filter tasks for main view
     const activeTasks = allTasks.filter(t => {
         if (!t.is_completed) return true;
-        if (!t.completed_at) return true; // Legacy completed tasks without timestamp
+        if (!t.completed_at) return false; // Hide legacy completed tasks
         const completedTime = new Date(t.completed_at);
         const diffMinutes = (now - completedTime) / (1000 * 60);
         return diffMinutes < 20;
     });
 
-    const archivedTasks = allTasks.filter(t => !activeTasks.includes(t));
+    const archivedTasks = allTasks.filter(t => t.is_completed && !activeTasks.includes(t));
+    const allCompletedTasks = allTasks.filter(t => t.is_completed);
 
     const upcoming = activeTasks.filter(t => !t.is_completed);
     const nextTask = upcoming[0] || activeTasks[0];
@@ -149,11 +149,11 @@ function renderDashboard() {
     });
 
     // Add Archive Toggle Button
-    if (archivedTasks.length > 0) {
+    if (allCompletedTasks.length > 0) {
         const btnFrame = document.createElement('div');
         btnFrame.style = "grid-column: 1/-1; text-align: center; padding: 20px;";
         const btn = document.createElement('button');
-        btn.innerText = showArchive ? "הסתר משימות שהושלמו" : `הצג משימות בארכיון (${archivedTasks.length})`;
+        btn.innerText = showArchive ? "הסתר משימות שהושלמו" : `הצג משימות שהושלמו (${allCompletedTasks.length})`;
         btn.style = "background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 10px 20px; border-radius: 30px; cursor: pointer; font-family: inherit;";
         btn.onclick = () => { showArchive = !showArchive; renderDashboard(); };
         btnFrame.appendChild(btn);
