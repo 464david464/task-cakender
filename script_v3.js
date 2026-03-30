@@ -6,6 +6,15 @@ const FILE_PATH = "data.json";
 let currentSha = null;
 let showArchive = false;
 
+function updateStatus(msg, isError = false) {
+    const el = document.getElementById('debug-status');
+    if (el) {
+        el.innerText = `[${new Date().toLocaleTimeString()}] ${msg}`;
+        el.style.color = isError ? '#f00' : '#0f0';
+    }
+    console.log(msg);
+}
+
 const applyTheme = (theme) => {
     body.dataset.theme = theme;
     localStorage.setItem('dashboard-theme', theme);
@@ -14,11 +23,16 @@ const applyTheme = (theme) => {
 };
 
 async function fetchTasks() {
+    updateStatus("Fetching data...");
     try {
         const url = `https://api.github.com/repos/${REPO}/contents/${FILE_PATH}?ref=main&t=${new Date().getTime()}`;
         const resp = await fetch(url, {
-            headers: { "Authorization": `token ${GITHUB_TOKEN}`, "Accept": "application/vnd.github.v3+json" }
+            headers: { 
+                "Authorization": `token ${GITHUB_TOKEN}`,
+                "Accept": "application/vnd.github.v3+json"
+            }
         });
+        
         if (resp.ok) {
             const data = await resp.json();
             currentSha = data.sha;
@@ -26,12 +40,20 @@ async function fetchTasks() {
             const bytes = new Uint8Array(binaryString.length);
             for (let i = 0; i < binaryString.length; i++) bytes[i] = binaryString.charCodeAt(i);
             allTasks = JSON.parse(new TextDecoder().decode(bytes));
+            
+            const completedCount = allTasks.filter(t => t.is_completed).length;
+            updateStatus(`Success: ${allTasks.length} tasks loaded (${completedCount} completed).`);
             renderDashboard();
+        } else {
+            updateStatus(`Fetch Error: ${resp.status} ${resp.statusText}`, true);
         }
-    } catch (e) { console.error("Fetch error", e); }
+    } catch (e) { 
+        updateStatus(`Connection Error: ${e.message}`, true);
+    }
 }
 
 async function toggleTask(id) {
+    updateStatus(`Updating task ${id.substring(0,5)}...`);
     const task = allTasks.find(t => t.id === id);
     if (!task) return;
     
@@ -50,12 +72,23 @@ async function toggleTask(id) {
         let binary = "";
         for (let i = 0; i < bytes.byteLength; i++) binary += String.fromCharCode(bytes[i]);
 
-        await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE_PATH}`, {
+        const putResp = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE_PATH}`, {
             method: 'PUT',
-            headers: { "Authorization": `token ${GITHUB_TOKEN}`, "Content-Type": "application/json" },
-            body: JSON.stringify({ message: "Update", content: btoa(binary), sha: currentSha, branch: "main" })
+            headers: { 
+                "Authorization": `token ${GITHUB_TOKEN}`, 
+                "Content-Type": "application/json" 
+            },
+            body: JSON.stringify({ message: "Sync", content: btoa(binary), sha: currentSha, branch: "main" })
         });
-    } catch (e) { fetchTasks(); }
+        
+        if (putResp.ok) {
+            updateStatus("Saved successfully to GitHub.");
+            const resData = await putResp.json();
+            currentSha = resData.content.sha;
+        } else {
+            updateStatus(`Save failed: ${putResp.status}`, true);
+        }
+    } catch (e) { updateStatus(`Save Error: ${e.message}`, true); fetchTasks(); }
 }
 
 function getTimeRemaining(dueDate) {
@@ -73,6 +106,7 @@ function renderDashboard() {
     tasksGridEl.innerHTML = '';
     const now = new Date();
     
+    // Logic for hiding/showing completed tasks (20 min rule)
     const activeTasks = allTasks.filter(t => {
         if (!t.is_completed) return true;
         if (!t.completed_at) return false;
@@ -82,7 +116,7 @@ function renderDashboard() {
     const completedTasks = allTasks.filter(t => t.is_completed);
     const tasksToRender = showArchive ? allTasks : activeTasks;
 
-    // Render Hero (First pending task)
+    // Render Hero
     const nextTask = activeTasks.find(t => !t.is_completed) || activeTasks[0];
     const heroEl = document.getElementById('next-mission');
     if (heroEl && nextTask) {
