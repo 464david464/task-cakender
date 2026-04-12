@@ -29,6 +29,13 @@
     "is_completed": false
   },
   {
+    "id": "b1649dcb062a4c723209470164952185",
+    "title": "Zemax: תרגיל 6 - עיוותים",
+    "course": "אופטיקה גיאומטרית ב'-מיכשור אופטי",
+    "due_date": "2026-04-27T20:59:00+00:00",
+    "is_completed": false
+  },
+  {
     "id": "983a6f69dc5dd9f3eeabdf01daf36a0c",
     "title": "תרגיל 1",
     "course": "יישומים באופטיקה פיסיקלית",
