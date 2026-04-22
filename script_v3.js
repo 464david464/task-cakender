@@ -85,7 +85,8 @@ async function toggleTask(id) {
 function getTimeRemaining(dueDate) {
     const total = Date.parse(dueDate) - Date.parse(new Date());
     const days = Math.floor(total / (1000 * 60 * 60 * 24));
-    return days < 0 ? "עבר המועד" : (days === 0 ? "היום!" : `עוד ${days} ימים`);
+    if (days < 0) return '<span style="color: #ff4757;">עבר המועד</span>';
+    return days === 0 ? "היום!" : `עוד ${days} ימים`;
 }
 
 function renderDashboard() {

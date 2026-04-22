@@ -41,7 +41,6 @@ async function fetchTasks() {
             const bytes = new Uint8Array(binaryString.length);
             for (let i = 0; i < binaryString.length; i++) bytes[i] = binaryString.charCodeAt(i);
             const rawTasks = JSON.parse(new TextDecoder().decode(bytes));
-            // Filter out "מעבדה בפיזיקה" tasks
             currentTasks = rawTasks.filter(t => !t.course || !t.course.includes("מעבדה בפיזיקה"));
             renderTasks();
             updateStatus('READY', '');
@@ -57,11 +56,15 @@ async function fetchTasks() {
     }, 500);
 }
 
-function getObjectStyle(courseName) {
-    if (courseName.includes("גיאומטרית")) return "prism-object";
-    if (courseName.includes("מעבדה באופטיקה")) return "laser-object";
-    if (courseName.includes("פיסיקלית") || courseName.includes("יישומים")) return "interference-object";
-    return "orbital-object";
+function getCourseImage(courseName) {
+    if (!courseName) return '';
+    const name = courseName.toLowerCase();
+    if (name.includes("גיאומטרית")) return "images/geometric_optics2.png";
+    if (name.includes("מעבדה באופטיקה")) return "images/lab.png";
+    if (name.includes("שיטות מתמטיות")) return "images/mathematical_methods_physics.png";
+    if (name.includes("פיסיקלית") || name.includes("יישומים")) return "images/Physical_optics.png";
+    if (name.includes("פיזיקה כללית ג")) return "images/physics_c.png";
+    return '';
 }
 
 function getTimeRemaining(dueDate) {
@@ -97,16 +100,23 @@ function renderTasks() {
     active.sort((a, b) => Date.parse(a.due_date) - Date.parse(b.due_date));
     
     if (showArchive && completed.length > 0) {
-        htmlPrefix = `<div class="empty-state" style="padding: 0 0 15px 0; color: var(--accent); opacity: 0.8;">--- בוצעו לאחרונה ---</div>`;
         completed.sort((a, b) => {
             const timeA = a.completed_at ? Date.parse(a.completed_at) : 0;
             const timeB = b.completed_at ? Date.parse(b.completed_at) : 0;
             return timeB - timeA;
         });
+        const archHeader = document.createElement('div');
+        archHeader.className = 'empty-state';
+        archHeader.style.padding = '0 0 15px 0';
+        archHeader.style.color = 'var(--accent)';
+        archHeader.innerText = '--- בוצעו לאחרונה ---';
+        tasksDiv.appendChild(archHeader);
+        
         completed.forEach(task => tasksDiv.appendChild(createTaskElement(task)));
+        
         const divider = document.createElement('div');
         divider.className = 'empty-state';
-        divider.style.padding = '10px 0 20px 0';
+        divider.style.padding = '15px 0';
         divider.style.borderTop = '1px solid rgba(255,255,255,0.1)';
         divider.innerText = '--- משימות פעילות ---';
         tasksDiv.appendChild(divider);
@@ -121,11 +131,8 @@ function renderTasks() {
 
 function createTaskElement(task) {
     const item = document.createElement('div');
-    
-    // Calculate Urgency Logic
     const timeDiff = Date.parse(task.due_date) - new Date().getTime();
     const daysDiff = timeDiff / 86400000;
-    // Set back to 3 days
     const isUrgent = !task.is_completed && daysDiff <= 3 && daysDiff >= -1;
 
     item.className = `task-card-wrapper ${task.is_completed ? 'completed' : ''} ${isUrgent ? 'urgent' : ''}`;
@@ -135,9 +142,10 @@ function createTaskElement(task) {
     const month = dueDate.toLocaleString('he-IL', { month: 'short' });
     const fullDate = dueDate.toLocaleDateString('he-IL', { day:'2-digit', month:'2-digit' });
     const time = dueDate.toLocaleTimeString('he-IL', { hour:'2-digit', minute:'2-digit' });
+    const courseImg = getCourseImage(task.course);
 
     item.innerHTML = `
-        <div class="art-backdrop ${getObjectStyle(task.course || '')}"></div>
+        <div class="art-backdrop" style="${courseImg ? `background-image: url('${courseImg}');` : ''}"></div>
         <div class="glass-pane"></div>
         <div class="content-layer">
             <div class="task-top">

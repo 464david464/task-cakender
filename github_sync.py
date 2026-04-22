@@ -95,14 +95,13 @@ def sync_to_github(new_tasks):
                 t['is_completed'] = is_done
                 if timestamp: t['completed_at'] = timestamp
             
-            # Force archive past tasks
-            dt_task = datetime.fromisoformat(t['due_date'])
-            if dt_task < now and not t.get('is_completed'):
-                t['is_completed'] = True
-                past_count += 1
-        
-        print(f"Sync: {len(new_tasks)} tasks processed. {past_count} moved to archive.")
+            # Force archive past tasks - REMOVED AS PER USER REQUEST
+            # dt_task = datetime.fromisoformat(t['due_date'])
+            # if dt_task < now and not t.get('is_completed'):
+            #     t['is_completed'] = True
+            #     past_count += 1
 
+            print(f"Sync: {len(new_tasks)} tasks processed.")
     final_json = json.dumps(new_tasks, indent=2, ensure_ascii=False)
     payload = {
         "message": "Moodle Sync Update",
