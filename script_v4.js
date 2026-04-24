@@ -112,11 +112,7 @@ function renderDashboard() {
     gridEl.innerHTML = '';
     const now = new Date();
     
-    const activeTasks = allTasks.filter(t => {
-        if (!t.is_completed) return true;
-        if (!t.completed_at) return false;
-        return (now - new Date(t.completed_at)) / (1000 * 60) < 20;
-    });
+    const activeTasks = allTasks.filter(t => !t.is_completed);
 
     const completedTasks = allTasks.filter(t => t.is_completed);
     const tasksToDisplay = showArchive ? allTasks : activeTasks;

@@ -80,31 +80,34 @@ def sync_to_github(new_tasks):
     
     resp = requests.get(url, headers=headers)
     sha = None
+    existing_tasks = []
+    
     if resp.status_code == 200:
         content = resp.json()
         sha = content['sha']
-        existing = json.loads(base64.b64decode(content['content']).decode('utf-8'))
-        
-        status_map = {t['id']: (t.get('is_completed', False), t.get('completed_at')) for t in existing}
-        past_count = 0
-        now = datetime.now(timezone.utc)
-        
-        for t in new_tasks:
-            if t['id'] in status_map:
-                is_done, timestamp = status_map[t['id']]
-                t['is_completed'] = is_done
-                if timestamp: t['completed_at'] = timestamp
-            
-            # Force archive past tasks - REMOVED AS PER USER REQUEST
-            # dt_task = datetime.fromisoformat(t['due_date'])
-            # if dt_task < now and not t.get('is_completed'):
-            #     t['is_completed'] = True
-            #     past_count += 1
+        existing_tasks = json.loads(base64.b64decode(content['content']).decode('utf-8'))
+    
+    # Create a map of existing tasks for easy lookup
+    task_map = {t['id']: t for t in existing_tasks}
+    
+    # Merge: Update existing or add new
+    for nt in new_tasks:
+        if nt['id'] in task_map:
+            # Preserve completion status from GitHub
+            nt['is_completed'] = task_map[nt['id']].get('is_completed', nt['is_completed'])
+            if 'completed_at' in task_map[nt['id']]:
+                nt['completed_at'] = task_map[nt['id']]['completed_at']
+        task_map[nt['id']] = nt
 
-            print(f"Sync: {len(new_tasks)} tasks processed.")
-    final_json = json.dumps(new_tasks, indent=2, ensure_ascii=False)
+    # Final list sorted by due date
+    final_tasks = list(task_map.values())
+    final_tasks.sort(key=lambda x: x['due_date'])
+
+    print(f"Sync: {len(final_tasks)} total tasks in database ({len(new_tasks)} from Moodle).")
+
+    final_json = json.dumps(final_tasks, indent=2, ensure_ascii=False)
     payload = {
-        "message": "Moodle Sync Update",
+        "message": "Moodle Sync Update (Merged)",
         "content": base64.b64encode(final_json.encode('utf-8')).decode('utf-8'),
         "sha": sha,
         "branch": branch

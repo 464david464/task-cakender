@@ -125,19 +125,19 @@ class MoodleCalendarClient:
                     
                     print(f"Parsed Task: {clean_title} | Track: {track}")
 
-                    if dtstart > now or (now - dtstart).days < 2:
-                        events.append({
-                            "id": task_id,
-                            "title": clean_title,
-                            "course": course_name,
-                            "track": track,
-                            "full_title": summary,
-                            "description": description,
-                            "due_date": dtstart.isoformat(),
-                            "is_past": dtstart < now,
-                            "is_completed": task_id in completed_ids,
-                            "category": "assignment"
-                        })
+                    # Include all tasks that should be displayed
+                    events.append({
+                        "id": task_id,
+                        "title": clean_title,
+                        "course": course_name,
+                        "track": track,
+                        "full_title": summary,
+                        "description": description,
+                        "due_date": dtstart.isoformat(),
+                        "is_past": dtstart < now,
+                        "is_completed": task_id in completed_ids,
+                        "category": "assignment"
+                    })
             except Exception as e:
                 print(f"Error parsing event: {e}")
                 continue
