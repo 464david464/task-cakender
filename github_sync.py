@@ -58,10 +58,8 @@ def fetch_moodle_tasks():
                 if "מעבדה בפיזיקה" in course_name:
                     continue
 
-                # Default status logic for historical tasks
+                # Default status logic - DO NOT force completion for past tasks
                 is_done = False
-                if dtstart < now:
-                    is_done = True 
 
                 events.append({
                     "id": task_id,
