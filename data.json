@@ -49,6 +49,13 @@
     "is_completed": false
   },
   {
+    "id": "7d5ce133b77ea8bc822e8d8db1fc2de6",
+    "title": "תרגיל 1",
+    "course": "יישומים באופטיקה פיסיקלית",
+    "due_date": "2026-05-06T20:59:00+00:00",
+    "is_completed": false
+  },
+  {
     "id": "e19984c40253556b34be987c007b4fb9",
     "title": "8 מכין",
     "course": "מעבדה באופטיקה",
