@@ -18,7 +18,7 @@
     "title": "נפתח ב בוחן 8 2",
     "course": "מעבדה באופטיקה",
     "due_date": "2026-04-28T11:32:00+00:00",
-    "is_completed": false
+    "is_completed": true
   },
   {
     "id": "c4fbd2f557f6a86ba12d3c74b2779862",
@@ -32,7 +32,7 @@
     "title": "תאריך הגשה בוחן 8 2",
     "course": "מעבדה באופטיקה",
     "due_date": "2026-04-28T14:00:00+00:00",
-    "is_completed": false
+    "is_completed": true
   },
   {
     "id": "6b595b2eb1523d3cac4ede4674b31831",
