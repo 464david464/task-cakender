@@ -16,13 +16,24 @@ class MoodleCalendarClient:
         if not self.calendar_url:
             raise ValueError("Moodle Calendar URL is required.")
 
+    def normalize_summary(self, s):
+        # Remove common Moodle prefixes/suffixes that create duplicates for the same task
+        removals = [
+            "יש להגיש את '", "is due", "is overdue", "להגשה", "נפתח ב", "תאריך הגשה", 
+            "opened on", "closed on", "opened:", "due:", "'", '"'
+        ]
+        s_clean = s
+        for r in removals:
+            s_clean = s_clean.replace(r, "")
+        return s_clean.strip()
+
     def fetch_events(self):
         # Fetching the iCal file
         response = requests.get(self.calendar_url, verify=False)
         response.raise_for_status()
         
         gcal = Calendar.from_ical(response.content)
-        events = []
+        tasks_map = {} # Use a map for deduplication
         completed_ids = get_completed_tasks()
         
         now = datetime.now(timezone.utc)
@@ -46,9 +57,6 @@ class MoodleCalendarClient:
                     else:
                         dtstart = datetime.combine(dtstart, datetime.min.time()).replace(tzinfo=timezone.utc)
 
-                    # Create a unique stable ID for this task
-                    task_id = hashlib.md5(f"{summary}{dtstart.isoformat()}".encode()).hexdigest()
-
                     # 1. Extract Course Name
                     course_name = "כללי"
                     categories = component.get('categories')
@@ -57,6 +65,10 @@ class MoodleCalendarClient:
                         parts = cat_string.split(' - ')
                         if len(parts) > 1:
                             course_name = parts[1].strip()
+
+                    # Normalize summary for stable ID
+                    norm_summary = self.normalize_summary(summary)
+                    task_id = hashlib.md5(f"{course_name}{norm_summary}".encode()).hexdigest()
 
                     # 2. Extract Assignment Type and Number
                     assignment_type = None
@@ -102,9 +114,6 @@ class MoodleCalendarClient:
                     should_display = (is_explicit_task or course_name != "כללי") and not is_lesson
 
                     if not should_display:
-                        if len(summary) > 2:
-                            from main import log_event
-                            log_event("Moodle Filter", f"Skipped: {summary} (Course: {course_name})", "Filtered")
                         continue
 
                     # 5. Create a clean title
@@ -112,21 +121,18 @@ class MoodleCalendarClient:
                         clean_title = f"{assignment_type} {assignment_number}"
                         if track_label and track_label.lower() not in clean_title.lower():
                             clean_title = f"{clean_title} ({track_label})"
-                        remaining = summary.replace(assignment_match.group(0), "")
+                        remaining = norm_summary.replace(assignment_match.group(0), "")
                         if "[" in remaining:
                             remaining = remaining.split("[")[0]
                         extra = remaining.strip(" -:[]'\"")
                         if extra and len(extra) > 2 and extra.lower() not in clean_title.lower():
                             clean_title = f"{clean_title} - {extra}"
                     else:
-                        clean_title = summary.replace("יש להגיש את '", "").replace("'", "").replace("is due", "").strip()
+                        clean_title = norm_summary
                         if "[" in clean_title:
                             clean_title = clean_title.split("[")[0].strip()
                     
-                    print(f"Parsed Task: {clean_title} | Track: {track}")
-
-                    # Include all tasks that should be displayed
-                    events.append({
+                    new_event = {
                         "id": task_id,
                         "title": clean_title,
                         "course": course_name,
@@ -137,12 +143,22 @@ class MoodleCalendarClient:
                         "is_past": dtstart < now,
                         "is_completed": task_id in completed_ids,
                         "category": "assignment"
-                    })
+                    }
+
+                    # Deduplication: Keep the one with the latest date
+                    if task_id in tasks_map:
+                        existing_date = datetime.fromisoformat(tasks_map[task_id]['due_date'])
+                        if dtstart > existing_date:
+                            tasks_map[task_id] = new_event
+                    else:
+                        tasks_map[task_id] = new_event
+
             except Exception as e:
                 print(f"Error parsing event: {e}")
                 continue
 
-        # Sort by date (nearest first)
+        # Sort and return
+        events = list(tasks_map.values())
         events.sort(key=lambda x: x['due_date'])
         return events
 
