@@ -109,7 +109,7 @@
     "title": "5 מסכם",
     "course": "מעבדה באופטיקה",
     "due_date": "2027-03-14T22:00:00+00:00",
-    "is_completed": false
+    "is_completed": true
   },
   {
     "id": "a94f6edb4823d71c16430c7a974aaeb9",
