@@ -130,7 +130,7 @@
     "title": "7 מכין",
     "course": "מעבדה באופטיקה",
     "due_date": "2027-03-14T22:00:00+00:00",
-    "is_completed": false
+    "is_completed": true
   },
   {
     "id": "a5cb5fde8076979bddc936f043dc0f1b",
