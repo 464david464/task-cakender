@@ -39,7 +39,8 @@
     "title": "תיבת הגשה 3",
     "course": "פיזיקה כללית ג' (מודרנית)",
     "due_date": "2026-05-03T17:00:00+00:00",
-    "is_completed": false
+    "is_completed": true,
+    "completed_at": "2026-05-29T01:04:15.383Z"
   },
   {
     "id": "7e92650dc8902d676afd431ceb493c6d",
